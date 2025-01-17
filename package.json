@@ -44,7 +44,6 @@
     "@storybook/addon-links": "^8.5.0",
     "@storybook/addon-mdx-gfm": "^8.5.0",
     "@storybook/addon-onboarding": "^8.5.0",
-    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/angular": "^8.5.0",
     "@storybook/blocks": "^8.5.0",
     "@storybook/test": "^8.5.0",

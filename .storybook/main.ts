@@ -1,8 +1,9 @@
 import type { StorybookConfig } from '@storybook/angular';
+import webpack from 'webpack';
+
 const config: StorybookConfig = {
   stories: [
     '../src/stories/Configure.mdx',
-    //  "../src/**/*.mdx",
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
 
@@ -12,18 +13,35 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
     '@storybook/addon-backgrounds',
-    '@storybook/addon-postcss',
-    '@storybook/addon-mdx-gfm'
   ],
 
   framework: {
     name: '@storybook/angular',
-    options: {},
+    options: {
+      builder: {
+        cache: false, // Disable cache for debugging
+      },
+    },
   },
 
   // Add this line
   staticDirs: ['../src/assets'],
 
-  docs: {}
+  webpackFinal: async (config) => {
+    // Ensure consistent NODE_ENV
+    config.plugins = config.plugins?.filter(
+      (plugin) => plugin && !(plugin.constructor.name === 'DefinePlugin')
+    );
+
+    config.plugins?.push(
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+      })
+    );
+
+    return config;
+  },
+
+  docs: {},
 };
 export default config;
