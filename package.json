@@ -8,7 +8,8 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch --coverage",
     "storybook": "ng run my-primeng-app:storybook",
-    "build-storybook": "ng build & ng run my-primeng-app:build-storybook"
+    "build-storybook": "ng build & ng run my-primeng-app:build-storybook",
+    "tailwind:watch": "tailwindcss -i ./src/styles.css -o ./src/output.css --watch"
   },
   "private": true,
   "dependencies": {
