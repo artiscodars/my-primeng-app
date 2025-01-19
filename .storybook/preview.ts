@@ -1,7 +1,11 @@
-import Material from '@primeng/themes/material';
+import Aura from '@primeng/themes/aura';
 import { applicationConfig, type Preview } from '@storybook/angular';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { providePrimeNG } from 'primeng/config';
+import { usePreset } from '@primeng/themes';
+
+// Dynamically set the Aura theme globally
+usePreset(Aura);
 
 // Set global application configuration
 const preview: Preview = {
@@ -11,7 +15,7 @@ const preview: Preview = {
         provideAnimations(),
         providePrimeNG({
           theme: {
-            preset: Material, // Default "Material" theme, must be overriden with Numo colors/styles
+            preset: Aura, // Default "Aura" theme, must be overriden with Numo colors/styles
             options: {
               darkModeSelector: '.numo-app-dark', // Override the default dark mode selector which is system's preffered color scheme (basicly disable it for now)
             },
@@ -45,7 +49,7 @@ const preview: Preview = {
     },
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
 };
 
 // Dynamically load the Iconify script

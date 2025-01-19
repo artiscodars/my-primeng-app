@@ -1,0 +1,32 @@
+<div class="header flex items-center justify-between gap-3 w-full sticky top-0 z-50 bg-white shadow-md p-3">
+  <div class="flex items-center  h-10">
+    <span #menuButton (click)="toggleMenu($event)" [ngClass]="isMenuVisible ? 'pi pi-times' : 'pi pi-bars'"
+      class="icon text-gray-800 cursor-pointer">
+    </span>
+
+    <img class="ml-3 h-[40px]" src="logo.png" alt="logo" />
+  </div>
+  <div class="flex justify-center relative w-[400px]">
+    <p-iconfield class="w-full">
+      <p-inputicon styleClass="pi pi-search" />
+      <input type="text" pInputText placeholder="Meklēt" class="w-full" />
+    </p-iconfield>
+  </div>
+
+  <div class="flex justify-content-end">
+    <p-menu #userMenu [model]="userMenuItems" [popup]="true">
+
+    </p-menu>
+
+    <div (click)="showUserMenu($event)" class="w-[250px] cursor-pointer py-1 text-slate-950">
+      <span class="hidden sm:block">Jānis Bērziņš</span>
+      <span class=" sm:hidden block p-2 bg-blue-200 border-circle ">JB</span>
+      <div class="caret"></div>
+      <div class="text-xs hidden sm:block text-ellipsis whitespace-nowrap overflow-hidden">
+        Liepājas valstspilsētas pašvaldības aģentūra "Liepājas
+        Sabiedriskais transports"
+      </div>
+    </div>
+  </div>
+</div>
+<numo-left-menu [items]="items" id="left-menu" class="-left-[350px] absolute top-[75px]"></numo-left-menu>
