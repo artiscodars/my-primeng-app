@@ -27,12 +27,11 @@ type Story = StoryObj;
 export const Basic: Story = {
   args: {
     items: [...Menu],
-    className: 'w-25rem',
   },
   render: (args) => ({
     props: {
       ...args,
     },
-    template: `<numo-left-menu [className]="className" [items]="items" ></numo-left-menu>`,
+    template: `<numo-left-menu [items]="items" ></numo-left-menu>`,
   }),
 };

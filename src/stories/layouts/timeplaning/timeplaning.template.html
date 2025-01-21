@@ -41,7 +41,7 @@
       </div>
       <div class="flex flex-column items-center gap-2">
         <label for="calendar" class="mb-1 label text-sm">Mēnesis</label>
-        <div class="flex align-items-center">
+        <div class="flex items-center">
 
           <p-calendar id="calendar" [(ngModel)]="date" view="month" [iconDisplay]="'input'" [showIcon]="true"
             class="w-full" dateFormat="MM, yy" [readonlyInput]="true" />
@@ -82,19 +82,18 @@
 
 
 
-                        <button class="p-button p-button-lg p-1 p-button-text p-button-secondary text-gray-800"
-                          (click)="toggleRow(product)">
-                          <span class="material-symbols-rounded text-3xl">
+
+                        <p-button severity="secondary" [text]="true" (click)="toggleRow(product)">
+                          <span class="material-symbols-rounded">
                             {{ isRowExpanded(product) ? 'expand_more' : 'chevron_right' }}
                           </span>
-                        </button>
+                        </p-button>
 
 
                         <span
-                          class="flex align-items-center justify-content-center font-semibold white-space-nowrap">{{product.name}}</span>
+                          class="flex items-center justify-content-center font-semibold white-space-nowrap">{{product.name}}</span>
                         <p-badge [value]="product.badgeName" [severity]="product.badgeSeverity"
-                          class="flex align-items-center justify-content-center "
-                          styleClass="text-xs font-normal"></p-badge>
+                          class="flex items-center justify-content-center " styleClass="text-xs font-normal"></p-badge>
                       </div>
                     </td>
                     <td>
@@ -103,7 +102,7 @@
 
                         <p-badge *ngFor="let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index" [value]="day"
                           [severity]="product.days.includes(i + 1) ? 'secondary' : 'secondary'"
-                          [styleClass]="product.days.includes(i + 1) ? 'font-bold' : 'font-normal'" />
+                          [styleClass]="product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'" />
                         <p-badge *ngFor="let date of product.dates" severity="secondary" [value]="date"></p-badge>
 
 
@@ -129,19 +128,17 @@
                     </td>
                     <td>
                       <div class="flex w-full justify-content-between  gap-3 md:justify-content-end">
-                        <button aria-label="Edit"
-                          class="p-button p-button-lg p-button-secondary p-1 p-button-text text-gray-500">
-                          <span class="material-symbols-rounded text-2xl">
+                        <p-button severity="secondary" [text]="true">
+                          <span class="material-symbols-rounded">
                             edit
                           </span>
-                        </button>
+                        </p-button>
 
-                        <button aria-label="Delete"
-                          class="p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500">
-                          <span class="material-symbols-rounded text-2xl">
+                        <p-button severity="danger" [text]="true">
+                          <span class="material-symbols-rounded">
                             delete
                           </span>
-                        </button>
+                        </p-button>
                       </div>
                     </td>
                   </tr>
@@ -295,15 +292,15 @@
 
 <p-dialog header="Darba laiks/vajadzības" [(visible)]="displayAddDataDialog" [modal]="true"
   (onHide)="hideAddDataDialog()">
-  <h3>Darbalaiks</h3>
+  <h3 class="font-semibold text-xl">Darbalaiks</h3>
   <div class="flex flex-column md:flex-row flex-wrap mb-3 gap-3 w-full">
     <!-- Input Fields Row -->
     <div class="flex-1">
-      <label for="name" class="block font-bold pb-1">Nosaukums</label>
+      <label for="name" class="block font-semibold pb-1">Nosaukums</label>
       <input id="name" type="text" class="w-full" pInputText [(ngModel)]="newData.name" />
     </div>
-    <div class="w-full md:w-3">
-      <label for="selectOption" class="block font-bold pb-1">Grupa</label>
+    <div class="w-full md:w-[300px]">
+      <label for="selectOption" class="block font-semibold pb-1">Grupa</label>
       <p-select id="selectOption" [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"
         styleClass="w-full"></p-select>
     </div>
@@ -312,7 +309,7 @@
   <!-- Days and Time Selection -->
   <div class="flex flex-wrap mb-3 gap-3">
     <div class="flex-initial">
-      <label class="block font-bold pb-1">Dienas</label>
+      <label class="block font-semibold pb-1">Dienas</label>
 
       <div class="daycalendar">
         <p-button type="button" label="P" severity="secondary" rounded="true" size="small" />
@@ -328,7 +325,7 @@
 
     </div>
     <div class="datecalendar">
-      <label class="block font-bold pb-1">Datumi</label>
+      <label class="block font-semibold pb-1">Datumi</label>
       <div>
         <p-button icon="pi pi-plus" severity="secondary" outlined="true" rounded="true" size="small" /><p-chip
           label="12.10.2024" removable="true" styleClass="bg-secondary" />
@@ -340,11 +337,11 @@
   </div>
 
   <!-- Time Range -->
-  <div class="flex justify-content-between align-items-end mb-2 bg-gray-100 border-round-lg p-3 relative">
-    <div class="flex flex-wrap gap-3">
+  <div class="flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative">
+    <div class="flex flex-wrap gap-3 items-center">
       <div>
-        <label for="breakTime" class="block font-bold pb-1">Darba laiks</label>
-        <div class="flex flex-wrap align-items-center gap-2">
+        <label for="breakTime" class="block font-semibold pb-1">Darba laiks</label>
+        <div class="flex flex-wrap items-center gap-2">
 
           <label for="startTime" class="block">No</label>
           <numo-time-picker [value]="value" [min]="min" [max]="max" [step]="step" [required]="required"
@@ -354,38 +351,37 @@
             [disabled]="disabled" [class]="class"></numo-time-picker>
 
 
-          <div class="flex align-items-center white-space-nowrap">
+          <div class="flex items-center white-space-nowrap">
             3h 15min
           </div>
-          <div class="flex align-items-center  white-space-nowrap">
+          <div class="flex items-center  white-space-nowrap">
             <p-checkbox [(ngModel)]="newData.is24Hours" label="24 h" binary="true"></p-checkbox>
           </div>
         </div>
       </div>
       <div class="">
-        <label for="breakTime" class="block font-bold pb-1">Pārtraukums</label>
+        <label for="breakTime" class="block font-semibold pb-1">Pārtraukums</label>
         <p-select id="breakTime" [options]="breakOptions" [(ngModel)]="newData.breakTime"
           placeholder="45 min"></p-select>
       </div>
       <div class="">
-        <label for="breakTime" class="block font-bold pb-1">Darba vieta</label>
+        <label for="breakTime" class="block font-semibold pb-1">Darba vieta</label>
         <p-select [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"></p-select>
       </div>
     </div>
 
-    <button aria-label="Delete"
-      class="p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500 absolute md:relative top-0 right-0  ">
-      <span class="material-symbols-rounded text-2xl">
+    <p-button severity="danger" [text]="true">
+      <span class="material-symbols-rounded">
         delete
       </span>
-    </button>
+    </p-button>
 
   </div>
-  <div class="flex justify-content-between align-items-end mb-2 bg-gray-100 border-round-lg p-3 relative">
+  <div class="flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative">
     <div class="flex flex-wrap gap-3">
       <div>
-        <label for="breakTime" class="block font-bold pb-1">Darba laiks</label>
-        <div class="flex flex-wrap align-items-center gap-2">
+        <label for="breakTime" class="block font-semibold pb-1">Darba laiks</label>
+        <div class="flex flex-wrap items-center gap-2">
 
           <label for="startTime" class="block">No</label>
           <numo-time-picker [value]="value" [min]="min" [max]="max" [step]="step" [required]="required"
@@ -395,31 +391,30 @@
             [disabled]="disabled" [class]="class"></numo-time-picker>
 
 
-          <div class="flex align-items-center white-space-nowrap">
+          <div class="flex items-center white-space-nowrap">
             3h 15min
           </div>
-          <div class="flex align-items-center  white-space-nowrap">
+          <div class="flex items-center  white-space-nowrap">
             <p-checkbox [(ngModel)]="newData.is24Hours" label="24 h" binary="true"></p-checkbox>
           </div>
         </div>
       </div>
       <div class="">
-        <label for="breakTime" class="block font-bold pb-1">Pārtraukums</label>
+        <label for="breakTime" class="block font-semibold pb-1">Pārtraukums</label>
         <p-select id="breakTime" [options]="breakOptions" [(ngModel)]="newData.breakTime"
           placeholder="45 min"></p-select>
       </div>
       <div class="">
-        <label for="breakTime" class="block font-bold pb-1">Darba vieta</label>
+        <label for="breakTime" class="block font-semibold pb-1">Darba vieta</label>
         <p-select [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"></p-select>
       </div>
     </div>
 
-    <button aria-label="Delete"
-      class="p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500 absolute md:relative top-0 right-0  ">
-      <span class="material-symbols-rounded text-2xl">
+    <p-button severity="danger" [text]="true">
+      <span class="material-symbols-rounded">
         delete
       </span>
-    </button>
+    </p-button>
 
   </div>
 
@@ -430,35 +425,35 @@
     </div>
   </div>
 
-  <h3>Vajadzības</h3>
+  <h3 class="font-semibold text-xl">Vajadzības</h3>
 
-  <div class="flex justify-content-between align-items-end mb-2 bg-gray-100 border-round-lg p-3 relative">
+  <div class="flex justify-between items-end  bg-gray-100 border-round-lg p-3 relative">
     <div class="flex flex-column md:flex-row gap-3">
       <div class="flex-1">
-        <label for="breakTime" class="block font-bold pb-1">Amats</label>
+        <label for="breakTime" class="block font-semibold pb-1">Amats</label>
         <p-select id="selectOption" [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"
           styleClass="w-full"></p-select>
       </div>
       <div class="flex-1">
-        <label for="breakTime" class="block font-bold pb-1">Kompetences</label>
+        <label for="breakTime" class="block font-semibold pb-1">Kompetences</label>
         <p-select id="selectOption" [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"
           styleClass="w-full"></p-select>
       </div>
       <div class="flex-1">
 
-        <label for="breakTime" class="block font-bold pb-1">Darbinieku skaits</label>
-        <div class="flex flex-row  align-items-center gap-2">
+        <label for="breakTime" class="block font-semibold pb-1">Darbinieku skaits</label>
+        <div class="flex flex-row  items-center gap-2">
 
           <div><input type="text" pInputText class="w-full" /></div>
-          <div class="flex flex-row align-items-center gap-1">
+          <div class="flex flex-row items-center gap-1">
             <div>Min</div>
             <div class="flex-1"><input type="text" pInputText class="w-full" /></div>
           </div>
-          <div class="flex flex-row align-items-center gap-1">
+          <div class="flex flex-row items-center gap-1">
             <div>Opt</div>
             <div class="flex-1"><input type="text" pInputText class="w-full" /></div>
           </div>
-          <div class="flex flex-row align-items-center gap-1">
+          <div class="flex flex-row items-center gap-1">
             <div>Max</div>
             <div class="flex-1"><input type="text" pInputText class="w-full" /></div>
           </div>
@@ -468,12 +463,14 @@
 
     </div>
 
-    <button aria-label="Delete"
-      class="p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500 absolute md:relative top-0 right-0  ">
-      <span class="material-symbols-rounded text-2xl">
+    <p-button severity="danger" [text]="true">
+      <span class="material-symbols-rounded">
         delete
       </span>
-    </button>
+    </p-button>
+
+
+
 
   </div>
 
@@ -488,6 +485,6 @@
   <div class="flex justify-content-start gap-2 pt-6">
 
     <p-button label="Saglabāt" severity="success" />
-    <p-button label="Atcelt" severity="secondary" outlined="true" (onClick)="visible = false" />
+    <p-button label="Atcelt" severity="secondary" outlined="true" (onClick)="hideAddDataDialog()" />
   </div>
 </p-dialog>

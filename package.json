@@ -8,12 +8,10 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch --coverage",
     "storybook": "ng run my-primeng-app:storybook",
-    "build-storybook": "ng build & ng run my-primeng-app:build-storybook",
-    "tailwind:watch": "tailwindcss -i ./src/styles.css -o ./src/output.css --watch"
+    "build-storybook": "ng build & ng run my-primeng-app:build-storybook"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^19.0.0",
     "@angular/common": "^19.0.0",
     "@angular/compiler": "^19.0.0",
     "@angular/core": "^19.0.0",

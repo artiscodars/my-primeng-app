@@ -699,7 +699,7 @@
             "isDuplicate": true,
             "duplicateId": 2,
             "duplicateName": "AppComponent-2",
-            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full\">\n\n  <div class=\"flex-grow-1\">\n    <div class=\"w-full mb-2\">\n      <p-breadcrumb class=\"max-w-full\" [model]=\"itemsWithIsLast\" [home]=\"home\">\n        <ng-template pTemplate=\"item\" let-item>\n          <ng-container *ngIf=\"!item.isLast; else lastBreadcrumb\">\n            <!-- For all items except the last one -->\n            <ng-container *ngIf=\"item.route; else urlItem\">\n              <!-- If the item has a route -->\n              <a [routerLink]=\"item.route\" class=\"p-menuitem-link underline\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-container>\n            <ng-template #urlItem>\n              <!-- If the item has a URL -->\n              <a [href]=\"item.url\" class=\"p-menuitem-link\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-template>\n          </ng-container>\n          <ng-template #lastBreadcrumb>\n            <!-- For the last item, render as plain text -->\n            <span class=\"text-color\">{{ item.label }}</span>\n          </ng-template>\n        </ng-template>\n      </p-breadcrumb>\n    </div>\n\n\n    <div\n      class=\"card flex flex-column md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 flex justify-content-start\">\n      <div class=\"flex flex-column mr-2 items-center gap-2\">\n        <label for=\"dropdown\" class=\"mb-1 label text-sm\">Struktūrvienība</label>\n        <p-select id=\"dropdown\" [options]=\"options\" optionLabel=\"name\" placeholder=\"Barona ielas veikals\"\n          styleClass=\"w-full\" />\n      </div>\n      <div class=\"flex flex-column items-center gap-2\">\n        <label for=\"calendar\" class=\"mb-1 label text-sm\">Mēnesis</label>\n        <div class=\"flex align-items-center\">\n\n          <p-calendar id=\"calendar\" [(ngModel)]=\"date\" view=\"month\" [iconDisplay]=\"'input'\" [showIcon]=\"true\"\n            class=\"w-full\" dateFormat=\"MM, yy\" [readonlyInput]=\"true\" />\n\n        </div>\n      </div>\n    </div>\n    <p-tabView class=\"mt-5 numo-transparent-bg\">\n      <p-tabPanel header=\"Uzstādījumi\">\n\n        <div class=\" flex gap-3 flex-col md:flex-row\">\n          <p-menu [model]=\"menuItems\" class=\"hidden md:flex\" />\n          <div class=\"md:hidden w-full\">\n            <p-select [options]=\"menuItems\" class=\"w-full\" />\n          </div>\n          <div class=\"flex-1\">\n            <!-- Existing \"Pievienot\" Button for Desktop -->\n            <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"plus-button hidden md:block pb-3\" size=\"small\"\n              (onClick)=\"showAddDataDialog()\" />\n\n            <!-- Existing \"Pievienot\" Button for Mobile -->\n            <p-button icon=\"pi pi-plus\" class=\"fixed bottom-0 right-0 mr-4 mb-4 z-5 shadow-2 border-circle md:hidden\"\n              size=\"small\" rounded=\"true\" (onClick)=\"showAddDataDialog()\" />\n\n\n            <div>\n\n\n              <p-table [value]=\"Products\" dataKey=\"id\">\n\n                <!-- Body Template for Product Rows -->\n                <ng-template pTemplate=\"body\" let-product>\n                  <tr>\n                    <!-- Caret Icon for Expand/Collapse -->\n\n                    <td>\n                      <div class=\"flex flex-wrap items-center gap-2\">\n\n\n\n                        <button class=\"p-button p-button-lg p-1 p-button-text p-button-secondary text-gray-800\"\n                          (click)=\"toggleRow(product)\">\n                          <span class=\"material-symbols-rounded text-3xl\">\n                            {{ isRowExpanded(product) ? 'expand_more' : 'chevron_right' }}\n                          </span>\n                        </button>\n\n\n                        <span\n                          class=\"flex align-items-center justify-content-center font-semibold white-space-nowrap\">{{product.name}}</span>\n                        <p-badge [value]=\"product.badgeName\" [severity]=\"product.badgeSeverity\"\n                          class=\"flex align-items-center justify-content-center \"\n                          styleClass=\"text-xs font-normal\"></p-badge>\n                      </div>\n                    </td>\n                    <td>\n                      <div class=\"flex flex-wrap gap-2\">\n\n\n                        <p-badge *ngFor=\"let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index\" [value]=\"day\"\n                          [severity]=\"product.days.includes(i + 1) ? 'secondary' : 'secondary'\"\n                          [styleClass]=\"product.days.includes(i + 1) ? 'font-bold' : 'font-normal'\" />\n                        <p-badge *ngFor=\"let date of product.dates\" severity=\"secondary\" [value]=\"date\"></p-badge>\n\n\n\n\n\n\n\n\n\n\n                      </div>\n                    </td>\n                    <td>\n\n                      <div class=\"flex flex-wrap gap-2\">\n                        <p-chip *ngFor=\"let slot of product.slots\" [label]=\"slot\"\n                          styleClass=\"white-space-nowrap text-xs bg-gray-100 text-gray-900\" />\n                      </div>\n\n\n\n                    </td>\n                    <td>\n                      <div class=\"flex w-full justify-content-between  gap-3 md:justify-content-end\">\n                        <button aria-label=\"Edit\"\n                          class=\"p-button p-button-lg p-button-secondary p-1 p-button-text text-gray-500\">\n                          <span class=\"material-symbols-rounded text-2xl\">\n                            edit\n                          </span>\n                        </button>\n\n                        <button aria-label=\"Delete\"\n                          class=\"p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500\">\n                          <span class=\"material-symbols-rounded text-2xl\">\n                            delete\n                          </span>\n                        </button>\n                      </div>\n                    </td>\n                  </tr>\n                  <!-- Expanded Row Content -->\n                  <tr *ngIf=\"isRowExpanded(product)\">\n                    <td colspan=\"4\">\n\n\n\n                      <div class=\"p-2\">\n                        <h3>Darba laiki</h3>\n                        <p-table [value]=\"tableData\" [tableStyle]=\"{ ' min-width': '50rem' }\">\n                          <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Darba laiks</th>\n                    <th>Pārtraukums</th>\n                    <th>Darba vieta</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.darbaLaiks }}</td>\n                    <td>{{ innerProduct.partraukums }}</td>\n                    <td>{{ innerProduct.darbaVieta }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n\n\n              <h3 class=\"mt-4\">Vajadzības</h3>\n              <p-table [value]=\"tableData2\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n                <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Amats</th>\n                    <th>Kompetence</th>\n                    <th>Kompetenču skaits</th>\n                    <th>Darbnieku skaits</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.amats }}</td>\n                    <td>{{ innerProduct.kompetence }}</td>\n                    <td>{{ innerProduct.kompetencuSkaits }}</td>\n                    <td>{{ innerProduct.darbniekuSkaits }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n\n\n\n\n            </div>\n\n\n\n\n            </td>\n            </tr>\n            </ng-template>\n            </p-table>\n\n\n\n          </div>\n\n\n\n\n\n\n\n\n        </div>\n  </div>\n\n  </p-tabPanel>\n  <p-tabPanel header=\"Plāns & Fakts\">\n\n    <div class=\"overflow-x-auto\">\n      <p-table [value]=\"timePlanning\">\n        <ng-template pTemplate=\"header\">\n          <tr>\n            <th class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </th>\n            <th class=\"sticky-column-2\" data-column=\"name\">\n              <div>Vārds, Uzvārds</div>\n            </th>\n            <th class=\"sticky-column-3\" data-column=\"job-title-name\">\n              <div>Amats</div>\n            </th>\n            <th class=\"sticky-column-4\" data-column=\"planning-hours\">\n              <div>Stundas</div>\n            </th>\n            <th class=\"sticky-column-5\" data-column=\"sum\">\n              <div>Summa</div>\n            </th>\n            <th *ngFor=\"let tday of timePlanning[0]?.daysOfMonth\">\n              <div>{{ tday.day }} {{\n                tday.date }}</div>\n            </th>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"body\" let-employee>\n          <tr>\n            <td class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </td>\n            <td class=\"sticky-column-2\" data-column=\"name\">\n              <div>{{ employee.employeeName }}</div>\n            </td>\n            <td class=\"sticky-column-3\">\n              <div>{{ employee.jobTitle }}</div>\n            </td>\n            <td class=\"sticky-column-4\">\n              <div>{{ employee.planningHours }}</div>\n            </td>\n            <td class=\"sticky-column-5\">\n              <div>{{ employee.totalHours }}</div>\n            </td>\n            <td *ngFor=\"let day of employee.daysOfMonth\">\n              <div>{{ day.hours }}</div>\n            </td>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"footer\">\n          <tr>\n            <td class=\"sticky-column-1-3 text-right\" colspan=\"3\">Totals</td>\n            <td class=\"sticky-column-4\">{{ totalPlanningHours }}</td>\n            <td class=\"sticky-column-5\">{{ totalHours }}</td>\n            <td *ngFor=\"let dailyTotal of dailyTotals\">{{ dailyTotal }}</td>\n          </tr>\n        </ng-template>\n      </p-table>\n\n\n    </div>\n\n\n  </p-tabPanel>\n  <p-tabPanel header=\"Dokumenti\">\n  </p-tabPanel>\n  </p-tabView>\n</div>\n\n</div>\n\n\n<p-dialog header=\"Darba laiks/vajadzības\" [(visible)]=\"displayAddDataDialog\" [modal]=\"true\"\n  (onHide)=\"hideAddDataDialog()\">\n  <h3>Darbalaiks</h3>\n  <div class=\"flex flex-column md:flex-row flex-wrap flex  mb-3 gap-3 w-full\">\n    <!-- Input Fields Row -->\n    <div class=\"flex-1\">\n      <label for=\"name\" class=\"block font-bold pb-1\">Nosaukums</label>\n      <input id=\"name\" type=\"text\" class=\"w-full\" pInputText [(ngModel)]=\"newData.name\" />\n    </div>\n    <div class=\"w-full md:w-3\">\n      <label for=\"selectOption\" class=\"block font-bold pb-1\">Grupa</label>\n      <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n        styleClass=\"w-full\"></p-select>\n    </div>\n  </div>\n\n  <!-- Days and Time Selection -->\n  <div class=\"flex flex-wrap mb-3 gap-3\">\n    <div class=\"flex-initial\">\n      <label class=\"block font-bold pb-1\">Dienas</label>\n\n      <div class=\"daycalendar\">\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"O\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"T\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\"\n          styleClass=\"font-normal\" />\n        <p-button type=\"button\" label=\"C\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n\n      </div>\n\n    </div>\n    <div class=\"datecalendar\">\n      <label class=\"block font-bold pb-1\">Datumi</label>\n      <div>\n        <p-button icon=\"pi pi-plus\" severity=\"secondary\" outlined=\"true\" rounded=\"true\" size=\"small\" /><p-chip\n          label=\"12.10.2024\" removable=\"true\" styleClass=\"bg-secondary\" />\n      </div>\n\n\n    </div>\n\n  </div>\n\n  <!-- Time Range -->\n  <div class=\"flex justify-content-between align-items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap align-items-center gap-2\">\n\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n\n          <div class=\"flex align-items-center white-space-nowrap\">\n            3h 15min\n          </div>\n          <div class=\"flex align-items-center  white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <button aria-label=\"Delete\"\n      class=\"p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500 absolute md:relative top-0 right-0  \">\n      <span class=\"material-symbols-rounded text-2xl\">\n        delete\n      </span>\n    </button>\n\n  </div>\n  <div class=\"flex justify-content-between align-items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap align-items-center gap-2\">\n\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n\n          <div class=\"flex align-items-center white-space-nowrap\">\n            3h 15min\n          </div>\n          <div class=\"flex align-items-center  white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <button aria-label=\"Delete\"\n      class=\"p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500 absolute md:relative top-0 right-0  \">\n      <span class=\"material-symbols-rounded text-2xl\">\n        delete\n      </span>\n    </button>\n\n  </div>\n\n  <!-- Additional Entries -->\n  <div class=\"grid mb-3\">\n    <div class=\"col-12\">\n      <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n    </div>\n  </div>\n\n  <h3>Vajadzības</h3>\n\n  <div class=\"flex justify-content-between align-items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-column md:flex-row gap-3\">\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Amats</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Kompetences</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n\n        <label for=\"breakTime\" class=\"block font-bold pb-1\">Darbinieku skaits</label>\n        <div class=\"flex flex-row  align-items-center gap-2\">\n\n          <div><input type=\"text\" pInputText class=\"w-full\" /></div>\n          <div class=\"flex flex-row align-items-center gap-1\">\n            <div>Min</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n          <div class=\"flex flex-row align-items-center gap-1\">\n            <div>Opt</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n          <div class=\"flex flex-row align-items-center gap-1\">\n            <div>Max</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n\n        </div>\n      </div>\n\n    </div>\n\n    <button aria-label=\"Delete\"\n      class=\"p-button p-button-danger p-button-lg p-1 p-button-text text-gray-500 absolute md:relative top-0 right-0  \">\n      <span class=\"material-symbols-rounded text-2xl\">\n        delete\n      </span>\n    </button>\n\n  </div>\n\n  <!-- Other Details -->\n\n\n  <!-- Final Add Button -->\n  <div class=\"mt-3\">\n    <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n  </div>\n\n  <div class=\"flex justify-content-start gap-2 pt-6\">\n\n    <p-button label=\"Saglabāt\" severity=\"success\" />\n    <p-button label=\"Atcelt\" severity=\"secondary\" outlined=\"true\" (onClick)=\"visible = false\" />\n  </div>\n</p-dialog>"
+            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full\">\n\n  <div class=\"flex-grow-1\">\n    <div class=\"w-full mb-2\">\n      <p-breadcrumb class=\"max-w-full\" [model]=\"itemsWithIsLast\" [home]=\"home\">\n        <ng-template pTemplate=\"item\" let-item>\n          <ng-container *ngIf=\"!item.isLast; else lastBreadcrumb\">\n            <!-- For all items except the last one -->\n            <ng-container *ngIf=\"item.route; else urlItem\">\n              <!-- If the item has a route -->\n              <a [routerLink]=\"item.route\" class=\"p-menuitem-link underline\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-container>\n            <ng-template #urlItem>\n              <!-- If the item has a URL -->\n              <a [href]=\"item.url\" class=\"p-menuitem-link\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-template>\n          </ng-container>\n          <ng-template #lastBreadcrumb>\n            <!-- For the last item, render as plain text -->\n            <span class=\"text-color\">{{ item.label }}</span>\n          </ng-template>\n        </ng-template>\n      </p-breadcrumb>\n    </div>\n\n\n    <div\n      class=\"card flex flex-column md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 flex justify-content-start\">\n      <div class=\"flex flex-column mr-2 items-center gap-2\">\n        <label for=\"dropdown\" class=\"mb-1 label text-sm\">Struktūrvienība</label>\n        <p-select id=\"dropdown\" [options]=\"options\" optionLabel=\"name\" placeholder=\"Barona ielas veikals\"\n          styleClass=\"w-full\" />\n      </div>\n      <div class=\"flex flex-column items-center gap-2\">\n        <label for=\"calendar\" class=\"mb-1 label text-sm\">Mēnesis</label>\n        <div class=\"flex items-center\">\n\n          <p-calendar id=\"calendar\" [(ngModel)]=\"date\" view=\"month\" [iconDisplay]=\"'input'\" [showIcon]=\"true\"\n            class=\"w-full\" dateFormat=\"MM, yy\" [readonlyInput]=\"true\" />\n\n        </div>\n      </div>\n    </div>\n    <p-tabView class=\"mt-5 numo-transparent-bg\">\n      <p-tabPanel header=\"Uzstādījumi\">\n\n        <div class=\" flex gap-3 flex-col md:flex-row\">\n          <p-menu [model]=\"menuItems\" class=\"hidden md:flex\" />\n          <div class=\"md:hidden w-full\">\n            <p-select [options]=\"menuItems\" class=\"w-full\" />\n          </div>\n          <div class=\"flex-1\">\n            <!-- Existing \"Pievienot\" Button for Desktop -->\n            <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"plus-button hidden md:block pb-3\" size=\"small\"\n              (onClick)=\"showAddDataDialog()\" />\n\n            <!-- Existing \"Pievienot\" Button for Mobile -->\n            <p-button icon=\"pi pi-plus\" class=\"fixed bottom-0 right-0 mr-4 mb-4 z-5 shadow-2 border-circle md:hidden\"\n              size=\"small\" rounded=\"true\" (onClick)=\"showAddDataDialog()\" />\n\n\n            <div>\n\n\n              <p-table [value]=\"Products\" dataKey=\"id\">\n\n                <!-- Body Template for Product Rows -->\n                <ng-template pTemplate=\"body\" let-product>\n                  <tr>\n                    <!-- Caret Icon for Expand/Collapse -->\n\n                    <td>\n                      <div class=\"flex flex-wrap items-center gap-2\">\n\n\n\n\n                        <p-button severity=\"secondary\" [text]=\"true\" (click)=\"toggleRow(product)\">\n                          <span class=\"material-symbols-rounded\">\n                            {{ isRowExpanded(product) ? 'expand_more' : 'chevron_right' }}\n                          </span>\n                        </p-button>\n\n\n                        <span\n                          class=\"flex items-center justify-content-center font-semibold white-space-nowrap\">{{product.name}}</span>\n                        <p-badge [value]=\"product.badgeName\" [severity]=\"product.badgeSeverity\"\n                          class=\"flex items-center justify-content-center \" styleClass=\"text-xs font-normal\"></p-badge>\n                      </div>\n                    </td>\n                    <td>\n                      <div class=\"flex flex-wrap gap-2\">\n\n\n                        <p-badge *ngFor=\"let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index\" [value]=\"day\"\n                          [severity]=\"product.days.includes(i + 1) ? 'secondary' : 'secondary'\"\n                          [styleClass]=\"product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'\" />\n                        <p-badge *ngFor=\"let date of product.dates\" severity=\"secondary\" [value]=\"date\"></p-badge>\n\n\n\n\n\n\n\n\n\n\n                      </div>\n                    </td>\n                    <td>\n\n                      <div class=\"flex flex-wrap gap-2\">\n                        <p-chip *ngFor=\"let slot of product.slots\" [label]=\"slot\"\n                          styleClass=\"white-space-nowrap text-xs bg-gray-100 text-gray-900\" />\n                      </div>\n\n\n\n                    </td>\n                    <td>\n                      <div class=\"flex w-full justify-content-between  gap-3 md:justify-content-end\">\n                        <p-button severity=\"secondary\" [text]=\"true\">\n                          <span class=\"material-symbols-rounded\">\n                            edit\n                          </span>\n                        </p-button>\n\n                        <p-button severity=\"danger\" [text]=\"true\">\n                          <span class=\"material-symbols-rounded\">\n                            delete\n                          </span>\n                        </p-button>\n                      </div>\n                    </td>\n                  </tr>\n                  <!-- Expanded Row Content -->\n                  <tr *ngIf=\"isRowExpanded(product)\">\n                    <td colspan=\"4\">\n\n\n\n                      <div class=\"p-2\">\n                        <h3>Darba laiki</h3>\n                        <p-table [value]=\"tableData\" [tableStyle]=\"{ ' min-width': '50rem' }\">\n                          <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Darba laiks</th>\n                    <th>Pārtraukums</th>\n                    <th>Darba vieta</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.darbaLaiks }}</td>\n                    <td>{{ innerProduct.partraukums }}</td>\n                    <td>{{ innerProduct.darbaVieta }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n\n\n              <h3 class=\"mt-4\">Vajadzības</h3>\n              <p-table [value]=\"tableData2\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n                <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Amats</th>\n                    <th>Kompetence</th>\n                    <th>Kompetenču skaits</th>\n                    <th>Darbnieku skaits</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.amats }}</td>\n                    <td>{{ innerProduct.kompetence }}</td>\n                    <td>{{ innerProduct.kompetencuSkaits }}</td>\n                    <td>{{ innerProduct.darbniekuSkaits }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n\n\n\n\n            </div>\n\n\n\n\n            </td>\n            </tr>\n            </ng-template>\n            </p-table>\n\n\n\n          </div>\n\n\n\n\n\n\n\n\n        </div>\n  </div>\n\n  </p-tabPanel>\n  <p-tabPanel header=\"Plāns & Fakts\">\n\n    <div class=\"overflow-x-auto\">\n      <p-table [value]=\"timePlanning\">\n        <ng-template pTemplate=\"header\">\n          <tr>\n            <th class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </th>\n            <th class=\"sticky-column-2\" data-column=\"name\">\n              <div>Vārds, Uzvārds</div>\n            </th>\n            <th class=\"sticky-column-3\" data-column=\"job-title-name\">\n              <div>Amats</div>\n            </th>\n            <th class=\"sticky-column-4\" data-column=\"planning-hours\">\n              <div>Stundas</div>\n            </th>\n            <th class=\"sticky-column-5\" data-column=\"sum\">\n              <div>Summa</div>\n            </th>\n            <th *ngFor=\"let tday of timePlanning[0]?.daysOfMonth\">\n              <div>{{ tday.day }} {{\n                tday.date }}</div>\n            </th>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"body\" let-employee>\n          <tr>\n            <td class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </td>\n            <td class=\"sticky-column-2\" data-column=\"name\">\n              <div>{{ employee.employeeName }}</div>\n            </td>\n            <td class=\"sticky-column-3\">\n              <div>{{ employee.jobTitle }}</div>\n            </td>\n            <td class=\"sticky-column-4\">\n              <div>{{ employee.planningHours }}</div>\n            </td>\n            <td class=\"sticky-column-5\">\n              <div>{{ employee.totalHours }}</div>\n            </td>\n            <td *ngFor=\"let day of employee.daysOfMonth\">\n              <div>{{ day.hours }}</div>\n            </td>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"footer\">\n          <tr>\n            <td class=\"sticky-column-1-3 text-right\" colspan=\"3\">Totals</td>\n            <td class=\"sticky-column-4\">{{ totalPlanningHours }}</td>\n            <td class=\"sticky-column-5\">{{ totalHours }}</td>\n            <td *ngFor=\"let dailyTotal of dailyTotals\">{{ dailyTotal }}</td>\n          </tr>\n        </ng-template>\n      </p-table>\n\n\n    </div>\n\n\n  </p-tabPanel>\n  <p-tabPanel header=\"Dokumenti\">\n  </p-tabPanel>\n  </p-tabView>\n</div>\n\n</div>\n\n\n<p-dialog header=\"Darba laiks/vajadzības\" [(visible)]=\"displayAddDataDialog\" [modal]=\"true\"\n  (onHide)=\"hideAddDataDialog()\">\n  <h3 class=\"font-semibold text-xl\">Darbalaiks</h3>\n  <div class=\"flex flex-column md:flex-row flex-wrap mb-3 gap-3 w-full\">\n    <!-- Input Fields Row -->\n    <div class=\"flex-1\">\n      <label for=\"name\" class=\"block font-semibold pb-1\">Nosaukums</label>\n      <input id=\"name\" type=\"text\" class=\"w-full\" pInputText [(ngModel)]=\"newData.name\" />\n    </div>\n    <div class=\"w-full md:w-[300px]\">\n      <label for=\"selectOption\" class=\"block font-semibold pb-1\">Grupa</label>\n      <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n        styleClass=\"w-full\"></p-select>\n    </div>\n  </div>\n\n  <!-- Days and Time Selection -->\n  <div class=\"flex flex-wrap mb-3 gap-3\">\n    <div class=\"flex-initial\">\n      <label class=\"block font-semibold pb-1\">Dienas</label>\n\n      <div class=\"daycalendar\">\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"O\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"T\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\"\n          styleClass=\"font-normal\" />\n        <p-button type=\"button\" label=\"C\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n\n      </div>\n\n    </div>\n    <div class=\"datecalendar\">\n      <label class=\"block font-semibold pb-1\">Datumi</label>\n      <div>\n        <p-button icon=\"pi pi-plus\" severity=\"secondary\" outlined=\"true\" rounded=\"true\" size=\"small\" /><p-chip\n          label=\"12.10.2024\" removable=\"true\" styleClass=\"bg-secondary\" />\n      </div>\n\n\n    </div>\n\n  </div>\n\n  <!-- Time Range -->\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3 items-center\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n\n          <div class=\"flex items-center white-space-nowrap\">\n            3h 15min\n          </div>\n          <div class=\"flex items-center  white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\">\n        delete\n      </span>\n    </p-button>\n\n  </div>\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n\n          <div class=\"flex items-center white-space-nowrap\">\n            3h 15min\n          </div>\n          <div class=\"flex items-center  white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\">\n        delete\n      </span>\n    </p-button>\n\n  </div>\n\n  <!-- Additional Entries -->\n  <div class=\"grid mb-3\">\n    <div class=\"col-12\">\n      <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n    </div>\n  </div>\n\n  <h3 class=\"font-semibold text-xl\">Vajadzības</h3>\n\n  <div class=\"flex justify-between items-end  bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-column md:flex-row gap-3\">\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Amats</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Kompetences</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darbinieku skaits</label>\n        <div class=\"flex flex-row  items-center gap-2\">\n\n          <div><input type=\"text\" pInputText class=\"w-full\" /></div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Min</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Opt</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Max</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n\n        </div>\n      </div>\n\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\">\n        delete\n      </span>\n    </p-button>\n\n\n\n\n  </div>\n\n  <!-- Other Details -->\n\n\n  <!-- Final Add Button -->\n  <div class=\"mt-3\">\n    <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n  </div>\n\n  <div class=\"flex justify-content-start gap-2 pt-6\">\n\n    <p-button label=\"Saglabāt\" severity=\"success\" />\n    <p-button label=\"Atcelt\" severity=\"secondary\" outlined=\"true\" (onClick)=\"hideAddDataDialog()\" />\n  </div>\n</p-dialog>\n"
         },
         {
             "name": "BasicSelectComponent",
@@ -1750,7 +1750,7 @@
         },
         {
             "name": "LeftMenuComponent",
-            "id": "component-LeftMenuComponent-f0d456ccfe5da2ae939d91887658cff4edee04aaee13534cf9194cc9c70ae36f0f3304f89c0f1f114e8372f43786586de4f2888cb3a0bb6a927f5cf198303238",
+            "id": "component-LeftMenuComponent-4a4233307513d743f1659e1451ec53a78d523e20b9ba1deb8ee64634c4ae6f42881670a29e85e6f2afcb27d290396812f6895f6dde00d6ef8b44c2b43665e89a",
             "file": "src/stories/components/left-menu/left-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1767,20 +1767,11 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "className",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 17,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
                     "name": "items",
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 15,
                     "type": "MenuItem[]",
                     "decorators": []
                 }
@@ -1795,27 +1786,171 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "FormsModule",
-                    "type": "module"
-                },
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                },
-                {
-                    "name": "PanelMenuModule",
+                    "name": "ImportsModule",
                     "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { PanelMenuModule } from 'primeng/panelmenu';\r\nimport { MenuItem } from './menu.model';\r\n\r\n@Component({\r\n  selector: 'numo-left-menu',\r\n  standalone: true,\r\n  imports: [FormsModule, CommonModule, PanelMenuModule],\r\n  templateUrl: './left-menu.component.html',\r\n  styles: [],\r\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n})\r\nexport class LeftMenuComponent {\r\n  @Input() items: MenuItem[] = [];\r\n  @Input() className = '';\r\n}\r\n",
+            "sourceCode": "import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';\r\nimport { MenuItem } from './menu.model';\r\nimport { ImportsModule } from '../../../app/imports';\r\n\r\n@Component({\r\n  selector: 'numo-left-menu',\r\n  standalone: true,\r\n  imports: [ImportsModule],\r\n  templateUrl: './left-menu.component.html',\r\n  styles: [],\r\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\r\n})\r\nexport class LeftMenuComponent {\r\n  @Input() items: MenuItem[] = [];\r\n  // @Input() className = '';\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
             "templateData": "<p-panelmenu [model]=\"items\" styleClass=\"w-full md:w-[300px]\">\r\n  <ng-template #item let-item>\r\n    <a pRipple class=\"flex items-center px-4 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\" />\r\n      <span *ngIf=\"item.shortcut\" class=\"ml-auto border border-surface rounded\r\n          bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n  </ng-template>\r\n</p-panelmenu>"
+        },
+        {
+            "name": "NumoTreeBasic",
+            "id": "component-NumoTreeBasic-a825f7e44f4c24225342363aacc2d0604e38ee99fd15c46ff2f4ccdf29908c809b8ba591346f2e67c0f8b6d48c3471ddbc08b0a0faa3789d2eeff548d6aaecb9",
+            "file": "src/stories/components/tree/basic/basic.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "numo-tree-basic",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./template.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "files",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TreeNode[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "selectedFiles",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TreeNode[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Tree"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { TreeNode } from 'primeng/api';\nimport { Tree } from 'primeng/tree';\nimport { commonFiles } from '../data';\n\n@Component({\n  selector: 'numo-tree-basic',\n  templateUrl: './template.html',\n  standalone: true,\n  imports: [Tree],\n})\nexport class NumoTreeBasic implements OnInit {\n  files!: TreeNode[];\n\n  selectedFiles!: TreeNode[];\n\n  ngOnInit() {\n    this.files = commonFiles;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p-tree class=\"w-full md:w-30rem\" [value]=\"files\"></p-tree>\n"
+        },
+        {
+            "name": "NumoTreeCheckbox",
+            "id": "component-NumoTreeCheckbox-20e94a1bc9c4d11a718b2d199a71fcf4e03f5a9c2f8e3bab071e152711caa108671c420e45daaaf1862864ea769594f66a1cc4a02829f70d7ca3671990ab5ffb",
+            "file": "src/stories/components/tree/checkbox/checkbox.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "numo-tree-checkbox",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./template.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "files",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TreeNode[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "selectedFiles",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TreeNode[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Tree"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { TreeNode } from 'primeng/api';\nimport { Tree } from 'primeng/tree';\nimport { commonFiles } from '../data';\n\n@Component({\n  selector: 'numo-tree-checkbox',\n  templateUrl: './template.html',\n  standalone: true,\n  imports: [Tree],\n  //schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class NumoTreeCheckbox implements OnInit {\n  files!: TreeNode[];\n\n  selectedFiles!: TreeNode[];\n\n  ngOnInit() {\n    this.files = commonFiles;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p-tree [value]=\"files\" selectionMode=\"checkbox\" styleClass=\"w-full md:w-[30rem]\" [(selection)]=\"selectedFiles\" />\n"
         },
         {
             "name": "TimePickerComponent",
@@ -2044,420 +2179,330 @@
                 ]
             },
             "extends": []
-        },
-        {
-            "name": "TreeComponent",
-            "id": "component-TreeComponent-c440e2ed613336f17595a910099f591093d0f46a076ff7247d0c9c8c8bf1685f7ea0332449196d3aa10c810c2754251160777e21ed42a27361a2c7f434b8a6ad",
-            "file": "src/stories/components/tree/tree.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [
-                {
-                    "name": "MessageService",
-                    "type": "injectable"
-                }
-            ],
-            "selector": "p-tree-wrapper",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "events",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 17,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "files",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 15,
-                    "type": "TreeNode[]",
-                    "decorators": []
-                },
-                {
-                    "name": "lazyLoading",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 18,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "selectedFile",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 16,
-                    "type": "TreeNode",
-                    "decorators": []
-                },
-                {
-                    "name": "virtualScroll",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 19,
-                    "type": "boolean",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "loading",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 26
-                },
-                {
-                    "name": "nodes",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "TreeNode[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 28
-                },
-                {
-                    "name": "nodes2",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "TreeNode[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 30
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "duplicateData",
-                    "args": [
-                        {
-                            "name": "data",
-                            "type": "TreeNode[]",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "count",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "TreeNode[]",
-                    "typeParameters": [],
-                    "line": 45,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "data",
-                            "type": "TreeNode[]",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "count",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "initiateNodes",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "TreeNode[]",
-                    "typeParameters": [],
-                    "line": 86,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "initiateNodes2",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "TreeNode[]",
-                    "typeParameters": [],
-                    "line": 106,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 31,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "nodeCollapse",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 63,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "nodeExpand",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 55,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "nodeSelect",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 71,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "nodeUnselect",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 79,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "onNodeExpand",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 129,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "onNodeExpand2",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 152,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "TreeModule",
-                    "type": "module"
-                },
-                {
-                    "name": "ToastModule",
-                    "type": "module"
-                },
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { ChangeDetectorRef, Component, Input } from '@angular/core';\nimport { MessageService, TreeNode } from 'primeng/api';\nimport { ToastModule } from 'primeng/toast';\nimport { TreeModule } from 'primeng/tree';\n\n@Component({\n  selector: 'p-tree-wrapper',\n  //templateUrl: './tree.component.html',\n  standalone: true,\n  imports: [TreeModule, ToastModule, CommonModule],\n  providers: [MessageService],\n})\nexport class TreeComponent {\n  @Input() files!: TreeNode[];\n  @Input() selectedFile!: TreeNode;\n  @Input() events: boolean = false;\n  @Input() lazyLoading: boolean = false;\n  @Input() virtualScroll: boolean = false;\n\n  constructor(\n    private messageService: MessageService,\n    private cd: ChangeDetectorRef\n  ) {}\n\n  loading: boolean = false;\n\n  nodes!: TreeNode[];\n\n  nodes2!: TreeNode[];\n  ngOnInit() {\n    this.loading = true;\n    this.nodes2 = this.initiateNodes2();\n\n    setTimeout(() => {\n      this.nodes = this.initiateNodes();\n      this.loading = false;\n      this.nodes2.map((node) => (node.loading = false));\n      this.cd.markForCheck();\n    }, 2000);\n    this.files = this.duplicateData(this.files, 50);\n    this.cd.markForCheck();\n  }\n\n  duplicateData(data: TreeNode[], count: number): TreeNode[] {\n    let duplicatedData: TreeNode[] = [];\n    for (let i = 0; i < count; i++) {\n      duplicatedData = [\n        ...duplicatedData,\n        ...data.map((item) => ({ ...item })),\n      ];\n    }\n    return duplicatedData;\n  }\n  nodeExpand(event: any) {\n    this.messageService.add({\n      severity: 'success',\n      summary: 'Node Expanded',\n      detail: event.node.label,\n    });\n  }\n\n  nodeCollapse(event: any) {\n    this.messageService.add({\n      severity: 'warn',\n      summary: 'Node Collapsed',\n      detail: event.node.label,\n    });\n  }\n\n  nodeSelect(event: any) {\n    this.messageService.add({\n      severity: 'info',\n      summary: 'Node Selected',\n      detail: event.node.label,\n    });\n  }\n\n  nodeUnselect(event: any) {\n    this.messageService.add({\n      severity: 'info',\n      summary: 'Node Unselected',\n      detail: event.node.label,\n    });\n  }\n  initiateNodes(): TreeNode[] {\n    return [\n      {\n        key: '0',\n        label: 'Node 0',\n        leaf: false,\n      },\n      {\n        key: '1',\n        label: 'Node 1',\n        leaf: false,\n      },\n      {\n        key: '2',\n        label: 'Node 2',\n        leaf: false,\n      },\n    ];\n  }\n\n  initiateNodes2(): TreeNode[] {\n    return [\n      {\n        key: '0',\n        label: 'Node 0',\n        leaf: false,\n        loading: true,\n      },\n      {\n        key: '1',\n        label: 'Node 1',\n        leaf: false,\n        loading: true,\n      },\n      {\n        key: '2',\n        label: 'Node 2',\n        leaf: false,\n        loading: true,\n      },\n    ];\n  }\n\n  onNodeExpand(event: any) {\n    if (!event.node.children) {\n      this.loading = true;\n\n      setTimeout(() => {\n        let _node = { ...event.node };\n        _node.children = [];\n\n        for (let i = 0; i < 3; i++) {\n          _node.children.push({\n            key: event.node.key + '-' + i,\n            label: 'Lazy ' + event.node.label + '-' + i,\n          });\n        }\n\n        this.nodes[parseInt(event.node.key, 10)] = _node;\n\n        this.loading = false;\n        this.cd.markForCheck();\n      }, 500);\n    }\n  }\n\n  onNodeExpand2(event: any) {\n    if (!event.node.children) {\n      event.node.loading = true;\n\n      setTimeout(() => {\n        let _node = { ...event.node };\n        _node.children = [];\n\n        for (let i = 0; i < 3; i++) {\n          _node.children.push({\n            key: event.node.key + '-' + i,\n            label: 'Lazy ' + event.node.label + '-' + i,\n          });\n        }\n\n        const key = parseInt(_node.key, 10);\n        this.nodes2[key] = { ..._node, loading: false };\n        this.cd.markForCheck();\n      }, 500);\n    }\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "messageService",
-                        "type": "MessageService",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    },
-                    {
-                        "name": "cd",
-                        "type": "ChangeDetectorRef",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 19,
-                "jsdoctags": [
-                    {
-                        "name": "messageService",
-                        "type": "MessageService",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "cd",
-                        "type": "ChangeDetectorRef",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "extends": []
         }
     ],
-    "modules": [],
+    "modules": [
+        {
+            "name": "ImportsModule",
+            "id": "module-ImportsModule-7f9c3341c945e6614898e0e9d33076640a1d4e212bc844090dd5e53a63e3cd8c8080e674f7158b07d5d1db9c1bf46501dfe2b7e5b3ab398649dfd28f2e8534e7",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/imports.ts",
+            "methods": [],
+            "sourceCode": "// Import PrimeNG modules\nimport { AccordionModule } from 'primeng/accordion';\nimport { AutoComplete } from 'primeng/autocomplete';\nimport { AvatarModule } from 'primeng/avatar';\nimport { AvatarGroupModule } from 'primeng/avatargroup';\nimport { BadgeModule } from 'primeng/badge';\nimport { BreadcrumbModule } from 'primeng/breadcrumb';\nimport { ButtonModule } from 'primeng/button';\nimport { CalendarModule } from 'primeng/calendar';\nimport { DatePicker } from 'primeng/datepicker';\nimport { Carousel } from 'primeng/carousel';\nimport { CascadeSelect } from 'primeng/cascadeselect';\nimport { Checkbox } from 'primeng/checkbox';\nimport { Chip } from 'primeng/chip';\nimport { ConfirmDialog } from 'primeng/confirmdialog';\nimport { ConfirmPopupModule } from 'primeng/confirmpopup';\nimport { ColorPicker } from 'primeng/colorpicker';\nimport { ContextMenuModule } from 'primeng/contextmenu';\nimport { DataView } from 'primeng/dataview';\nimport { Dialog } from 'primeng/dialog';\nimport { DividerModule } from 'primeng/divider';\nimport { DockModule } from 'primeng/dock';\nimport { DrawerModule } from 'primeng/drawer';\nimport { DragDropModule } from 'primeng/dragdrop';\nimport { Select } from 'primeng/select';\nimport { DeferModule } from 'primeng/defer';\nimport { FieldsetModule } from 'primeng/fieldset';\nimport { FileUpload } from 'primeng/fileupload';\nimport { FocusTrap } from 'primeng/focustrap';\nimport { GalleriaModule } from 'primeng/galleria';\nimport { InplaceModule } from 'primeng/inplace';\nimport { InputMask } from 'primeng/inputmask';\nimport { InputSwitchModule } from 'primeng/inputswitch';\nimport { ToggleSwitch } from 'primeng/toggleswitch';\nimport { InputTextModule } from 'primeng/inputtext';\nimport { InputNumber } from 'primeng/inputnumber';\nimport { TextareaModule } from 'primeng/textarea';\nimport { InputGroupAddonModule } from 'primeng/inputgroupaddon';\nimport { InputGroup } from 'primeng/inputgroup';\nimport { InputOtp } from 'primeng/inputotp';\nimport { Image } from 'primeng/image';\nimport { Knob } from 'primeng/knob';\nimport { Listbox } from 'primeng/listbox';\nimport { MegaMenuModule } from 'primeng/megamenu';\nimport { MenuModule } from 'primeng/menu';\nimport { MenubarModule } from 'primeng/menubar';\nimport { Message } from 'primeng/message';\nimport { MessagesModule } from 'primeng/messages';\nimport { MultiSelectModule } from 'primeng/multiselect';\nimport { MeterGroup } from 'primeng/metergroup';\nimport { OrderList } from 'primeng/orderlist';\nimport { OrganizationChartModule } from 'primeng/organizationchart';\nimport { OverlayPanelModule } from 'primeng/overlaypanel';\nimport { PaginatorModule } from 'primeng/paginator';\nimport { PanelModule } from 'primeng/panel';\nimport { PanelMenuModule } from 'primeng/panelmenu';\nimport { PasswordModule } from 'primeng/password';\nimport { PickList } from 'primeng/picklist';\nimport { ProgressBar } from 'primeng/progressbar';\nimport { RadioButton } from 'primeng/radiobutton';\nimport { Rating } from 'primeng/rating';\nimport { Scroller } from 'primeng/scroller';\nimport { ScrollPanelModule } from 'primeng/scrollpanel';\nimport { ScrollTop } from 'primeng/scrolltop';\nimport { SelectButton } from 'primeng/selectbutton';\nimport { SidebarModule } from 'primeng/sidebar';\nimport { Skeleton } from 'primeng/skeleton';\nimport { Slider } from 'primeng/slider';\nimport { SpeedDialModule } from 'primeng/speeddial';\nimport { SplitButton } from 'primeng/splitbutton';\nimport { SplitterModule } from 'primeng/splitter';\nimport { StepperModule } from 'primeng/stepper';\nimport { StepsModule } from 'primeng/steps';\nimport { TabMenuModule } from 'primeng/tabmenu';\nimport { TableModule } from 'primeng/table';\nimport { TabViewModule } from 'primeng/tabview';\nimport { Tag } from 'primeng/tag';\nimport { Terminal } from 'primeng/terminal';\nimport { TieredMenuModule } from 'primeng/tieredmenu';\nimport { Timeline } from 'primeng/timeline';\nimport { ToastModule } from 'primeng/toast';\nimport { ToggleButton } from 'primeng/togglebutton';\nimport { ToolbarModule } from 'primeng/toolbar';\nimport { TooltipModule } from 'primeng/tooltip';\nimport { Tree } from 'primeng/tree';\nimport { TreeSelect } from 'primeng/treeselect';\nimport { TreeTableModule } from 'primeng/treetable';\nimport { AnimateOnScrollModule } from 'primeng/animateonscroll';\nimport { CardModule } from 'primeng/card';\nimport { BlockUI } from 'primeng/blockui';\nimport { ProgressSpinner } from 'primeng/progressspinner';\nimport { Ripple } from 'primeng/ripple';\nimport { FloatLabel } from 'primeng/floatlabel';\nimport { IconField } from 'primeng/iconfield';\nimport { InputIcon } from 'primeng/inputicon';\nimport { StyleClass } from 'primeng/styleclass';\nimport { AutoFocusModule } from 'primeng/autofocus';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { NgModule } from '@angular/core';\nimport { OverlayBadgeModule } from 'primeng/overlaybadge';\n\n@NgModule({\n  imports: [\n    AvatarModule,\n    AvatarGroupModule,\n    AnimateOnScrollModule,\n    FormsModule,\n    ReactiveFormsModule,\n    AccordionModule,\n    AutoComplete,\n    BadgeModule,\n    BreadcrumbModule,\n    BlockUI,\n    ButtonModule,\n    CalendarModule,\n    DatePicker,\n    Carousel,\n    CascadeSelect,\n    Checkbox,\n    Chip,\n    ColorPicker,\n    ConfirmDialog,\n    ConfirmPopupModule,\n    ContextMenuModule,\n    DataView,\n    Dialog,\n    DividerModule,\n    DrawerModule,\n    DockModule,\n    DragDropModule,\n    Select,\n    DeferModule,\n    FieldsetModule,\n    FileUpload,\n    FloatLabel,\n    FocusTrap,\n    GalleriaModule,\n    InplaceModule,\n    InputMask,\n    InputSwitchModule,\n    InputTextModule,\n    TextareaModule,\n    InputNumber,\n    InputGroup,\n    InputGroupAddonModule,\n    InputOtp,\n    Image,\n    Knob,\n    Listbox,\n    MegaMenuModule,\n    MenuModule,\n    MenubarModule,\n    Message,\n    MessagesModule,\n    MultiSelectModule,\n    MeterGroup,\n    OrganizationChartModule,\n    OrderList,\n    OverlayPanelModule,\n    PaginatorModule,\n    PanelModule,\n    PanelMenuModule,\n    PasswordModule,\n    PickList,\n    ProgressSpinner,\n    ProgressBar,\n    RadioButton,\n    Rating,\n    SelectButton,\n    SidebarModule,\n    Scroller,\n    ScrollPanelModule,\n    ScrollTop,\n    Skeleton,\n    Slider,\n    SpeedDialModule,\n    SplitterModule,\n    StepperModule,\n    SplitButton,\n    StepsModule,\n    TableModule,\n    TabMenuModule,\n    TabViewModule,\n    Tag,\n    Terminal,\n    TieredMenuModule,\n    Timeline,\n    ToastModule,\n    ToggleButton,\n    ToggleSwitch,\n    ToolbarModule,\n    TooltipModule,\n    Tree,\n    TreeSelect,\n    TreeTableModule,\n    CardModule,\n    Ripple,\n    StyleClass,\n    IconField,\n    InputIcon,\n    AutoFocusModule,\n    OverlayBadgeModule,\n  ],\n  exports: [\n    AvatarModule,\n    AvatarGroupModule,\n    AnimateOnScrollModule,\n    FormsModule,\n    ReactiveFormsModule,\n    AccordionModule,\n    AutoComplete,\n    BadgeModule,\n    BreadcrumbModule,\n    BlockUI,\n    ButtonModule,\n    CalendarModule,\n    DatePicker,\n    Carousel,\n    CascadeSelect,\n    Checkbox,\n    Chip,\n    ColorPicker,\n    ConfirmDialog,\n    ConfirmPopupModule,\n    ContextMenuModule,\n    DataView,\n    Dialog,\n    DividerModule,\n    DrawerModule,\n    DeferModule,\n    DockModule,\n    DragDropModule,\n    Select,\n    FieldsetModule,\n    FileUpload,\n    FocusTrap,\n    GalleriaModule,\n    InplaceModule,\n    InputMask,\n    InputSwitchModule,\n    InputTextModule,\n    TextareaModule,\n    InputNumber,\n    InputGroup,\n    InputGroupAddonModule,\n    InputOtp,\n    Image,\n    Knob,\n    Listbox,\n    MegaMenuModule,\n    MenuModule,\n    MenubarModule,\n    Message,\n    MessagesModule,\n    MultiSelectModule,\n    MeterGroup,\n    OrganizationChartModule,\n    OrderList,\n    OverlayPanelModule,\n    PaginatorModule,\n    PanelModule,\n    PanelMenuModule,\n    PasswordModule,\n    PickList,\n    ProgressSpinner,\n    ProgressBar,\n    RadioButton,\n    Rating,\n    SelectButton,\n    SidebarModule,\n    Scroller,\n    ScrollPanelModule,\n    ScrollTop,\n    Skeleton,\n    Slider,\n    SpeedDialModule,\n    SplitterModule,\n    StepperModule,\n    SplitButton,\n    StepsModule,\n    TableModule,\n    TabMenuModule,\n    TabViewModule,\n    Tag,\n    Terminal,\n    TieredMenuModule,\n    Timeline,\n    ToastModule,\n    ToggleButton,\n    ToggleSwitch,\n    ToolbarModule,\n    TooltipModule,\n    Tree,\n    TreeSelect,\n    TreeTableModule,\n    CardModule,\n    Ripple,\n    StyleClass,\n    FloatLabel,\n    IconField,\n    InputIcon,\n    AutoFocusModule,\n    OverlayBadgeModule,\n  ],\n})\nexport class ImportsModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AutoComplete"
+                        },
+                        {
+                            "name": "BlockUI"
+                        },
+                        {
+                            "name": "Carousel"
+                        },
+                        {
+                            "name": "CascadeSelect"
+                        },
+                        {
+                            "name": "Checkbox"
+                        },
+                        {
+                            "name": "Chip"
+                        },
+                        {
+                            "name": "ColorPicker"
+                        },
+                        {
+                            "name": "ConfirmDialog"
+                        },
+                        {
+                            "name": "DataView"
+                        },
+                        {
+                            "name": "DatePicker"
+                        },
+                        {
+                            "name": "Dialog"
+                        },
+                        {
+                            "name": "FileUpload"
+                        },
+                        {
+                            "name": "FloatLabel"
+                        },
+                        {
+                            "name": "FocusTrap"
+                        },
+                        {
+                            "name": "IconField"
+                        },
+                        {
+                            "name": "Image"
+                        },
+                        {
+                            "name": "InputGroup"
+                        },
+                        {
+                            "name": "InputIcon"
+                        },
+                        {
+                            "name": "InputMask"
+                        },
+                        {
+                            "name": "InputNumber"
+                        },
+                        {
+                            "name": "InputOtp"
+                        },
+                        {
+                            "name": "Knob"
+                        },
+                        {
+                            "name": "Listbox"
+                        },
+                        {
+                            "name": "Message"
+                        },
+                        {
+                            "name": "MeterGroup"
+                        },
+                        {
+                            "name": "OrderList"
+                        },
+                        {
+                            "name": "PickList"
+                        },
+                        {
+                            "name": "ProgressBar"
+                        },
+                        {
+                            "name": "ProgressSpinner"
+                        },
+                        {
+                            "name": "RadioButton"
+                        },
+                        {
+                            "name": "Rating"
+                        },
+                        {
+                            "name": "Ripple"
+                        },
+                        {
+                            "name": "ScrollTop"
+                        },
+                        {
+                            "name": "Scroller"
+                        },
+                        {
+                            "name": "Select"
+                        },
+                        {
+                            "name": "SelectButton"
+                        },
+                        {
+                            "name": "Skeleton"
+                        },
+                        {
+                            "name": "Slider"
+                        },
+                        {
+                            "name": "SplitButton"
+                        },
+                        {
+                            "name": "StyleClass"
+                        },
+                        {
+                            "name": "Tag"
+                        },
+                        {
+                            "name": "Terminal"
+                        },
+                        {
+                            "name": "Timeline"
+                        },
+                        {
+                            "name": "ToggleButton"
+                        },
+                        {
+                            "name": "ToggleSwitch"
+                        },
+                        {
+                            "name": "Tree"
+                        },
+                        {
+                            "name": "TreeSelect"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AutoComplete"
+                        },
+                        {
+                            "name": "BlockUI"
+                        },
+                        {
+                            "name": "Carousel"
+                        },
+                        {
+                            "name": "CascadeSelect"
+                        },
+                        {
+                            "name": "Checkbox"
+                        },
+                        {
+                            "name": "Chip"
+                        },
+                        {
+                            "name": "ColorPicker"
+                        },
+                        {
+                            "name": "ConfirmDialog"
+                        },
+                        {
+                            "name": "DataView"
+                        },
+                        {
+                            "name": "DatePicker"
+                        },
+                        {
+                            "name": "Dialog"
+                        },
+                        {
+                            "name": "FileUpload"
+                        },
+                        {
+                            "name": "FloatLabel"
+                        },
+                        {
+                            "name": "FocusTrap"
+                        },
+                        {
+                            "name": "IconField"
+                        },
+                        {
+                            "name": "Image"
+                        },
+                        {
+                            "name": "InputGroup"
+                        },
+                        {
+                            "name": "InputIcon"
+                        },
+                        {
+                            "name": "InputMask"
+                        },
+                        {
+                            "name": "InputNumber"
+                        },
+                        {
+                            "name": "InputOtp"
+                        },
+                        {
+                            "name": "Knob"
+                        },
+                        {
+                            "name": "Listbox"
+                        },
+                        {
+                            "name": "Message"
+                        },
+                        {
+                            "name": "MeterGroup"
+                        },
+                        {
+                            "name": "OrderList"
+                        },
+                        {
+                            "name": "PickList"
+                        },
+                        {
+                            "name": "ProgressBar"
+                        },
+                        {
+                            "name": "ProgressSpinner"
+                        },
+                        {
+                            "name": "RadioButton"
+                        },
+                        {
+                            "name": "Rating"
+                        },
+                        {
+                            "name": "Ripple"
+                        },
+                        {
+                            "name": "ScrollTop"
+                        },
+                        {
+                            "name": "Scroller"
+                        },
+                        {
+                            "name": "Select"
+                        },
+                        {
+                            "name": "SelectButton"
+                        },
+                        {
+                            "name": "Skeleton"
+                        },
+                        {
+                            "name": "Slider"
+                        },
+                        {
+                            "name": "SplitButton"
+                        },
+                        {
+                            "name": "StyleClass"
+                        },
+                        {
+                            "name": "Tag"
+                        },
+                        {
+                            "name": "Terminal"
+                        },
+                        {
+                            "name": "Timeline"
+                        },
+                        {
+                            "name": "ToggleButton"
+                        },
+                        {
+                            "name": "ToggleSwitch"
+                        },
+                        {
+                            "name": "Tree"
+                        },
+                        {
+                            "name": "TreeSelect"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
     "miscellaneous": {
         "variables": [
             {
@@ -2643,16 +2688,6 @@
                 "defaultValue": "[\n  {\n    amats: 'Biroja administrators',\n    kompetence: 'Māk rakstīt | Sertificēts revidents',\n    kompetencuSkaits: '2',\n    darbniekuSkaits: 'min: 1 / max: 1 / opt: 1',\n  },\n]"
             },
             {
-                "name": "templateNodes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/tree/data.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "[]",
-                "defaultValue": "[\n  {\n    key: '0',\n    label: 'Introduction',\n    children: [\n      {\n        key: '0-0',\n        label: 'What is Angular',\n        data: 'https://angular.io',\n        type: 'url',\n      },\n      {\n        key: '0-1',\n        label: 'Getting Started',\n        data: 'https://angular.io/guide/setup-local',\n        type: 'url',\n      },\n      {\n        key: '0-2',\n        label: 'Learn and Explore',\n        data: 'https://angular.io/guide/architecture',\n        type: 'url',\n      },\n      {\n        key: '0-3',\n        label: 'Take a Look',\n        data: 'https://angular.io/start',\n        type: 'url',\n      },\n    ],\n  },\n  {\n    key: '1',\n    label: 'Components In-Depth',\n    children: [\n      {\n        key: '1-0',\n        label: 'Component Registration',\n        data: 'https://angular.io/guide/component-interaction',\n        type: 'url',\n      },\n      {\n        key: '1-1',\n        label: 'User Input',\n        data: 'https://angular.io/guide/user-input',\n        type: 'url',\n      },\n      {\n        key: '1-2',\n        label: 'Hooks',\n        data: 'https://angular.io/guide/lifecycle-hooks',\n        type: 'url',\n      },\n      {\n        key: '1-3',\n        label: 'Attribute Directives',\n        data: 'https://angular.io/guide/attribute-directives',\n        type: 'url',\n      },\n    ],\n  },\n]"
-            },
-            {
                 "name": "TimePlanning",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2775,16 +2810,6 @@
                     "deprecationMessage": "",
                     "type": "TreeNode[]",
                     "defaultValue": "[\n  {\n    key: '0',\n    label: 'Documents',\n    data: 'Documents Folder',\n    icon: 'pi pi-fw pi-inbox',\n    children: [\n      {\n        key: '0-0',\n        label: 'Work',\n        data: 'Work Folder',\n        icon: 'pi pi-fw pi-cog',\n        children: [\n          {\n            key: '0-0-0',\n            label: 'Expenses.doc',\n            icon: 'pi pi-fw pi-file',\n            data: 'Expenses Document',\n          },\n          {\n            key: '0-0-1',\n            label: 'Resume.doc',\n            icon: 'pi pi-fw pi-file',\n            data: 'Resume Document',\n          },\n        ],\n      },\n      {\n        key: '0-1',\n        label: 'Home',\n        data: 'Home Folder',\n        icon: 'pi pi-fw pi-home',\n        children: [\n          {\n            key: '0-1-0',\n            label: 'Invoices.txt',\n            icon: 'pi pi-fw pi-file',\n            data: 'Invoices for this month',\n          },\n        ],\n      },\n    ],\n  },\n  {\n    key: '1',\n    label: 'Events',\n    data: 'Events Folder',\n    icon: 'pi pi-fw pi-calendar',\n    children: [\n      {\n        key: '1-0',\n        label: 'Meeting',\n        icon: 'pi pi-fw pi-calendar-plus',\n        data: 'Meeting',\n      },\n      {\n        key: '1-1',\n        label: 'Product Launch',\n        icon: 'pi pi-fw pi-calendar-plus',\n        data: 'Product Launch',\n      },\n      {\n        key: '1-2',\n        label: 'Report Review',\n        icon: 'pi pi-fw pi-calendar-plus',\n        data: 'Report Review',\n      },\n    ],\n  },\n  {\n    key: '2',\n    label: 'Movies',\n    data: 'Movies Folder',\n    icon: 'pi pi-fw pi-star-fill',\n    children: [\n      {\n        key: '2-0',\n        icon: 'pi pi-fw pi-star-fill',\n        label: 'Al Pacino',\n        data: 'Pacino Movies',\n        children: [\n          {\n            key: '2-0-0',\n            label: 'Scarface',\n            icon: 'pi pi-fw pi-video',\n            data: 'Scarface Movie',\n          },\n          {\n            key: '2-0-1',\n            label: 'Serpico',\n            icon: 'pi pi-fw pi-video',\n            data: 'Serpico Movie',\n          },\n        ],\n      },\n      {\n        key: '2-1',\n        label: 'Robert De Niro',\n        icon: 'pi pi-fw pi-star-fill',\n        data: 'De Niro Movies',\n        children: [\n          {\n            key: '2-1-0',\n            label: 'Goodfellas',\n            icon: 'pi pi-fw pi-video',\n            data: 'Goodfellas Movie',\n          },\n          {\n            key: '2-1-1',\n            label: 'Untouchables',\n            icon: 'pi pi-fw pi-video',\n            data: 'Untouchables Movie',\n          },\n        ],\n      },\n    ],\n  },\n]"
-                },
-                {
-                    "name": "templateNodes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/tree/data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[\n  {\n    key: '0',\n    label: 'Introduction',\n    children: [\n      {\n        key: '0-0',\n        label: 'What is Angular',\n        data: 'https://angular.io',\n        type: 'url',\n      },\n      {\n        key: '0-1',\n        label: 'Getting Started',\n        data: 'https://angular.io/guide/setup-local',\n        type: 'url',\n      },\n      {\n        key: '0-2',\n        label: 'Learn and Explore',\n        data: 'https://angular.io/guide/architecture',\n        type: 'url',\n      },\n      {\n        key: '0-3',\n        label: 'Take a Look',\n        data: 'https://angular.io/start',\n        type: 'url',\n      },\n    ],\n  },\n  {\n    key: '1',\n    label: 'Components In-Depth',\n    children: [\n      {\n        key: '1-0',\n        label: 'Component Registration',\n        data: 'https://angular.io/guide/component-interaction',\n        type: 'url',\n      },\n      {\n        key: '1-1',\n        label: 'User Input',\n        data: 'https://angular.io/guide/user-input',\n        type: 'url',\n      },\n      {\n        key: '1-2',\n        label: 'Hooks',\n        data: 'https://angular.io/guide/lifecycle-hooks',\n        type: 'url',\n      },\n      {\n        key: '1-3',\n        label: 'Attribute Directives',\n        data: 'https://angular.io/guide/attribute-directives',\n        type: 'url',\n      },\n    ],\n  },\n]"
                 }
             ],
             "src/app/app.config.server.ts": [
@@ -3100,7 +3125,7 @@
                 "linktype": "component",
                 "name": "LeftMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -3180,6 +3205,24 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/components/tree/basic/basic.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NumoTreeBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tree/checkbox/checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NumoTreeCheckbox",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/components/tree/data.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3187,25 +3230,6 @@
                 "name": "commonFiles",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/tree/data.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "templateNodes",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/tree/tree.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "TreeComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/20",
                 "status": "low"
             },
             {
