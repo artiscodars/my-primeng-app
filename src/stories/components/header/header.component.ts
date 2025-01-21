@@ -14,7 +14,6 @@ import { Menu, MenuItem } from '../left-menu/menu.model';
 import { UserMenuItems } from './user-menu.model';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { LeftMenuComponent } from '../left-menu/left-menu.component';
-import { IconComponent } from '../icon/icon.component';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { ButtonModule } from 'primeng/button';
@@ -29,7 +28,6 @@ import { ButtonModule } from 'primeng/button';
     MenuModule,
     OverlayPanelModule,
     LeftMenuComponent,
-    IconComponent,
     IconFieldModule,
     InputIconModule,
     ButtonModule,
@@ -59,20 +57,13 @@ export class HeaderComponent {
     if (leftMenu) {
       // Toggle the class on the element with ID "left-menu"
       if (this.isMenuVisible) {
-        leftMenu.classList.add('!left-[20px]');
+        leftMenu.classList.add('!left-[15px]');
+        document.body.classList.add('!pl-[300px]');
       } else {
-        leftMenu.classList.remove('!left-[20px]');
+        leftMenu.classList.remove('!left-[15px]');
+        document.body.classList.remove('!pl-[300px]');
       }
     }
-
-    this.menuClicked.emit(this.isMenuVisible);
-  }
-
-  closeMenu() {
-    this.isMenuVisible = false;
-
-    // Ensure the class is removed from the body when the menu is closed
-    document.body.classList.remove('menu-visible');
   }
 
   onUserMenuItemClick(menuItem: string) {

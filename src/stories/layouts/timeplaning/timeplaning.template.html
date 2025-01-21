@@ -4,7 +4,7 @@
 
   <div class="flex-grow-1">
     <div class="w-full mb-2">
-      <p-breadcrumb class="max-w-full" [model]="itemsWithIsLast" [home]="home">
+      <p-breadcrumb class="max-w-full border block" [model]="itemsWithIsLast" [home]="home">
         <ng-template pTemplate="item" let-item>
           <ng-container *ngIf="!item.isLast; else lastBreadcrumb">
             <!-- For all items except the last one -->
@@ -33,7 +33,7 @@
 
 
     <div
-      class="card flex flex-column md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 flex justify-content-start">
+      class="card flex flex-column md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 justify-content-start">
       <div class="flex flex-column mr-2 items-center gap-2">
         <label for="dropdown" class="mb-1 label text-sm">Struktūrvienība</label>
         <p-select id="dropdown" [options]="options" optionLabel="name" placeholder="Barona ielas veikals"
@@ -49,7 +49,7 @@
         </div>
       </div>
     </div>
-    <p-tabView class="mt-5 numo-transparent-bg">
+    <p-tabView class="mt-5 bg-transparent">
       <p-tabPanel header="Uzstādījumi">
 
         <div class=" flex gap-3 flex-col md:flex-row">

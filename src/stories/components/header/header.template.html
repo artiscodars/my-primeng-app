@@ -1,12 +1,11 @@
-<div class="header flex items-center justify-between gap-3 w-full sticky top-0 z-50 bg-white shadow-md p-3">
+<div class="header flex items-center justify-between gap-3 w-full  p-3">
   <div class="flex items-center  h-10">
-    <span #menuButton (click)="toggleMenu($event)" [ngClass]="isMenuVisible ? 'pi pi-times' : 'pi pi-bars'"
-      class="icon text-gray-800 cursor-pointer">
+    <span #menuButton (click)="toggleMenu($event)" class="icon text-gray-800 cursor-pointer pi pi-bars">
     </span>
 
     <img class="ml-3 h-[40px]" src="logo.png" alt="logo" />
   </div>
-  <div class="flex justify-center relative w-[400px]">
+  <div class="flex-1 flex justify-center relative max-w-[400px]">
     <p-iconfield class="w-full">
       <p-inputicon styleClass="pi pi-search" />
       <input type="text" pInputText placeholder="Meklēt" class="w-full" />
@@ -14,19 +13,20 @@
   </div>
 
   <div class="flex justify-content-end">
-    <p-menu #userMenu [model]="userMenuItems" [popup]="true">
+    <p-menu #userMenu [model]="userMenuItems" [popup]="true" />
 
-    </p-menu>
-
-    <div (click)="showUserMenu($event)" class="w-[250px] cursor-pointer py-1 text-slate-950">
+    <div (click)="showUserMenu($event)" class="cursor-pointer py-1 text-slate-950 max-w-[250px] pr-6 relative">
       <span class="hidden sm:block">Jānis Bērziņš</span>
-      <span class=" sm:hidden block p-2 bg-blue-200 border-circle ">JB</span>
-      <div class="caret"></div>
-      <div class="text-xs hidden sm:block text-ellipsis whitespace-nowrap overflow-hidden">
+      <span
+        class=" sm:hidden  flex items-center justify-center bg-blue-200  rounded-full aspect-square w-[42px] h-[42px] font-semibold">JB</span>
+      <span class="material-symbols-rounded absolute right-0 top-0 translate-y-1/2">
+        keyboard_arrow_down
+      </span>
+      <div class=" text-xs hidden sm:block text-ellipsis whitespace-nowrap overflow-hidden">
         Liepājas valstspilsētas pašvaldības aģentūra "Liepājas
         Sabiedriskais transports"
       </div>
     </div>
   </div>
 </div>
-<numo-left-menu [items]="items" id="left-menu" class="-left-[350px] absolute top-[75px]"></numo-left-menu>
+<numo-left-menu [items]="items" id="left-menu" class="-left-[350px] absolute top-[15px]"></numo-left-menu>

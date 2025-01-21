@@ -1,50 +1,50 @@
-import type { Meta, StoryObj } from "@storybook/angular";
-import { moduleMetadata } from "@storybook/angular";
-import { ButtonModule } from "primeng/button";
-import description from "./button.description.md"; // Import the markdown file
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
+import { ButtonModule } from 'primeng/button';
+import description from './button.description.md'; // Import the markdown file
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const meta: Meta = {
-    title: "Components/Form/Button (desc)",
-    decorators: [
-        moduleMetadata({
-            imports: [ButtonModule, FormsModule, ReactiveFormsModule],
-        }),
-    ],
-    tags: ["autodocs"],
-    parameters: {
-        docs: {
-            description: {
-                component: description,
-            },
-        },
+  title: 'Components/Form/Button (desc)',
+  decorators: [
+    moduleMetadata({
+      imports: [ButtonModule, FormsModule, ReactiveFormsModule],
+    }),
+  ],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: description,
+      },
     },
+  },
 };
 
 export default meta;
 type Story = StoryObj;
 
 export const Primary: Story = {
-    args: {
-        label: "Primary",
-        class: "p-button-primary",
-        link: false,
-        icon: "",
-        iconPos: "right",
-        marginLeft: "10px",
-        loading: false,
-        rounded: false,
-        text: false,
-        raised: false,
-        outlined: false,
-        badge: 0,
-        badgeClass: "p-badge-success",
+  args: {
+    label: 'Primary',
+    class: 'p-button-primary',
+    link: false,
+    icon: '',
+    iconPos: 'right',
+    marginLeft: '10px',
+    loading: false,
+    rounded: false,
+    text: false,
+    raised: false,
+    outlined: false,
+    badge: 0,
+    badgeClass: 'p-badge-success',
+  },
+  render: (args) => ({
+    props: {
+      ...args,
     },
-    render: (args) => ({
-        props: {
-            ...args,
-        },
-        template: `<p-button
+    template: `<p-button
   [label]="label"
   [class]="class"
   [link]="link"
@@ -59,16 +59,16 @@ export const Primary: Story = {
   [badge]="badge"
   [badgeClass]="badgeClass"
 />`,
-    }),
+  }),
 };
 export const basic: Story = {
-    args: {},
-    render: (args) => ({
-        props: {
-            ...args,
-        },
+  args: {},
+  render: (args) => ({
+    props: {
+      ...args,
+    },
 
-        template: `
+    template: `
        <div class="card flex flex-wrap gap-3 justify-content-center">
     <p-button label="Primary" />
     <p-button label="Secondary" severity="secondary" />
@@ -77,57 +77,57 @@ export const basic: Story = {
 <p-button label="Link" link="true" />
 
 </div>`,
-    }),
+  }),
 };
 
 export const Link: Story = {
-    args: {
-        label: "Link",
-        class: "p-button",
-        link: "https://angular.dev/",
-        marginLeft: "10px",
+  args: {
+    label: 'Link',
+    class: 'p-button',
+    link: 'https://angular.dev/',
+    marginLeft: '10px',
+  },
+  render: (args) => ({
+    props: {
+      ...args,
     },
-    render: (args) => ({
-        props: {
-            ...args,
-        },
-        template: `
+    template: `
               <a [href]="link" target="_blank" rel="noopener noreferrer" class="font-bold" class="p-button-transparent">External</a>
 
                 `,
-    }),
+  }),
 };
 
 export const ButtonsWithIcons: Story = {
-    args: {
-        label: "Submit",
-        class: "p-button",
-        link: "https://angular.dev/",
-        icon: "check",
-        iconPos: "right",
+  args: {
+    label: 'Submit',
+    class: 'p-button',
+    link: 'https://angular.dev/',
+    icon: 'check',
+    iconPos: 'right',
+  },
+  render: (args) => ({
+    props: {
+      ...args,
     },
-    render: (args) => ({
-        props: {
-            ...args,
-        },
-        template: `<div class="card flex justify-content-center gap-2">
+    template: `<div class="card flex justify-content-center gap-2">
     <p-button icon="pi pi-{{icon}}" />
     <p-button [label]="label" icon="pi pi-{{icon}}" />
 </div>`,
-    }),
+  }),
 };
 
 export const OutlinedButtons: Story = {
-    args: {
-        outlined: true,
-        label: "Outlined Button",
-        class: "p-button-outlined",
+  args: {
+    outlined: true,
+    label: 'Outlined Button',
+    class: 'p-button-outlined',
+  },
+  render: (args) => ({
+    props: {
+      ...args,
     },
-    render: (args) => ({
-        props: {
-            ...args,
-        },
-        template: `<div class="card flex flex-wrap gap-3 justify-content-center">
+    template: `<div class="card flex flex-wrap gap-3 justify-content-center">
     <p-button label="Primary" [outlined]="true" />
 <p-button label="Secondary" [outlined]="true" severity="secondary" />
 <p-button label="Success" [outlined]="true" severity="success" />
@@ -137,5 +137,5 @@ export const OutlinedButtons: Story = {
 <p-button label="Danger" [outlined]="true" severity="danger" />
 <p-button label="Contrast" [outlined]="true" severity="contrast" />
 </div>`,
-    }),
+  }),
 };

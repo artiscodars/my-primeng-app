@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import description from './breadcrumb.description.md'; // Import the markdown file
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { RouterTestingModule } from '@angular/router/testing';
 import { IconComponent } from '../icon/icon.component';
 
 const meta: Meta = {
@@ -14,9 +13,8 @@ const meta: Meta = {
       imports: [
         BreadcrumbModule,
         BrowserAnimationsModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterTestingModule,
+        //  FormsModule,
+        //   ReactiveFormsModule,
         IconComponent,
       ],
     }),
@@ -61,7 +59,7 @@ export const basic: Story = {
       ...args,
     },
     template: `
-      <p-breadcrumb class="max-w-full" [model]="items" [home]="home">
+      <p-breadcrumb class="max-w-full bg-transparent" [model]="items" [home]="home">
         <ng-template pTemplate="item" let-item>
           <ng-container *ngIf="!item.isLast; else lastBreadcrumb">
             <!-- For all items except the last one -->

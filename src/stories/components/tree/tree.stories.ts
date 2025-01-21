@@ -4,6 +4,7 @@ import { NumoTreeBasic } from './basic/basic.component';
 import { NumoTreeCheckbox } from './checkbox/checkbox.component';
 import { commonFiles } from './data';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 const meta: Meta = {
   title: 'Components/Tree',
   decorators: [
@@ -11,8 +12,6 @@ const meta: Meta = {
       imports: [NumoTreeBasic, NumoTreeCheckbox, BrowserAnimationsModule],
     }),
   ],
-  // excludeStories: /.*Data$/,
-  tags: ['autodocs'],
   parameters: {
     docs: {
       description: {
