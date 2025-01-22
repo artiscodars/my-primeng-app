@@ -5,11 +5,8 @@
 - **Primary**: Used for the most important action, typically a "call to action" (CTA) that we want the user to perform, such as creating a new item.
 - **Secondary**: Used for less critical actions, often for optional actions, such as opening an important section.
 - **Success**: Typically used for actions like saving data or confirming a successful operation.
-- **Info**: Used for informational purposes or neutral actions.
-- **Warning**: Used to draw attention to cautionary actions.
-- **Help**: Used for actions that provide help or support.
 - **Danger**: Used for actions that might have negative consequences, such as deleting data.
-- **Contrast**: Used to make a button stand out against the background for emphasis.
+- **Link**: Used to make a button like simple link.
 
 ### Usage Recommendations
 
@@ -25,21 +22,9 @@
 - **Focused**: When the button is focused for accessibility or keyboard navigation.
 - **Disabled**: Should be avoided; it is better to hide the button until the action is allowed.
 
-## Link Styles
-
-- **Button**: Styled as a button but behaves like a link.
-- **Text**: Plain text style without the button appearance.
-
 ## Buttons with Icons
 
 Buttons can include icons to enhance their meaning and provide additional context.
-
-## Button Sizes
-
-- **Button Sizes**: Can be minimal, maximal, or adjusted to the text size. This is usually related to desktop design, while different requirements (35-40 pixels) may apply for mobile devices.
-- **Text Size on Buttons**: Should be consistent to ensure the text looks uniform (standard height and width, so the text appears properly). The size depends on the design system.
-- **Icon Sizes**: Depends on the design elements.
-- **Padding**: The spacing within buttons (padding) should be determined based on the design.
 
 ## Button Text Guidelines
 

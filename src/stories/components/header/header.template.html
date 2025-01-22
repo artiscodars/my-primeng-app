@@ -1,4 +1,4 @@
-<div class="header flex items-center justify-between gap-3 w-full  p-3">
+<div class="header flex items-center justify-between gap-3 w-full  p-3 -mt-[15px]">
   <div class="flex items-center  h-10">
     <span #menuButton (click)="toggleMenu($event)" class="icon text-gray-800 cursor-pointer pi pi-bars">
     </span>
@@ -29,4 +29,8 @@
     </div>
   </div>
 </div>
-<numo-left-menu [items]="items" id="left-menu" class="-left-[350px] absolute top-[15px]"></numo-left-menu>
+<div
+  class="-left-[350px] absolute top-[73px] bottom-[15px] w-[270px] bg-white p-3 shadow-lg lg:shadow-none z-50 border border-gray-200 rounded-lg transition-all duration-300 ease-in-out"
+  id="left-menu">
+  <numo-left-menu [items]="items"></numo-left-menu>
+</div>

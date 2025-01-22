@@ -1,58 +1,40 @@
-import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
-import description from "./table.description.md"; // Import the markdown file
-import { TableModule } from "primeng/table";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FloatLabelModule } from "primeng/floatlabel";
-import { CommonModule } from "@angular/common";
-import { RatingModule } from "primeng/rating";
-import { TagModule } from "primeng/tag";
-import { BadgeModule } from "primeng/badge";
-import { ButtonModule } from "primeng/button";
-import { SelectButtonModule } from "primeng/selectbutton";
-import { IconComponent } from "../icon/icon.component";
-import { ChipModule } from "primeng/chip";
-import { InputTextModule } from "primeng/inputtext";
-import { InputGroupModule } from "primeng/inputgroup";
-import { InputGroupAddonModule } from "primeng/inputgroupaddon";
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
+import description from './table.description.md'; // Import the markdown file
+import { ImportsModule } from '../../../app/imports';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CommonModule } from '@angular/common';
+
+import { IconComponent } from '../icon/icon.component';
+
+import { TableData, TableData2, Products } from './table.data';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta = {
-    title: "Components/Table",
-    decorators: [
-        moduleMetadata({
-            imports: [
-                TableModule,
-                CommonModule,
-                BrowserAnimationsModule,
-                FormsModule,
-                ReactiveFormsModule,
-                FloatLabelModule,
-                CommonModule,
-                TagModule,
-                RatingModule,
-                ButtonModule,
-                SelectButtonModule,
-                IconComponent,
-                InputTextModule,
-                InputGroupModule,
-                InputGroupAddonModule,
-                BadgeModule,
-                ChipModule,
-            ],
-        }),
-    ],
-    tags: ["autodocs"],
-    argTypes: {},
-    parameters: {
-        docs: {
-            description: {
-                component: description,
-            },
-        },
+  title: 'Components/Table',
+  decorators: [
+    moduleMetadata({
+      imports: [
+        ImportsModule,
+        CommonModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        IconComponent,
+      ],
+    }),
+  ],
+  tags: ['autodocs'],
+  argTypes: {},
+  parameters: {
+    docs: {
+      description: {
+        component: description,
+      },
     },
-    // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-    // args: { onClick: fn() },
+  },
 };
 
 export default meta;
@@ -60,39 +42,39 @@ type Story = StoryObj;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Basic: Story = {
-    args: {
-        products: [
-            {
-                id: "1000",
-                code: "f230fh0g3",
-                name: "Bamboo Watch",
-                description: "Product Description",
-                image: "bamboo-watch.jpg",
-                price: 65,
-                category: "Accessories",
-                quantity: 24,
-                inventoryStatus: "INSTOCK",
-                rating: 5,
-            },
-            {
-                id: "1001",
-                code: "f230fh0g3",
-                name: "Black Watch",
-                description: "Product Description",
-                image: "Black-watch.jpg",
-                price: 65,
-                category: "Accessories",
-                quantity: 20,
-                inventoryStatus: "INSTOCK",
-                rating: 5,
-            },
-        ],
+  args: {
+    products: [
+      {
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'Bamboo Watch',
+        description: 'Product Description',
+        image: 'bamboo-watch.jpg',
+        price: 65,
+        category: 'Accessories',
+        quantity: 24,
+        inventoryStatus: 'INSTOCK',
+        rating: 5,
+      },
+      {
+        id: '1001',
+        code: 'f230fh0g3',
+        name: 'Black Watch',
+        description: 'Product Description',
+        image: 'Black-watch.jpg',
+        price: 65,
+        category: 'Accessories',
+        quantity: 20,
+        inventoryStatus: 'INSTOCK',
+        rating: 5,
+      },
+    ],
+  },
+  render: (args) => ({
+    props: {
+      ...args,
     },
-    render: (args) => ({
-        props: {
-            ...args,
-        },
-        template: `<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+    template: `<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
         <tr>
             <th>Code</th>
@@ -110,142 +92,143 @@ export const Basic: Story = {
         </tr>
     </ng-template>
 </p-table>`,
-    }),
+  }),
 };
 
 class TableDemo {
-    getSeverity(status: string) {
-        switch (status) {
-            case "Standarta":
-                return "secondary";
-            case "Nestandarta":
-                return "danger";
-            default:
-                return "info";
-        }
+  getSeverity(status: string) {
+    switch (status) {
+      case 'Standarta':
+        return 'secondary';
+      case 'Nestandarta':
+        return 'danger';
+      default:
+        return 'info';
     }
+  }
 }
 
 export const ForDataView: Story = {
-    args: {
-        products: [
-            {
-                id: 1,
-                code: "f230fh0g3",
-                name: "Darba dienas",
-                slots: ["8:00 - 17:00 (8h 15min)", "18:00 - 23:00 (4h 45min)"],
-                badgeName: "Parasts",
-                badgeSeverity: "info",
-                inventoryStatus: "Standarta",
-                days: [1, 2, 3, 4, 5],
-            },
-            {
-                id: 2,
-                code: "f230fh0g3",
-                name: "Citas foršas darba dienas",
-                slots: ["8:00 - 17:00 (8h 15min)", "18:00 - 23:00 (4h 45min)"],
-                badgeName: "Ideāls",
-                badgeSeverity: "success",
-                inventoryStatus: "Nestandarta",
-                days: [1, 4, 5],
-                dates: ["12.12.2024", "12.12.2024"],
-            },
-            {
-                id: 3,
-                code: "f230fh0g3",
-                name: "Brīvdienas",
-                slots: ["8:00 - 17:00 (8h 15min)", "18:00 - 23:00 (4h 45min)"],
-                badgeName: "Nestandarta",
-                badgeSeverity: "warning",
-                inventoryStatus: "Standarta",
-                days: [1, 5],
-                dates: ["12.12.2024"],
-            },
-        ],
-    },
+  args: {
+    TableData: [...TableData],
+    TableData2: [...TableData2],
+    Products: [...Products],
+  },
 
-    render: (args) => ({
-        props: {
-            ...args,
-            getSeverity: (status: any) => new TableDemo().getSeverity(status),
-        },
-        template: `<p-table [value]="products" [tableStyle]="{'min-width': '60rem'}" class="data-table">
+  render: (args) => {
+    let expandedRows: { [key: string]: boolean } = {};
 
-    <ng-template pTemplate="body" let-product>
-        <tr>
-            <td>
-            <div class="flex flex-wrap  gap-2">
+    const isRowExpanded = (product: any) => !!expandedRows[product.id];
+    const toggleRow = (product: any) => {
+      if (expandedRows[product.id]) {
+        delete expandedRows[product.id];
+      } else {
+        expandedRows[product.id] = true;
+      }
+    };
 
-            <span
-                                                    class="flex align-items-center justify-content-center font-semibold white-space-nowrap">{{product.name}}</span>
-              <p-badge [value]="product.badgeName" [severity]="product.badgeSeverity"
-                                                    class="flex align-items-center justify-content-center "
-                                                    styleClass="text-xs font-normal"></p-badge>
-                                                    </div>
+    return {
+      props: {
+        ...args,
+        getSeverity: (status: any) => new TableDemo().getSeverity(status),
+        isRowExpanded,
+        toggleRow,
+      },
+      template: `
+         <p-table [value]="Products" dataKey="id">
+                <!-- Body Template for Product Rows -->
+                <ng-template pTemplate="body" let-product>
+                  <tr>
+                    <!-- Caret Icon for Expand/Collapse -->
+
+                    <td>
+                      <div class="flex flex-wrap items-center gap-2">
+                        <p-button severity="secondary" [text]="true" (click)="toggleRow(product)">
+                          <span class="material-symbols-rounded">
+                            {{ isRowExpanded(product) ? 'expand_more' :
+                            'chevron_right' }}
+                          </span>
+                        </p-button>
+
+                        <span
+                          class="flex items-center justify-content-center font-semibold white-space-nowrap">{{product.name}}</span>
+                        <p-badge [value]="product.badgeName" [severity]="product.badgeSeverity"
+                          class="flex items-center justify-content-center" styleClass="text-xs font-normal"></p-badge>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="flex flex-wrap gap-2">
+                        <p-badge *ngFor="let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index" [value]="day"
+                          [severity]="product.days.includes(i + 1) ? 'info' : 'secondary'"
+                          [styleClass]="product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'" />
+                        <p-badge *ngFor="let date of product.dates" severity="info" [value]="date" ></p-badge>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="flex flex-wrap gap-2">
+                        <p-chip *ngFor="let slot of product.slots" [label]="slot"
+                          styleClass="white-space-nowrap text-xs py-[4px] bg-gray-100 text-gray-900" />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="flex w-full justify-content-between gap-3 md:justify-content-end">
+                        <p-button severity="secondary" [text]="true">
+                          <span class="material-symbols-rounded"> edit </span>
+                        </p-button>
+
+                        <p-button severity="danger" [text]="true">
+                          <span class="material-symbols-rounded"> delete </span>
+                        </p-button>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Expanded Row Content -->
+                  <tr *ngIf="isRowExpanded(product)">
+                    <td colspan="4">
+                      <div class="p-2">
+                        <h3>Darba laiki</h3>
+                        <p-table [value]="tableData" [tableStyle]="{ ' min-width': '50rem' }">
+                          <ng-template pTemplate="header">
+                  <tr>
+                    <th>Darba laiks</th>
+                    <th>Pārtraukums</th>
+                    <th>Darba vieta</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-innerProduct>
+                  <tr>
+                    <td>{{ innerProduct.darbaLaiks }}</td>
+                    <td>{{ innerProduct.partraukums }}</td>
+                    <td>{{ innerProduct.darbaVieta }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+
+              <h3 class="mt-4">Vajadzības</h3>
+              <p-table [value]="tableData2" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Amats</th>
+                    <th>Kompetence</th>
+                    <th>Kompetenču skaits</th>
+                    <th>Darbnieku skaits</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-innerProduct>
+                  <tr>
+                    <td>{{ innerProduct.amats }}</td>
+                    <td>{{ innerProduct.kompetence }}</td>
+                    <td>{{ innerProduct.kompetencuSkaits }}</td>
+                    <td>{{ innerProduct.darbniekuSkaits }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
             </td>
-
-            <td>
-                <div class="flex flex-wrap gap-2">
-
-
-
-
-                                                <div class="p-buttonset daycalendar">
-                                                    <p-button
-                                                        *ngFor="let day of ['M', 'T', 'W', 'T', 'F', 'S', 'S']; let i = index"
-                                                        type="button" [label]="day" size="small" severity="secondary"
-                                                        [outlined]="!product.days.includes(i + 1)">
-                                                    </p-button>
-                                                </div>
-
-                                                <div *ngFor="let date of product.dates" class="p-buttonset daycalendar">
-                                                    <p-button type="button" [outlined]="true" [label]="date"
-                                                        size="small"></p-button>
-                                                    <p-button icon="pi pi-times" size="small" severity="secondary"
-                                                        styleClass="w-3"></p-button>
-                                                </div>
-
-
-
-
-                                            </div>
-
-            </td>
-            <td>
-
-              <div class="flex flex-wrap gap-2">
-                                                <p-chip *ngFor="let slot of product.slots" [label]="slot"
-                                                    styleClass="white-space-nowrap text-xs" />
-                                            </div>
-
-            </td>
-            <td class="text-right">
-
-            <td>
-                                            <div
-                                                class="flex w-full justify-content-between  gap-3 md:justify-content-end">
-                                                <button aria-label="Edit"
-                                                    class="p-button p-button-lg p-button-secondary p-1 p-button-text text-gray-800">
-                                                    <span class="material-symbols-rounded text-2xl">
-                                                        edit
-                                                    </span>
-                                                </button>
-
-                                                <button aria-label="Delete"
-                                                    class="p-button p-button-danger p-button-lg p-1 p-button-text text-gray-800">
-                                                    <span class="material-symbols-rounded text-2xl">
-                                                        delete
-                                                    </span>
-                                                </button>
-                                            </div>
-
-
-            </td>
-
-        </tr>
-    </ng-template>
-
-</p-table>
-`,
-    }),
+            </tr>
+            </ng-template>
+            </p-table>
+      `,
+    };
+  },
 };

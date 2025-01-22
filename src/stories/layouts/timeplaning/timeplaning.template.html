@@ -1,10 +1,9 @@
 <numo-header></numo-header>
 
-<div class="w-full">
-
+<div class="w-full transition-all duration-300 ease-in-out" id="content_holder">
   <div class="flex-grow-1">
-    <div class="w-full mb-2">
-      <p-breadcrumb class="max-w-full border block" [model]="itemsWithIsLast" [home]="home">
+    <div class="w-full mb-3 rounded-lg border border-gray-200 overflow-hidden">
+      <p-breadcrumb class="max-w-full block border-0" [model]="itemsWithIsLast" [home]="home">
         <ng-template pTemplate="item" let-item>
           <ng-container *ngIf="!item.isLast; else lastBreadcrumb">
             <!-- For all items except the last one -->
@@ -31,269 +30,208 @@
       </p-breadcrumb>
     </div>
 
-
     <div
-      class="card flex flex-column md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 justify-content-start">
-      <div class="flex flex-column mr-2 items-center gap-2">
+      class="card flex flex-col md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 justify-content-start rounded-lg">
+      <div class="flex flex-col mr-2 items-start md:gap-2">
         <label for="dropdown" class="mb-1 label text-sm">Struktūrvienība</label>
         <p-select id="dropdown" [options]="options" optionLabel="name" placeholder="Barona ielas veikals"
           styleClass="w-full" />
       </div>
-      <div class="flex flex-column items-center gap-2">
+      <div class="flex flex-col items-start md:gap-2">
         <label for="calendar" class="mb-1 label text-sm">Mēnesis</label>
-        <div class="flex items-center">
-
+        <div class="flex items-center w-full">
           <p-calendar id="calendar" [(ngModel)]="date" view="month" [iconDisplay]="'input'" [showIcon]="true"
-            class="w-full" dateFormat="MM, yy" [readonlyInput]="true" />
-
+            styleClass="w-full" dateFormat="MM, yy" [readonlyInput]="true" />
         </div>
       </div>
     </div>
-    <p-tabView class="mt-5 bg-transparent">
-      <p-tabPanel header="Uzstādījumi">
-
-        <div class=" flex gap-3 flex-col md:flex-row">
-          <p-menu [model]="menuItems" class="hidden md:flex" />
-          <div class="md:hidden w-full">
-            <p-select [options]="menuItems" class="w-full" />
-          </div>
-          <div class="flex-1">
-            <!-- Existing "Pievienot" Button for Desktop -->
-            <p-button label="Pievienot" icon="pi pi-plus" class="plus-button hidden md:block pb-3" size="small"
-              (onClick)="showAddDataDialog()" />
-
-            <!-- Existing "Pievienot" Button for Mobile -->
-            <p-button icon="pi pi-plus" class="fixed bottom-0 right-0 mr-4 mb-4 z-5 shadow-2 border-circle md:hidden"
-              size="small" rounded="true" (onClick)="showAddDataDialog()" />
-
-
-            <div>
-
-
-              <p-table [value]="Products" dataKey="id">
-
-                <!-- Body Template for Product Rows -->
-                <ng-template pTemplate="body" let-product>
-                  <tr>
-                    <!-- Caret Icon for Expand/Collapse -->
-
-                    <td>
-                      <div class="flex flex-wrap items-center gap-2">
-
-
-
-
-                        <p-button severity="secondary" [text]="true" (click)="toggleRow(product)">
-                          <span class="material-symbols-rounded">
-                            {{ isRowExpanded(product) ? 'expand_more' : 'chevron_right' }}
-                          </span>
-                        </p-button>
-
-
-                        <span
-                          class="flex items-center justify-content-center font-semibold white-space-nowrap">{{product.name}}</span>
-                        <p-badge [value]="product.badgeName" [severity]="product.badgeSeverity"
-                          class="flex items-center justify-content-center " styleClass="text-xs font-normal"></p-badge>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="flex flex-wrap gap-2">
-
-
-                        <p-badge *ngFor="let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index" [value]="day"
-                          [severity]="product.days.includes(i + 1) ? 'secondary' : 'secondary'"
-                          [styleClass]="product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'" />
-                        <p-badge *ngFor="let date of product.dates" severity="secondary" [value]="date"></p-badge>
-
-
-
-
-
-
-
-
-
-
-                      </div>
-                    </td>
-                    <td>
-
-                      <div class="flex flex-wrap gap-2">
-                        <p-chip *ngFor="let slot of product.slots" [label]="slot"
-                          styleClass="white-space-nowrap text-xs bg-gray-100 text-gray-900" />
-                      </div>
-
-
-
-                    </td>
-                    <td>
-                      <div class="flex w-full justify-content-between  gap-3 md:justify-content-end">
-                        <p-button severity="secondary" [text]="true">
-                          <span class="material-symbols-rounded">
-                            edit
-                          </span>
-                        </p-button>
-
-                        <p-button severity="danger" [text]="true">
-                          <span class="material-symbols-rounded">
-                            delete
-                          </span>
-                        </p-button>
-                      </div>
-                    </td>
-                  </tr>
-                  <!-- Expanded Row Content -->
-                  <tr *ngIf="isRowExpanded(product)">
-                    <td colspan="4">
-
-
-
-                      <div class="p-2">
-                        <h3>Darba laiki</h3>
-                        <p-table [value]="tableData" [tableStyle]="{ ' min-width': '50rem' }">
-                          <ng-template pTemplate="header">
-                  <tr>
-                    <th>Darba laiks</th>
-                    <th>Pārtraukums</th>
-                    <th>Darba vieta</th>
-                  </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-innerProduct>
-                  <tr>
-                    <td>{{ innerProduct.darbaLaiks }}</td>
-                    <td>{{ innerProduct.partraukums }}</td>
-                    <td>{{ innerProduct.darbaVieta }}</td>
-                  </tr>
-                </ng-template>
-              </p-table>
-
-
-              <h3 class="mt-4">Vajadzības</h3>
-              <p-table [value]="tableData2" [tableStyle]="{ 'min-width': '50rem' }">
-                <ng-template pTemplate="header">
-                  <tr>
-                    <th>Amats</th>
-                    <th>Kompetence</th>
-                    <th>Kompetenču skaits</th>
-                    <th>Darbnieku skaits</th>
-                  </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-innerProduct>
-                  <tr>
-                    <td>{{ innerProduct.amats }}</td>
-                    <td>{{ innerProduct.kompetence }}</td>
-                    <td>{{ innerProduct.kompetencuSkaits }}</td>
-                    <td>{{ innerProduct.darbniekuSkaits }}</td>
-                  </tr>
-                </ng-template>
-              </p-table>
-
-
-
-
+    <div class="border border-gray-200 rounded-lg overflow-hidden mt-4">
+      <p-tabView class="bg-transparent m-0">
+        <p-tabPanel header="Uzstādījumi">
+          <div class="flex gap-3 flex-col lg:flex-row">
+            <p-menu [model]="menuItems" class="hidden lg:flex" />
+            <div class="lg:hidden w-full">
+              <p-select [options]="menuItems" class="w-full" />
             </div>
+            <div class="flex-1">
+              <!-- Existing "Pievienot" Button for Desktop -->
+              <p-button label="Pievienot" icon="pi pi-plus" class="plus-button hidden lg:block pb-3" size="small"
+                (onClick)="showAddDataDialog()" />
 
+              <!-- Existing "Pievienot" Button for Mobile -->
+              <p-button icon="pi pi-plus" class="fixed bottom-0 right-0 mr-4 mb-4 z-50 shadow-2 border-circle lg:hidden"
+                size="small" rounded="true" (onClick)="showAddDataDialog()" />
 
+              <div>
+                <p-table [value]="Products" dataKey="id">
+                  <!-- Body Template for Product Rows -->
+                  <ng-template pTemplate="body" let-product>
+                    <tr class="border-b-2 lg:border-none block md:table-row border-gray-400">
+                      <!-- Caret Icon for Expand/Collapse -->
 
+                      <td class="block lg:table-cell">
+                        <div class="flex flex-wrap items-center gap-2">
+                          <p-button severity="secondary" [text]="true" (click)="toggleRow(product)">
+                            <span class="material-symbols-rounded">
+                              {{ isRowExpanded(product) ? 'expand_more' :
+                              'chevron_right' }}
+                            </span>
+                          </p-button>
 
-            </td>
-            </tr>
-            </ng-template>
-            </p-table>
+                          <span
+                            class="flex items-center justify-content-center font-semibold white-space-nowrap">{{product.name}}</span>
+                          <p-badge [value]="product.badgeName" [severity]="product.badgeSeverity"
+                            class="flex items-center justify-content-center" styleClass="text-xs font-normal"></p-badge>
+                        </div>
+                      </td>
+                      <td class="block lg:table-cell">
+                        <div class="flex flex-wrap gap-2">
+                          <p-badge *ngFor="let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index" [value]="day"
+                            [severity]="product.days.includes(i + 1) ? 'info' : 'secondary'"
+                            [styleClass]="product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'" />
+                          <p-badge *ngFor="let date of product.dates" severity="info" [value]="date"
+                            class="rounded-full whitespace-nowrap"></p-badge>
+                        </div>
+                      </td>
+                      <td class="block lg:table-cell">
+                        <div class="flex flex-wrap gap-2">
+                          <p-chip *ngFor="let slot of product.slots" [label]="slot"
+                            styleClass="whitespace-nowrap text-xs bg-gray-100 text-gray-900 py-1 px-3" />
+                        </div>
+                      </td>
+                      <td class="block lg:table-cell">
+                        <div class="flex w-full justify-between gap-3 md:justify-end">
+                          <p-button severity="secondary" [text]="true" size="small">
+                            <span class="material-symbols-rounded"> edit </span>
+                          </p-button>
 
+                          <p-button severity="danger" [text]="true" size="small">
+                            <span class="material-symbols-rounded"> delete </span>
+                          </p-button>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- Expanded Row Content -->
+                    <tr *ngIf="isRowExpanded(product)">
+                      <td colspan="4">
+                        <div class="p-2">
+                          <h3>Darba laiki</h3>
+                          <p-table [value]="tableData" [tableStyle]="{ ' min-width': '50rem' }">
+                            <ng-template pTemplate="header">
+                    <tr>
+                      <th>Darba laiks</th>
+                      <th>Pārtraukums</th>
+                      <th>Darba vieta</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-innerProduct>
+                    <tr>
+                      <td>{{ innerProduct.darbaLaiks }}</td>
+                      <td>{{ innerProduct.partraukums }}</td>
+                      <td>{{ innerProduct.darbaVieta }}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
 
-
+                <h3 class="mt-4">Vajadzības</h3>
+                <p-table [value]="tableData2" [tableStyle]="{ 'min-width': '50rem' }">
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th>Amats</th>
+                      <th>Kompetence</th>
+                      <th>Kompetenču skaits</th>
+                      <th>Darbnieku skaits</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-innerProduct>
+                    <tr>
+                      <td>{{ innerProduct.amats }}</td>
+                      <td>{{ innerProduct.kompetence }}</td>
+                      <td>{{ innerProduct.kompetencuSkaits }}</td>
+                      <td>{{ innerProduct.darbniekuSkaits }}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+              </td>
+              </tr>
+              </ng-template>
+              </p-table>
+            </div>
           </div>
+    </div>
+    </p-tabPanel>
+    <p-tabPanel header="Plāns & Fakts">
+      <div class="overflow-x-auto">
+        <p-table [value]="timePlanning">
+          <ng-template pTemplate="header">
+            <tr>
+              <th class="sticky-column-1">
+                <div><p-checkbox [binary]="true" inputId="binary" /></div>
+              </th>
+              <th class="sticky-column-2" data-column="name">
+                <div>Vārds, Uzvārds</div>
+              </th>
+              <th class="sticky-column-3" data-column="job-title-name">
+                <div>Amats</div>
+              </th>
+              <th class="sticky-column-4" data-column="planning-hours">
+                <div>Stundas</div>
+              </th>
+              <th class="sticky-column-5" data-column="sum">
+                <div>Summa</div>
+              </th>
+              <th *ngFor="let tday of timePlanning[0]?.daysOfMonth">
+                <div>{{ tday.day }} {{ tday.date }}</div>
+              </th>
+            </tr>
+          </ng-template>
 
+          <ng-template pTemplate="body" let-employee>
+            <tr>
+              <td class="sticky-column-1">
+                <div><p-checkbox [binary]="true" inputId="binary" /></div>
+              </td>
+              <td class="sticky-column-2" data-column="name">
+                <div>{{ employee.employeeName }}</div>
+              </td>
+              <td class="sticky-column-3">
+                <div>{{ employee.jobTitle }}</div>
+              </td>
+              <td class="sticky-column-4">
+                <div>{{ employee.planningHours }}</div>
+              </td>
+              <td class="sticky-column-5">
+                <div>{{ employee.totalHours }}</div>
+              </td>
+              <td *ngFor="let day of employee.daysOfMonth">
+                <div>{{ day.hours }}</div>
+              </td>
+            </tr>
+          </ng-template>
 
-
-
-
-
-
-
-        </div>
+          <ng-template pTemplate="footer">
+            <tr>
+              <td class="sticky-column-1-3 text-right" colspan="3">Totals</td>
+              <td class="sticky-column-4">{{ totalPlanningHours }}</td>
+              <td class="sticky-column-5">{{ totalHours }}</td>
+              <td *ngFor="let dailyTotal of dailyTotals">{{ dailyTotal }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Dokumenti"> </p-tabPanel>
+    </p-tabView>
   </div>
 
-  </p-tabPanel>
-  <p-tabPanel header="Plāns & Fakts">
-
-    <div class="overflow-x-auto">
-      <p-table [value]="timePlanning">
-        <ng-template pTemplate="header">
-          <tr>
-            <th class="sticky-column-1">
-              <div><p-checkbox [binary]="true" inputId="binary" /></div>
-            </th>
-            <th class="sticky-column-2" data-column="name">
-              <div>Vārds, Uzvārds</div>
-            </th>
-            <th class="sticky-column-3" data-column="job-title-name">
-              <div>Amats</div>
-            </th>
-            <th class="sticky-column-4" data-column="planning-hours">
-              <div>Stundas</div>
-            </th>
-            <th class="sticky-column-5" data-column="sum">
-              <div>Summa</div>
-            </th>
-            <th *ngFor="let tday of timePlanning[0]?.daysOfMonth">
-              <div>{{ tday.day }} {{
-                tday.date }}</div>
-            </th>
-          </tr>
-        </ng-template>
-
-        <ng-template pTemplate="body" let-employee>
-          <tr>
-            <td class="sticky-column-1">
-              <div><p-checkbox [binary]="true" inputId="binary" /></div>
-            </td>
-            <td class="sticky-column-2" data-column="name">
-              <div>{{ employee.employeeName }}</div>
-            </td>
-            <td class="sticky-column-3">
-              <div>{{ employee.jobTitle }}</div>
-            </td>
-            <td class="sticky-column-4">
-              <div>{{ employee.planningHours }}</div>
-            </td>
-            <td class="sticky-column-5">
-              <div>{{ employee.totalHours }}</div>
-            </td>
-            <td *ngFor="let day of employee.daysOfMonth">
-              <div>{{ day.hours }}</div>
-            </td>
-          </tr>
-        </ng-template>
-
-        <ng-template pTemplate="footer">
-          <tr>
-            <td class="sticky-column-1-3 text-right" colspan="3">Totals</td>
-            <td class="sticky-column-4">{{ totalPlanningHours }}</td>
-            <td class="sticky-column-5">{{ totalHours }}</td>
-            <td *ngFor="let dailyTotal of dailyTotals">{{ dailyTotal }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
-
-
-    </div>
-
-
-  </p-tabPanel>
-  <p-tabPanel header="Dokumenti">
-  </p-tabPanel>
-  </p-tabView>
 </div>
-
 </div>
-
 
 <p-dialog header="Darba laiks/vajadzības" [(visible)]="displayAddDataDialog" [modal]="true"
   (onHide)="hideAddDataDialog()">
   <h3 class="font-semibold text-xl">Darbalaiks</h3>
-  <div class="flex flex-column md:flex-row flex-wrap mb-3 gap-3 w-full">
+  <div class="flex flex-col md:flex-row flex-wrap mb-3 gap-3 w-full">
     <!-- Input Fields Row -->
     <div class="flex-1">
       <label for="name" class="block font-semibold pb-1">Nosaukums</label>
@@ -320,9 +258,7 @@
         <p-button type="button" label="P" severity="secondary" rounded="true" outlined="true" size="small" />
         <p-button type="button" label="S" severity="secondary" rounded="true" size="small" />
         <p-button type="button" label="S" severity="secondary" rounded="true" size="small" />
-
       </div>
-
     </div>
     <div class="datecalendar">
       <label class="block font-semibold pb-1">Datumi</label>
@@ -330,10 +266,7 @@
         <p-button icon="pi pi-plus" severity="secondary" outlined="true" rounded="true" size="small" /><p-chip
           label="12.10.2024" removable="true" styleClass="bg-secondary" />
       </div>
-
-
     </div>
-
   </div>
 
   <!-- Time Range -->
@@ -342,7 +275,6 @@
       <div>
         <label for="breakTime" class="block font-semibold pb-1">Darba laiks</label>
         <div class="flex flex-wrap items-center gap-2">
-
           <label for="startTime" class="block">No</label>
           <numo-time-picker [value]="value" [min]="min" [max]="max" [step]="step" [required]="required"
             [disabled]="disabled" [class]="class"></numo-time-picker>
@@ -350,11 +282,8 @@
           <numo-time-picker [value]="value" [min]="min" [max]="max" [step]="step" [required]="required"
             [disabled]="disabled" [class]="class"></numo-time-picker>
 
-
+          <div class="flex items-center white-space-nowrap">3h 15min</div>
           <div class="flex items-center white-space-nowrap">
-            3h 15min
-          </div>
-          <div class="flex items-center  white-space-nowrap">
             <p-checkbox [(ngModel)]="newData.is24Hours" label="24 h" binary="true"></p-checkbox>
           </div>
         </div>
@@ -371,18 +300,14 @@
     </div>
 
     <p-button severity="danger" [text]="true">
-      <span class="material-symbols-rounded">
-        delete
-      </span>
+      <span class="material-symbols-rounded"> delete </span>
     </p-button>
-
   </div>
   <div class="flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative">
     <div class="flex flex-wrap gap-3">
       <div>
         <label for="breakTime" class="block font-semibold pb-1">Darba laiks</label>
         <div class="flex flex-wrap items-center gap-2">
-
           <label for="startTime" class="block">No</label>
           <numo-time-picker [value]="value" [min]="min" [max]="max" [step]="step" [required]="required"
             [disabled]="disabled" [class]="class"></numo-time-picker>
@@ -390,11 +315,8 @@
           <numo-time-picker [value]="value" [min]="min" [max]="max" [step]="step" [required]="required"
             [disabled]="disabled" [class]="class"></numo-time-picker>
 
-
+          <div class="flex items-center white-space-nowrap">3h 15min</div>
           <div class="flex items-center white-space-nowrap">
-            3h 15min
-          </div>
-          <div class="flex items-center  white-space-nowrap">
             <p-checkbox [(ngModel)]="newData.is24Hours" label="24 h" binary="true"></p-checkbox>
           </div>
         </div>
@@ -411,11 +333,8 @@
     </div>
 
     <p-button severity="danger" [text]="true">
-      <span class="material-symbols-rounded">
-        delete
-      </span>
+      <span class="material-symbols-rounded"> delete </span>
     </p-button>
-
   </div>
 
   <!-- Additional Entries -->
@@ -427,8 +346,8 @@
 
   <h3 class="font-semibold text-xl">Vajadzības</h3>
 
-  <div class="flex justify-between items-end  bg-gray-100 border-round-lg p-3 relative">
-    <div class="flex flex-column md:flex-row gap-3">
+  <div class="flex justify-between items-end bg-gray-100 border-round-lg p-3 relative">
+    <div class="flex flex-col md:flex-row gap-3">
       <div class="flex-1">
         <label for="breakTime" class="block font-semibold pb-1">Amats</label>
         <p-select id="selectOption" [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"
@@ -440,42 +359,37 @@
           styleClass="w-full"></p-select>
       </div>
       <div class="flex-1">
-
         <label for="breakTime" class="block font-semibold pb-1">Darbinieku skaits</label>
-        <div class="flex flex-row  items-center gap-2">
-
+        <div class="flex flex-row items-center gap-2">
           <div><input type="text" pInputText class="w-full" /></div>
           <div class="flex flex-row items-center gap-1">
             <div>Min</div>
-            <div class="flex-1"><input type="text" pInputText class="w-full" /></div>
+            <div class="flex-1">
+              <input type="text" pInputText class="w-full" />
+            </div>
           </div>
           <div class="flex flex-row items-center gap-1">
             <div>Opt</div>
-            <div class="flex-1"><input type="text" pInputText class="w-full" /></div>
+            <div class="flex-1">
+              <input type="text" pInputText class="w-full" />
+            </div>
           </div>
           <div class="flex flex-row items-center gap-1">
             <div>Max</div>
-            <div class="flex-1"><input type="text" pInputText class="w-full" /></div>
+            <div class="flex-1">
+              <input type="text" pInputText class="w-full" />
+            </div>
           </div>
-
         </div>
       </div>
-
     </div>
 
     <p-button severity="danger" [text]="true">
-      <span class="material-symbols-rounded">
-        delete
-      </span>
+      <span class="material-symbols-rounded"> delete </span>
     </p-button>
-
-
-
-
   </div>
 
   <!-- Other Details -->
-
 
   <!-- Final Add Button -->
   <div class="mt-3">
@@ -483,7 +397,6 @@
   </div>
 
   <div class="flex justify-content-start gap-2 pt-6">
-
     <p-button label="Saglabāt" severity="success" />
     <p-button label="Atcelt" severity="secondary" outlined="true" (onClick)="hideAddDataDialog()" />
   </div>

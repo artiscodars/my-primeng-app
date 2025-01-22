@@ -77,6 +77,111 @@
             "extends": []
         },
         {
+            "name": "Product",
+            "id": "interface-Product-8437808ba3b37ba74eb1d34182a043b7df6709109310a22d108e713b8126903e1b1447056ea1b0a0891e463490da532086cb910edea4d6cfc236313e7cc6b8c1",
+            "file": "src/stories/components/table/table.data.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface TableData {\n  darbaLaiks: string; // The label of the menu item\n  partraukums?: string; // Optional: For expandable/collapsible menus\n  darbaVieta?: string; // Optional: Nested menu items\n}\n\nexport const TableData: TableData[] = [\n  {\n    darbaLaiks: '8:00 - 17:00 (8h 15min)',\n    partraukums: 'Pusdienlaiks',\n    darbaVieta: 'Ofiss',\n  },\n  {\n    darbaLaiks: '18:00 - 23:00 (4h 45min)',\n    partraukums: '15min',\n    darbaVieta: 'Noliktava',\n  },\n];\n\nexport interface TableData2 {\n  amats: string; // The label of the menu item\n  kompetence?: string; // Optional: For expandable/collapsible menus\n  kompetencuSkaits?: string; // Optional: Nested menu items\n  darbniekuSkaits?: string; // Optional: Nested menu items\n}\n\nexport const TableData2 = [\n  {\n    amats: 'Biroja administrators',\n    kompetence: 'Māk rakstīt | Sertificēts revidents',\n    kompetencuSkaits: '2',\n    darbniekuSkaits: 'min: 1 / max: 1 / opt: 1',\n  },\n];\n\nexport interface Product {\n  id: number;\n  code: string;\n  name: string;\n  slots: string[];\n  badgeName: string;\n  badgeSeverity: string;\n  inventoryStatus: string;\n  days: number[];\n  dates?: string[];\n}\n\nexport const Products = [\n  {\n    id: 1,\n    code: 'f230fh0g3',\n    name: 'Darba dienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Parasts',\n    badgeSeverity: 'info',\n    inventoryStatus: 'Standarta',\n    days: [1, 2, 3, 4, 5],\n  },\n  {\n    id: 2,\n    code: 'f230fh0g3',\n    name: 'Citas foršas darba dienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Ideāls',\n    badgeSeverity: 'success',\n    inventoryStatus: 'Nestandarta',\n    days: [1, 4, 5],\n    dates: ['12.12.2024', '12.12.2024'],\n  },\n  {\n    id: 3,\n    code: 'f230fh0g3',\n    name: 'Brīvdienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Nestandarta',\n    badgeSeverity: 'warning',\n    inventoryStatus: 'Standarta',\n    days: [1, 5],\n    dates: ['12.12.2024'],\n  },\n];\n\nexport interface TimePlanning {\n  employeeName: string;\n  jobTitle: string;\n  planningHours: number;\n  totalHours: number;\n  daysOfMonth: {\n    day: string;\n    date: string;\n    hours: number;\n  }[];\n}\n\nexport const TimePlanning = [\n  {\n    employeeName: 'Anita Jēgermane',\n    jobTitle: 'Biroja administrators',\n    planningHours: 12,\n    totalHours: 121,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 8 },\n      { day: 'O', date: '2', hours: 7 },\n      { day: 'T', date: '3', hours: 8 },\n      { day: 'C', date: '4', hours: 6 },\n      { day: 'P', date: '5', hours: 7 },\n      { day: 'O', date: '6', hours: 8 },\n      { day: 'T', date: '7', hours: 7 },\n      { day: 'C', date: '8', hours: 6 },\n      { day: 'P', date: '9', hours: 7 },\n      { day: 'O', date: '10', hours: 8 },\n      { day: 'T', date: '11', hours: 7 },\n      { day: 'C', date: '12', hours: 6 },\n      { day: 'P', date: '13', hours: 7 },\n      { day: 'O', date: '14', hours: 8 },\n      { day: 'T', date: '15', hours: 7 },\n      { day: 'C', date: '16', hours: 6 },\n      { day: 'P', date: '17', hours: 7 },\n      { day: 'O', date: '18', hours: 8 },\n      { day: 'T', date: '19', hours: 7 },\n      { day: 'C', date: '20', hours: 6 },\n      { day: 'P', date: '21', hours: 7 },\n      { day: 'O', date: '22', hours: 8 },\n      { day: 'T', date: '23', hours: 7 },\n      { day: 'C', date: '24', hours: 6 },\n      { day: 'P', date: '25', hours: 7 },\n      { day: 'O', date: '26', hours: 8 },\n      { day: 'T', date: '27', hours: 7 },\n      { day: 'C', date: '28', hours: 6 },\n      { day: 'P', date: '29', hours: 7 },\n      { day: 'O', date: '30', hours: 8 },\n      { day: 'T', date: '31', hours: 7 },\n    ],\n  },\n  {\n    employeeName: 'Jānis Bērziņš',\n    jobTitle: 'Projektu vadītājs',\n    planningHours: 10,\n    totalHours: 110,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 9 },\n      { day: 'O', date: '2', hours: 8 },\n      { day: 'T', date: '3', hours: 9 },\n      { day: 'C', date: '4', hours: 6 },\n      { day: 'P', date: '5', hours: 8 },\n      { day: 'O', date: '6', hours: 9 },\n      { day: 'T', date: '7', hours: 8 },\n      { day: 'C', date: '8', hours: 6 },\n      { day: 'P', date: '9', hours: 8 },\n      { day: 'O', date: '10', hours: 9 },\n      { day: 'T', date: '11', hours: 8 },\n      { day: 'C', date: '12', hours: 6 },\n      { day: 'P', date: '13', hours: 8 },\n      { day: 'O', date: '14', hours: 9 },\n      { day: 'T', date: '15', hours: 8 },\n      { day: 'C', date: '16', hours: 6 },\n      { day: 'P', date: '17', hours: 8 },\n      { day: 'O', date: '18', hours: 9 },\n      { day: 'T', date: '19', hours: 8 },\n      { day: 'C', date: '20', hours: 6 },\n      { day: 'P', date: '21', hours: 8 },\n      { day: 'O', date: '22', hours: 9 },\n      { day: 'T', date: '23', hours: 8 },\n      { day: 'C', date: '24', hours: 6 },\n      { day: 'P', date: '25', hours: 8 },\n      { day: 'O', date: '26', hours: 9 },\n      { day: 'T', date: '27', hours: 8 },\n      { day: 'C', date: '28', hours: 6 },\n      { day: 'P', date: '29', hours: 8 },\n      { day: 'O', date: '30', hours: 9 },\n      { day: 'T', date: '31', hours: 8 },\n    ],\n  },\n  {\n    employeeName: 'Laura Kalniņa',\n    jobTitle: 'Programmētājs',\n    planningHours: 9,\n    totalHours: 100,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 6 },\n      { day: 'O', date: '2', hours: 5 },\n      { day: 'T', date: '3', hours: 7 },\n      { day: 'C', date: '4', hours: 8 },\n      { day: 'P', date: '5', hours: 7 },\n      { day: 'O', date: '6', hours: 6 },\n      { day: 'T', date: '7', hours: 7 },\n      { day: 'C', date: '8', hours: 8 },\n      { day: 'P', date: '9', hours: 7 },\n      { day: 'O', date: '10', hours: 6 },\n      { day: 'T', date: '11', hours: 7 },\n      { day: 'C', date: '12', hours: 8 },\n      { day: 'P', date: '13', hours: 7 },\n      { day: 'O', date: '14', hours: 6 },\n      { day: 'T', date: '15', hours: 7 },\n      { day: 'C', date: '16', hours: 8 },\n      { day: 'P', date: '17', hours: 7 },\n      { day: 'O', date: '18', hours: 6 },\n      { day: 'T', date: '19', hours: 7 },\n      { day: 'C', date: '20', hours: 8 },\n      { day: 'P', date: '21', hours: 7 },\n      { day: 'O', date: '22', hours: 6 },\n      { day: 'T', date: '23', hours: 7 },\n      { day: 'C', date: '24', hours: 8 },\n      { day: 'P', date: '25', hours: 7 },\n      { day: 'O', date: '26', hours: 6 },\n      { day: 'T', date: '27', hours: 7 },\n      { day: 'C', date: '28', hours: 8 },\n      { day: 'P', date: '29', hours: 7 },\n      { day: 'O', date: '30', hours: 6 },\n      { day: 'T', date: '31', hours: 7 },\n    ],\n  },\n];\n",
+            "properties": [
+                {
+                    "name": "badgeName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 41
+                },
+                {
+                    "name": "badgeSeverity",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 42
+                },
+                {
+                    "name": "code",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 38
+                },
+                {
+                    "name": "days",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 44
+                },
+                {
+                    "name": "dates",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 45
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 37
+                },
+                {
+                    "name": "inventoryStatus",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 43
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 39
+                },
+                {
+                    "name": "slots",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 40
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
             "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
             "file": "src/stories/user.ts",
@@ -699,7 +804,7 @@
             "isDuplicate": true,
             "duplicateId": 2,
             "duplicateName": "AppComponent-2",
-            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full\">\n\n  <div class=\"flex-grow-1\">\n    <div class=\"w-full mb-2\">\n      <p-breadcrumb class=\"max-w-full border block\" [model]=\"itemsWithIsLast\" [home]=\"home\">\n        <ng-template pTemplate=\"item\" let-item>\n          <ng-container *ngIf=\"!item.isLast; else lastBreadcrumb\">\n            <!-- For all items except the last one -->\n            <ng-container *ngIf=\"item.route; else urlItem\">\n              <!-- If the item has a route -->\n              <a [routerLink]=\"item.route\" class=\"p-menuitem-link underline\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-container>\n            <ng-template #urlItem>\n              <!-- If the item has a URL -->\n              <a [href]=\"item.url\" class=\"p-menuitem-link\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-template>\n          </ng-container>\n          <ng-template #lastBreadcrumb>\n            <!-- For the last item, render as plain text -->\n            <span class=\"text-color\">{{ item.label }}</span>\n          </ng-template>\n        </ng-template>\n      </p-breadcrumb>\n    </div>\n\n\n    <div\n      class=\"card flex flex-column md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 justify-content-start\">\n      <div class=\"flex flex-column mr-2 items-center gap-2\">\n        <label for=\"dropdown\" class=\"mb-1 label text-sm\">Struktūrvienība</label>\n        <p-select id=\"dropdown\" [options]=\"options\" optionLabel=\"name\" placeholder=\"Barona ielas veikals\"\n          styleClass=\"w-full\" />\n      </div>\n      <div class=\"flex flex-column items-center gap-2\">\n        <label for=\"calendar\" class=\"mb-1 label text-sm\">Mēnesis</label>\n        <div class=\"flex items-center\">\n\n          <p-calendar id=\"calendar\" [(ngModel)]=\"date\" view=\"month\" [iconDisplay]=\"'input'\" [showIcon]=\"true\"\n            class=\"w-full\" dateFormat=\"MM, yy\" [readonlyInput]=\"true\" />\n\n        </div>\n      </div>\n    </div>\n    <p-tabView class=\"mt-5 bg-transparent\">\n      <p-tabPanel header=\"Uzstādījumi\">\n\n        <div class=\" flex gap-3 flex-col md:flex-row\">\n          <p-menu [model]=\"menuItems\" class=\"hidden md:flex\" />\n          <div class=\"md:hidden w-full\">\n            <p-select [options]=\"menuItems\" class=\"w-full\" />\n          </div>\n          <div class=\"flex-1\">\n            <!-- Existing \"Pievienot\" Button for Desktop -->\n            <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"plus-button hidden md:block pb-3\" size=\"small\"\n              (onClick)=\"showAddDataDialog()\" />\n\n            <!-- Existing \"Pievienot\" Button for Mobile -->\n            <p-button icon=\"pi pi-plus\" class=\"fixed bottom-0 right-0 mr-4 mb-4 z-5 shadow-2 border-circle md:hidden\"\n              size=\"small\" rounded=\"true\" (onClick)=\"showAddDataDialog()\" />\n\n\n            <div>\n\n\n              <p-table [value]=\"Products\" dataKey=\"id\">\n\n                <!-- Body Template for Product Rows -->\n                <ng-template pTemplate=\"body\" let-product>\n                  <tr>\n                    <!-- Caret Icon for Expand/Collapse -->\n\n                    <td>\n                      <div class=\"flex flex-wrap items-center gap-2\">\n\n\n\n\n                        <p-button severity=\"secondary\" [text]=\"true\" (click)=\"toggleRow(product)\">\n                          <span class=\"material-symbols-rounded\">\n                            {{ isRowExpanded(product) ? 'expand_more' : 'chevron_right' }}\n                          </span>\n                        </p-button>\n\n\n                        <span\n                          class=\"flex items-center justify-content-center font-semibold white-space-nowrap\">{{product.name}}</span>\n                        <p-badge [value]=\"product.badgeName\" [severity]=\"product.badgeSeverity\"\n                          class=\"flex items-center justify-content-center \" styleClass=\"text-xs font-normal\"></p-badge>\n                      </div>\n                    </td>\n                    <td>\n                      <div class=\"flex flex-wrap gap-2\">\n\n\n                        <p-badge *ngFor=\"let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index\" [value]=\"day\"\n                          [severity]=\"product.days.includes(i + 1) ? 'secondary' : 'secondary'\"\n                          [styleClass]=\"product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'\" />\n                        <p-badge *ngFor=\"let date of product.dates\" severity=\"secondary\" [value]=\"date\"></p-badge>\n\n\n\n\n\n\n\n\n\n\n                      </div>\n                    </td>\n                    <td>\n\n                      <div class=\"flex flex-wrap gap-2\">\n                        <p-chip *ngFor=\"let slot of product.slots\" [label]=\"slot\"\n                          styleClass=\"white-space-nowrap text-xs bg-gray-100 text-gray-900\" />\n                      </div>\n\n\n\n                    </td>\n                    <td>\n                      <div class=\"flex w-full justify-content-between  gap-3 md:justify-content-end\">\n                        <p-button severity=\"secondary\" [text]=\"true\">\n                          <span class=\"material-symbols-rounded\">\n                            edit\n                          </span>\n                        </p-button>\n\n                        <p-button severity=\"danger\" [text]=\"true\">\n                          <span class=\"material-symbols-rounded\">\n                            delete\n                          </span>\n                        </p-button>\n                      </div>\n                    </td>\n                  </tr>\n                  <!-- Expanded Row Content -->\n                  <tr *ngIf=\"isRowExpanded(product)\">\n                    <td colspan=\"4\">\n\n\n\n                      <div class=\"p-2\">\n                        <h3>Darba laiki</h3>\n                        <p-table [value]=\"tableData\" [tableStyle]=\"{ ' min-width': '50rem' }\">\n                          <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Darba laiks</th>\n                    <th>Pārtraukums</th>\n                    <th>Darba vieta</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.darbaLaiks }}</td>\n                    <td>{{ innerProduct.partraukums }}</td>\n                    <td>{{ innerProduct.darbaVieta }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n\n\n              <h3 class=\"mt-4\">Vajadzības</h3>\n              <p-table [value]=\"tableData2\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n                <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Amats</th>\n                    <th>Kompetence</th>\n                    <th>Kompetenču skaits</th>\n                    <th>Darbnieku skaits</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.amats }}</td>\n                    <td>{{ innerProduct.kompetence }}</td>\n                    <td>{{ innerProduct.kompetencuSkaits }}</td>\n                    <td>{{ innerProduct.darbniekuSkaits }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n\n\n\n\n            </div>\n\n\n\n\n            </td>\n            </tr>\n            </ng-template>\n            </p-table>\n\n\n\n          </div>\n\n\n\n\n\n\n\n\n        </div>\n  </div>\n\n  </p-tabPanel>\n  <p-tabPanel header=\"Plāns & Fakts\">\n\n    <div class=\"overflow-x-auto\">\n      <p-table [value]=\"timePlanning\">\n        <ng-template pTemplate=\"header\">\n          <tr>\n            <th class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </th>\n            <th class=\"sticky-column-2\" data-column=\"name\">\n              <div>Vārds, Uzvārds</div>\n            </th>\n            <th class=\"sticky-column-3\" data-column=\"job-title-name\">\n              <div>Amats</div>\n            </th>\n            <th class=\"sticky-column-4\" data-column=\"planning-hours\">\n              <div>Stundas</div>\n            </th>\n            <th class=\"sticky-column-5\" data-column=\"sum\">\n              <div>Summa</div>\n            </th>\n            <th *ngFor=\"let tday of timePlanning[0]?.daysOfMonth\">\n              <div>{{ tday.day }} {{\n                tday.date }}</div>\n            </th>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"body\" let-employee>\n          <tr>\n            <td class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </td>\n            <td class=\"sticky-column-2\" data-column=\"name\">\n              <div>{{ employee.employeeName }}</div>\n            </td>\n            <td class=\"sticky-column-3\">\n              <div>{{ employee.jobTitle }}</div>\n            </td>\n            <td class=\"sticky-column-4\">\n              <div>{{ employee.planningHours }}</div>\n            </td>\n            <td class=\"sticky-column-5\">\n              <div>{{ employee.totalHours }}</div>\n            </td>\n            <td *ngFor=\"let day of employee.daysOfMonth\">\n              <div>{{ day.hours }}</div>\n            </td>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"footer\">\n          <tr>\n            <td class=\"sticky-column-1-3 text-right\" colspan=\"3\">Totals</td>\n            <td class=\"sticky-column-4\">{{ totalPlanningHours }}</td>\n            <td class=\"sticky-column-5\">{{ totalHours }}</td>\n            <td *ngFor=\"let dailyTotal of dailyTotals\">{{ dailyTotal }}</td>\n          </tr>\n        </ng-template>\n      </p-table>\n\n\n    </div>\n\n\n  </p-tabPanel>\n  <p-tabPanel header=\"Dokumenti\">\n  </p-tabPanel>\n  </p-tabView>\n</div>\n\n</div>\n\n\n<p-dialog header=\"Darba laiks/vajadzības\" [(visible)]=\"displayAddDataDialog\" [modal]=\"true\"\n  (onHide)=\"hideAddDataDialog()\">\n  <h3 class=\"font-semibold text-xl\">Darbalaiks</h3>\n  <div class=\"flex flex-column md:flex-row flex-wrap mb-3 gap-3 w-full\">\n    <!-- Input Fields Row -->\n    <div class=\"flex-1\">\n      <label for=\"name\" class=\"block font-semibold pb-1\">Nosaukums</label>\n      <input id=\"name\" type=\"text\" class=\"w-full\" pInputText [(ngModel)]=\"newData.name\" />\n    </div>\n    <div class=\"w-full md:w-[300px]\">\n      <label for=\"selectOption\" class=\"block font-semibold pb-1\">Grupa</label>\n      <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n        styleClass=\"w-full\"></p-select>\n    </div>\n  </div>\n\n  <!-- Days and Time Selection -->\n  <div class=\"flex flex-wrap mb-3 gap-3\">\n    <div class=\"flex-initial\">\n      <label class=\"block font-semibold pb-1\">Dienas</label>\n\n      <div class=\"daycalendar\">\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"O\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"T\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\"\n          styleClass=\"font-normal\" />\n        <p-button type=\"button\" label=\"C\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n\n      </div>\n\n    </div>\n    <div class=\"datecalendar\">\n      <label class=\"block font-semibold pb-1\">Datumi</label>\n      <div>\n        <p-button icon=\"pi pi-plus\" severity=\"secondary\" outlined=\"true\" rounded=\"true\" size=\"small\" /><p-chip\n          label=\"12.10.2024\" removable=\"true\" styleClass=\"bg-secondary\" />\n      </div>\n\n\n    </div>\n\n  </div>\n\n  <!-- Time Range -->\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3 items-center\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n\n          <div class=\"flex items-center white-space-nowrap\">\n            3h 15min\n          </div>\n          <div class=\"flex items-center  white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\">\n        delete\n      </span>\n    </p-button>\n\n  </div>\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n\n          <div class=\"flex items-center white-space-nowrap\">\n            3h 15min\n          </div>\n          <div class=\"flex items-center  white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\">\n        delete\n      </span>\n    </p-button>\n\n  </div>\n\n  <!-- Additional Entries -->\n  <div class=\"grid mb-3\">\n    <div class=\"col-12\">\n      <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n    </div>\n  </div>\n\n  <h3 class=\"font-semibold text-xl\">Vajadzības</h3>\n\n  <div class=\"flex justify-between items-end  bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-column md:flex-row gap-3\">\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Amats</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Kompetences</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darbinieku skaits</label>\n        <div class=\"flex flex-row  items-center gap-2\">\n\n          <div><input type=\"text\" pInputText class=\"w-full\" /></div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Min</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Opt</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Max</div>\n            <div class=\"flex-1\"><input type=\"text\" pInputText class=\"w-full\" /></div>\n          </div>\n\n        </div>\n      </div>\n\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\">\n        delete\n      </span>\n    </p-button>\n\n\n\n\n  </div>\n\n  <!-- Other Details -->\n\n\n  <!-- Final Add Button -->\n  <div class=\"mt-3\">\n    <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n  </div>\n\n  <div class=\"flex justify-content-start gap-2 pt-6\">\n\n    <p-button label=\"Saglabāt\" severity=\"success\" />\n    <p-button label=\"Atcelt\" severity=\"secondary\" outlined=\"true\" (onClick)=\"hideAddDataDialog()\" />\n  </div>\n</p-dialog>\n"
+            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full\">\n  <div class=\"flex-grow-1\">\n    <div class=\"w-full mb-3\">\n      <p-breadcrumb class=\"max-w-full border block\" [model]=\"itemsWithIsLast\" [home]=\"home\">\n        <ng-template pTemplate=\"item\" let-item>\n          <ng-container *ngIf=\"!item.isLast; else lastBreadcrumb\">\n            <!-- For all items except the last one -->\n            <ng-container *ngIf=\"item.route; else urlItem\">\n              <!-- If the item has a route -->\n              <a [routerLink]=\"item.route\" class=\"p-menuitem-link underline\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-container>\n            <ng-template #urlItem>\n              <!-- If the item has a URL -->\n              <a [href]=\"item.url\" class=\"p-menuitem-link\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-template>\n          </ng-container>\n          <ng-template #lastBreadcrumb>\n            <!-- For the last item, render as plain text -->\n            <span class=\"text-color\">{{ item.label }}</span>\n          </ng-template>\n        </ng-template>\n      </p-breadcrumb>\n    </div>\n\n    <div\n      class=\"card flex flex-column md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 justify-content-start\">\n      <div class=\"flex flex-column mr-2 items-center gap-2\">\n        <label for=\"dropdown\" class=\"mb-1 label text-sm\">Struktūrvienība</label>\n        <p-select id=\"dropdown\" [options]=\"options\" optionLabel=\"name\" placeholder=\"Barona ielas veikals\"\n          styleClass=\"w-full\" />\n      </div>\n      <div class=\"flex flex-column items-center gap-2\">\n        <label for=\"calendar\" class=\"mb-1 label text-sm\">Mēnesis</label>\n        <div class=\"flex items-center\">\n          <p-calendar id=\"calendar\" [(ngModel)]=\"date\" view=\"month\" [iconDisplay]=\"'input'\" [showIcon]=\"true\"\n            class=\"w-full\" dateFormat=\"MM, yy\" [readonlyInput]=\"true\" />\n        </div>\n      </div>\n    </div>\n    <p-tabView class=\"mt-5 bg-transparent border border-gray-200 border-1\">\n      <p-tabPanel header=\"Uzstādījumi\">\n        <div class=\"flex gap-3 flex-col md:flex-row\">\n          <p-menu [model]=\"menuItems\" class=\"hidden md:flex\" />\n          <div class=\"md:hidden w-full\">\n            <p-select [options]=\"menuItems\" class=\"w-full\" />\n          </div>\n          <div class=\"flex-1\">\n            <!-- Existing \"Pievienot\" Button for Desktop -->\n            <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"plus-button hidden md:block pb-3\" size=\"small\"\n              (onClick)=\"showAddDataDialog()\" />\n\n            <!-- Existing \"Pievienot\" Button for Mobile -->\n            <p-button icon=\"pi pi-plus\" class=\"fixed bottom-0 right-0 mr-4 mb-4 z-5 shadow-2 border-circle md:hidden\"\n              size=\"small\" rounded=\"true\" (onClick)=\"showAddDataDialog()\" />\n\n            <div>\n              <p-table [value]=\"Products\" dataKey=\"id\">\n                <!-- Body Template for Product Rows -->\n                <ng-template pTemplate=\"body\" let-product>\n                  <tr>\n                    <!-- Caret Icon for Expand/Collapse -->\n\n                    <td>\n                      <div class=\"flex flex-wrap items-center gap-2\">\n                        <p-button severity=\"secondary\" [text]=\"true\" (click)=\"toggleRow(product)\">\n                          <span class=\"material-symbols-rounded\">\n                            {{ isRowExpanded(product) ? 'expand_more' :\n                            'chevron_right' }}\n                          </span>\n                        </p-button>\n\n                        <span\n                          class=\"flex items-center justify-content-center font-semibold white-space-nowrap\">{{product.name}}</span>\n                        <p-badge [value]=\"product.badgeName\" [severity]=\"product.badgeSeverity\"\n                          class=\"flex items-center justify-content-center\" styleClass=\"text-xs font-normal\"></p-badge>\n                      </div>\n                    </td>\n                    <td>\n                      <div class=\"flex flex-wrap gap-2\">\n                        <p-badge *ngFor=\"let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index\" [value]=\"day\"\n                          [severity]=\"product.days.includes(i + 1) ? 'info' : 'secondary'\"\n                          [styleClass]=\"product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'\" />\n                        <p-badge *ngFor=\"let date of product.dates\" severity=\"info\" [value]=\"date\"\n                          class=\"rounded-full whitespace-nowrap\"></p-badge>\n                      </div>\n                    </td>\n                    <td>\n                      <div class=\"flex flex-wrap gap-2\">\n                        <p-chip *ngFor=\"let slot of product.slots\" [label]=\"slot\"\n                          styleClass=\"whitespace-nowrap text-xs bg-gray-100 text-gray-900 py-1 px-3\" />\n                      </div>\n                    </td>\n                    <td>\n                      <div class=\"flex w-full justify-content-between gap-3 md:justify-content-end\">\n                        <p-button severity=\"secondary\" [text]=\"true\">\n                          <span class=\"material-symbols-rounded\"> edit </span>\n                        </p-button>\n\n                        <p-button severity=\"danger\" [text]=\"true\">\n                          <span class=\"material-symbols-rounded\"> delete </span>\n                        </p-button>\n                      </div>\n                    </td>\n                  </tr>\n                  <!-- Expanded Row Content -->\n                  <tr *ngIf=\"isRowExpanded(product)\">\n                    <td colspan=\"4\">\n                      <div class=\"p-2\">\n                        <h3>Darba laiki</h3>\n                        <p-table [value]=\"tableData\" [tableStyle]=\"{ ' min-width': '50rem' }\">\n                          <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Darba laiks</th>\n                    <th>Pārtraukums</th>\n                    <th>Darba vieta</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.darbaLaiks }}</td>\n                    <td>{{ innerProduct.partraukums }}</td>\n                    <td>{{ innerProduct.darbaVieta }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n\n              <h3 class=\"mt-4\">Vajadzības</h3>\n              <p-table [value]=\"tableData2\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n                <ng-template pTemplate=\"header\">\n                  <tr>\n                    <th>Amats</th>\n                    <th>Kompetence</th>\n                    <th>Kompetenču skaits</th>\n                    <th>Darbnieku skaits</th>\n                  </tr>\n                </ng-template>\n                <ng-template pTemplate=\"body\" let-innerProduct>\n                  <tr>\n                    <td>{{ innerProduct.amats }}</td>\n                    <td>{{ innerProduct.kompetence }}</td>\n                    <td>{{ innerProduct.kompetencuSkaits }}</td>\n                    <td>{{ innerProduct.darbniekuSkaits }}</td>\n                  </tr>\n                </ng-template>\n              </p-table>\n            </div>\n            </td>\n            </tr>\n            </ng-template>\n            </p-table>\n          </div>\n        </div>\n  </div>\n  </p-tabPanel>\n  <p-tabPanel header=\"Plāns & Fakts\">\n    <div class=\"overflow-x-auto\">\n      <p-table [value]=\"timePlanning\">\n        <ng-template pTemplate=\"header\">\n          <tr>\n            <th class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </th>\n            <th class=\"sticky-column-2\" data-column=\"name\">\n              <div>Vārds, Uzvārds</div>\n            </th>\n            <th class=\"sticky-column-3\" data-column=\"job-title-name\">\n              <div>Amats</div>\n            </th>\n            <th class=\"sticky-column-4\" data-column=\"planning-hours\">\n              <div>Stundas</div>\n            </th>\n            <th class=\"sticky-column-5\" data-column=\"sum\">\n              <div>Summa</div>\n            </th>\n            <th *ngFor=\"let tday of timePlanning[0]?.daysOfMonth\">\n              <div>{{ tday.day }} {{ tday.date }}</div>\n            </th>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"body\" let-employee>\n          <tr>\n            <td class=\"sticky-column-1\">\n              <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n            </td>\n            <td class=\"sticky-column-2\" data-column=\"name\">\n              <div>{{ employee.employeeName }}</div>\n            </td>\n            <td class=\"sticky-column-3\">\n              <div>{{ employee.jobTitle }}</div>\n            </td>\n            <td class=\"sticky-column-4\">\n              <div>{{ employee.planningHours }}</div>\n            </td>\n            <td class=\"sticky-column-5\">\n              <div>{{ employee.totalHours }}</div>\n            </td>\n            <td *ngFor=\"let day of employee.daysOfMonth\">\n              <div>{{ day.hours }}</div>\n            </td>\n          </tr>\n        </ng-template>\n\n        <ng-template pTemplate=\"footer\">\n          <tr>\n            <td class=\"sticky-column-1-3 text-right\" colspan=\"3\">Totals</td>\n            <td class=\"sticky-column-4\">{{ totalPlanningHours }}</td>\n            <td class=\"sticky-column-5\">{{ totalHours }}</td>\n            <td *ngFor=\"let dailyTotal of dailyTotals\">{{ dailyTotal }}</td>\n          </tr>\n        </ng-template>\n      </p-table>\n    </div>\n  </p-tabPanel>\n  <p-tabPanel header=\"Dokumenti\"> </p-tabPanel>\n  </p-tabView>\n</div>\n</div>\n\n<p-dialog header=\"Darba laiks/vajadzības\" [(visible)]=\"displayAddDataDialog\" [modal]=\"true\"\n  (onHide)=\"hideAddDataDialog()\">\n  <h3 class=\"font-semibold text-xl\">Darbalaiks</h3>\n  <div class=\"flex flex-column md:flex-row flex-wrap mb-3 gap-3 w-full\">\n    <!-- Input Fields Row -->\n    <div class=\"flex-1\">\n      <label for=\"name\" class=\"block font-semibold pb-1\">Nosaukums</label>\n      <input id=\"name\" type=\"text\" class=\"w-full\" pInputText [(ngModel)]=\"newData.name\" />\n    </div>\n    <div class=\"w-full md:w-[300px]\">\n      <label for=\"selectOption\" class=\"block font-semibold pb-1\">Grupa</label>\n      <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n        styleClass=\"w-full\"></p-select>\n    </div>\n  </div>\n\n  <!-- Days and Time Selection -->\n  <div class=\"flex flex-wrap mb-3 gap-3\">\n    <div class=\"flex-initial\">\n      <label class=\"block font-semibold pb-1\">Dienas</label>\n\n      <div class=\"daycalendar\">\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"O\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"T\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\"\n          styleClass=\"font-normal\" />\n        <p-button type=\"button\" label=\"C\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n      </div>\n    </div>\n    <div class=\"datecalendar\">\n      <label class=\"block font-semibold pb-1\">Datumi</label>\n      <div>\n        <p-button icon=\"pi pi-plus\" severity=\"secondary\" outlined=\"true\" rounded=\"true\" size=\"small\" /><p-chip\n          label=\"12.10.2024\" removable=\"true\" styleClass=\"bg-secondary\" />\n      </div>\n    </div>\n  </div>\n\n  <!-- Time Range -->\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3 items-center\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n          <div class=\"flex items-center white-space-nowrap\">3h 15min</div>\n          <div class=\"flex items-center white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n          <div class=\"flex items-center white-space-nowrap\">3h 15min</div>\n          <div class=\"flex items-center white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n\n  <!-- Additional Entries -->\n  <div class=\"grid mb-3\">\n    <div class=\"col-12\">\n      <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n    </div>\n  </div>\n\n  <h3 class=\"font-semibold text-xl\">Vajadzības</h3>\n\n  <div class=\"flex justify-between items-end bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-column md:flex-row gap-3\">\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Amats</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Kompetences</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darbinieku skaits</label>\n        <div class=\"flex flex-row items-center gap-2\">\n          <div><input type=\"text\" pInputText class=\"w-full\" /></div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Min</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Opt</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Max</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n\n  <!-- Other Details -->\n\n  <!-- Final Add Button -->\n  <div class=\"mt-3\">\n    <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n  </div>\n\n  <div class=\"flex justify-content-start gap-2 pt-6\">\n    <p-button label=\"Saglabāt\" severity=\"success\" />\n    <p-button label=\"Atcelt\" severity=\"secondary\" outlined=\"true\" (onClick)=\"hideAddDataDialog()\" />\n  </div>\n</p-dialog>"
         },
         {
             "name": "BasicSelectComponent",
@@ -1357,7 +1462,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-fb583729f969edfae2db31a1957f33625cef5a940d200cb0bf90849d7bb977cde4dfe0585e5f2c48fa8cccd0dc741efb94d771af14298abccbe72ca5b79be656",
+            "id": "component-HeaderComponent-7bd3214f964c19e27b211080588b827d0c3f0f5eb93e8dfe11db2e5f5ffff7a713fffc1933ffc210c60199069a52d2d41629a92cc46b5473d1a49f05da121ba0",
             "file": "src/stories/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1378,7 +1483,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 43,
+                    "line": 41,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -1389,7 +1494,7 @@
                     "defaultValue": "new EventEmitter<boolean>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 47,
+                    "line": 45,
                     "type": "EventEmitter"
                 },
                 {
@@ -1397,7 +1502,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 48,
+                    "line": 46,
                     "type": "EventEmitter"
                 }
             ],
@@ -1411,7 +1516,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 51
+                    "line": 49
                 },
                 {
                     "name": "isMenuVisible",
@@ -1422,7 +1527,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 40
                 },
                 {
                     "name": "items",
@@ -1433,7 +1538,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 49
+                    "line": 47
                 },
                 {
                     "name": "leftMenu",
@@ -1443,7 +1548,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 44,
+                    "line": 42,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -1462,7 +1567,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 45,
+                    "line": 43,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -1481,7 +1586,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 46,
+                    "line": 44,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -1501,20 +1606,10 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 50
+                    "line": 48
                 }
             ],
             "methodsClass": [
-                {
-                    "name": "closeMenu",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 72,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
                 {
                     "name": "onUserMenuItemClick",
                     "args": [
@@ -1528,7 +1623,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 84,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1556,7 +1651,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 88,
+                    "line": 73,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1584,7 +1679,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1631,10 +1726,6 @@
                     "type": "component"
                 },
                 {
-                    "name": "IconComponent",
-                    "type": "component"
-                },
-                {
                     "name": "IconFieldModule",
                     "type": "module"
                 },
@@ -1650,12 +1741,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  Component,\n  CUSTOM_ELEMENTS_SCHEMA,\n  EventEmitter,\n  Input,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { FormsModule } from '@angular/forms';\nimport { InputTextModule } from 'primeng/inputtext';\nimport { MenuModule } from 'primeng/menu';\nimport { Menu, MenuItem } from '../left-menu/menu.model';\nimport { UserMenuItems } from './user-menu.model';\nimport { OverlayPanelModule } from 'primeng/overlaypanel';\nimport { LeftMenuComponent } from '../left-menu/left-menu.component';\nimport { IconComponent } from '../icon/icon.component';\nimport { IconFieldModule } from 'primeng/iconfield';\nimport { InputIconModule } from 'primeng/inputicon';\nimport { ButtonModule } from 'primeng/button';\n\n@Component({\n  selector: 'numo-header',\n  standalone: true,\n  imports: [\n    FormsModule,\n    CommonModule,\n    InputTextModule,\n    MenuModule,\n    OverlayPanelModule,\n    LeftMenuComponent,\n    IconComponent,\n    IconFieldModule,\n    InputIconModule,\n    ButtonModule,\n  ],\n  templateUrl: './header.template.html',\n  styles: [],\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class HeaderComponent {\n  isMenuVisible = false;\n  @Input() isStoryBook = false;\n  @ViewChild('leftMenu') leftMenu: any;\n  @ViewChild('storyMenu') storyMenu: any;\n  @ViewChild('userMenu') userMenu: any; // Reference to user menu\n  @Output() menuClicked = new EventEmitter<boolean>(); // Emit boolean state\n  @Output() userMenuItemSelected = new EventEmitter<string>(); // New event\n  items: MenuItem[] = [...Menu];\n  userMenuItems = [...UserMenuItems]; // Use the imported user menu items\n  BreakPoint = 1024;\n\n  toggleMenu(event: Event) {\n    this.isMenuVisible = !this.isMenuVisible;\n\n    // Get the element by ID\n    const leftMenu = document.getElementById('left-menu');\n\n    if (leftMenu) {\n      // Toggle the class on the element with ID \"left-menu\"\n      if (this.isMenuVisible) {\n        leftMenu.classList.add('!left-[20px]');\n        document.body.classList.add('!pl-[300px]');\n      } else {\n        leftMenu.classList.remove('!left-[20px]');\n      }\n    }\n\n    this.menuClicked.emit(this.isMenuVisible);\n  }\n\n  closeMenu() {\n    this.isMenuVisible = false;\n\n    // Ensure all related classes are removed\n    const leftMenu = document.getElementById('left-menu');\n    if (leftMenu) {\n      leftMenu.classList.remove('!left-[20px]');\n    }\n\n    document.body.classList.remove('!pl-[300px]');\n  }\n\n  onUserMenuItemClick(menuItem: string) {\n    this.userMenuItemSelected.emit(menuItem); // Emit the selected menu item\n  }\n\n  showUserMenu(event: Event) {\n    this.userMenu.toggle(event); // Show the user menu\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  Component,\n  CUSTOM_ELEMENTS_SCHEMA,\n  EventEmitter,\n  Input,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { FormsModule } from '@angular/forms';\nimport { InputTextModule } from 'primeng/inputtext';\nimport { MenuModule } from 'primeng/menu';\nimport { Menu, MenuItem } from '../left-menu/menu.model';\nimport { UserMenuItems } from './user-menu.model';\nimport { OverlayPanelModule } from 'primeng/overlaypanel';\nimport { LeftMenuComponent } from '../left-menu/left-menu.component';\nimport { IconFieldModule } from 'primeng/iconfield';\nimport { InputIconModule } from 'primeng/inputicon';\nimport { ButtonModule } from 'primeng/button';\n\n@Component({\n  selector: 'numo-header',\n  standalone: true,\n  imports: [\n    FormsModule,\n    CommonModule,\n    InputTextModule,\n    MenuModule,\n    OverlayPanelModule,\n    LeftMenuComponent,\n    IconFieldModule,\n    InputIconModule,\n    ButtonModule,\n  ],\n  templateUrl: './header.template.html',\n  styles: [],\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class HeaderComponent {\n  isMenuVisible = false;\n  @Input() isStoryBook = false;\n  @ViewChild('leftMenu') leftMenu: any;\n  @ViewChild('storyMenu') storyMenu: any;\n  @ViewChild('userMenu') userMenu: any; // Reference to user menu\n  @Output() menuClicked = new EventEmitter<boolean>(); // Emit boolean state\n  @Output() userMenuItemSelected = new EventEmitter<string>(); // New event\n  items: MenuItem[] = [...Menu];\n  userMenuItems = [...UserMenuItems]; // Use the imported user menu items\n  BreakPoint = 1024;\n\n  toggleMenu(event: Event) {\n    this.isMenuVisible = !this.isMenuVisible;\n\n    // Get the element by ID\n    const leftMenu = document.getElementById('left-menu');\n\n    if (leftMenu) {\n      // Toggle the class on the element with ID \"left-menu\"\n      if (this.isMenuVisible) {\n        leftMenu.classList.add('left-[15px]');\n        document.body.classList.add('pl-[300px]');\n      } else {\n        leftMenu.classList.remove('left-[15px]');\n        document.body.classList.remove('pl-[300px]');\n      }\n    }\n  }\n\n  onUserMenuItemClick(menuItem: string) {\n    this.userMenuItemSelected.emit(menuItem); // Emit the selected menu item\n  }\n\n  showUserMenu(event: Event) {\n    this.userMenu.toggle(event); // Show the user menu\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"header flex items-center justify-between gap-3 w-full  p-3\">\n  <div class=\"flex items-center  h-10\">\n    <span #menuButton (click)=\"toggleMenu($event)\" [ngClass]=\"isMenuVisible ? 'pi pi-times' : 'pi pi-bars'\"\n      class=\"icon text-gray-800 cursor-pointer\">\n    </span>\n\n    <img class=\"ml-3 h-[40px]\" src=\"logo.png\" alt=\"logo\" />\n  </div>\n  <div class=\"flex justify-center relative w-[400px]\">\n    <p-iconfield class=\"w-full\">\n      <p-inputicon styleClass=\"pi pi-search\" />\n      <input type=\"text\" pInputText placeholder=\"Meklēt\" class=\"w-full\" />\n    </p-iconfield>\n  </div>\n\n  <div class=\"flex justify-content-end\">\n    <p-menu #userMenu [model]=\"userMenuItems\" [popup]=\"true\">\n\n    </p-menu>\n\n    <div (click)=\"showUserMenu($event)\" class=\"w-[250px] cursor-pointer py-1 text-slate-950\">\n      <span class=\"hidden sm:block\">Jānis Bērziņš</span>\n      <span class=\" sm:hidden block p-2 bg-blue-200 border-circle \">JB</span>\n      <div class=\"caret\"></div>\n      <div class=\"text-xs hidden sm:block text-ellipsis whitespace-nowrap overflow-hidden\">\n        Liepājas valstspilsētas pašvaldības aģentūra \"Liepājas\n        Sabiedriskais transports\"\n      </div>\n    </div>\n  </div>\n</div>\n<numo-left-menu [items]=\"items\" id=\"left-menu\" class=\"-left-[350px] absolute top-[20px]\"></numo-left-menu>\n"
+            "templateData": "<div class=\"header flex items-center justify-between gap-3 w-full  p-3 -mt-[15px]\">\n  <div class=\"flex items-center  h-10\">\n    <span #menuButton (click)=\"toggleMenu($event)\" class=\"icon text-gray-800 cursor-pointer pi pi-bars\">\n    </span>\n\n    <img class=\"ml-3 h-[40px]\" src=\"logo.png\" alt=\"logo\" />\n  </div>\n  <div class=\"flex-1 flex justify-center relative max-w-[400px]\">\n    <p-iconfield class=\"w-full\">\n      <p-inputicon styleClass=\"pi pi-search\" />\n      <input type=\"text\" pInputText placeholder=\"Meklēt\" class=\"w-full\" />\n    </p-iconfield>\n  </div>\n\n  <div class=\"flex justify-content-end\">\n    <p-menu #userMenu [model]=\"userMenuItems\" [popup]=\"true\" />\n\n    <div (click)=\"showUserMenu($event)\" class=\"cursor-pointer py-1 text-slate-950 max-w-[250px] pr-6 relative\">\n      <span class=\"hidden sm:block\">Jānis Bērziņš</span>\n      <span\n        class=\" sm:hidden  flex items-center justify-center bg-blue-200  rounded-full aspect-square w-[42px] h-[42px] font-semibold\">JB</span>\n      <span class=\"material-symbols-rounded absolute right-0 top-0 translate-y-1/2\">\n        keyboard_arrow_down\n      </span>\n      <div class=\" text-xs hidden sm:block text-ellipsis whitespace-nowrap overflow-hidden\">\n        Liepājas valstspilsētas pašvaldības aģentūra \"Liepājas\n        Sabiedriskais transports\"\n      </div>\n    </div>\n  </div>\n</div>\n<numo-left-menu [items]=\"items\" id=\"left-menu\" class=\"-left-[350px] absolute top-[15px]\"></numo-left-menu>"
         },
         {
             "name": "IconComponent",
@@ -1794,7 +1885,7 @@
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<p-panelmenu [model]=\"items\" styleClass=\"w-full md:w-[280px]\">\r\n  <ng-template #item let-item>\r\n    <a pRipple class=\"flex items-center px-4 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\" />\r\n      <span *ngIf=\"item.shortcut\" class=\"ml-auto border border-surface rounded\r\n          bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n  </ng-template>\r\n</p-panelmenu>\r\n"
+            "templateData": "<p-panelmenu [model]=\"items\" styleClass=\"w-full md:w-[270px]\">\r\n  <ng-template #item let-item>\r\n    <a pRipple class=\"flex items-center px-2 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\" />\r\n      <span *ngIf=\"item.shortcut\" class=\"ml-auto border border-surface rounded\r\n          bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n  </ng-template>\r\n</p-panelmenu>\r\n"
         },
         {
             "name": "NumoTreeBasic",
@@ -2615,6 +2706,16 @@
                 "name": "Products",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/table/table.data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  {\n    id: 1,\n    code: 'f230fh0g3',\n    name: 'Darba dienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Parasts',\n    badgeSeverity: 'info',\n    inventoryStatus: 'Standarta',\n    days: [1, 2, 3, 4, 5],\n  },\n  {\n    id: 2,\n    code: 'f230fh0g3',\n    name: 'Citas foršas darba dienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Ideāls',\n    badgeSeverity: 'success',\n    inventoryStatus: 'Nestandarta',\n    days: [1, 4, 5],\n    dates: ['12.12.2024', '12.12.2024'],\n  },\n  {\n    id: 3,\n    code: 'f230fh0g3',\n    name: 'Brīvdienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Nestandarta',\n    badgeSeverity: 'warning',\n    inventoryStatus: 'Standarta',\n    days: [1, 5],\n    dates: ['12.12.2024'],\n  },\n]"
+            },
+            {
+                "name": "Products",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/layouts/timeplaning/timeplanning.data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2667,6 +2768,16 @@
                 "name": "TableData",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/table/table.data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TableData[]",
+                "defaultValue": "[\n  {\n    darbaLaiks: '8:00 - 17:00 (8h 15min)',\n    partraukums: 'Pusdienlaiks',\n    darbaVieta: 'Ofiss',\n  },\n  {\n    darbaLaiks: '18:00 - 23:00 (4h 45min)',\n    partraukums: '15min',\n    darbaVieta: 'Noliktava',\n  },\n]"
+            },
+            {
+                "name": "TableData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/layouts/timeplaning/timeplanning.data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2677,11 +2788,31 @@
                 "name": "TableData2",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/table/table.data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  {\n    amats: 'Biroja administrators',\n    kompetence: 'Māk rakstīt | Sertificēts revidents',\n    kompetencuSkaits: '2',\n    darbniekuSkaits: 'min: 1 / max: 1 / opt: 1',\n  },\n]"
+            },
+            {
+                "name": "TableData2",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/layouts/timeplaning/timeplanning.data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
                 "defaultValue": "[\n  {\n    amats: 'Biroja administrators',\n    kompetence: 'Māk rakstīt | Sertificēts revidents',\n    kompetencuSkaits: '2',\n    darbniekuSkaits: 'min: 1 / max: 1 / opt: 1',\n  },\n]"
+            },
+            {
+                "name": "TimePlanning",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/table/table.data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  {\n    employeeName: 'Anita Jēgermane',\n    jobTitle: 'Biroja administrators',\n    planningHours: 12,\n    totalHours: 121,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 8 },\n      { day: 'O', date: '2', hours: 7 },\n      { day: 'T', date: '3', hours: 8 },\n      { day: 'C', date: '4', hours: 6 },\n      { day: 'P', date: '5', hours: 7 },\n      { day: 'O', date: '6', hours: 8 },\n      { day: 'T', date: '7', hours: 7 },\n      { day: 'C', date: '8', hours: 6 },\n      { day: 'P', date: '9', hours: 7 },\n      { day: 'O', date: '10', hours: 8 },\n      { day: 'T', date: '11', hours: 7 },\n      { day: 'C', date: '12', hours: 6 },\n      { day: 'P', date: '13', hours: 7 },\n      { day: 'O', date: '14', hours: 8 },\n      { day: 'T', date: '15', hours: 7 },\n      { day: 'C', date: '16', hours: 6 },\n      { day: 'P', date: '17', hours: 7 },\n      { day: 'O', date: '18', hours: 8 },\n      { day: 'T', date: '19', hours: 7 },\n      { day: 'C', date: '20', hours: 6 },\n      { day: 'P', date: '21', hours: 7 },\n      { day: 'O', date: '22', hours: 8 },\n      { day: 'T', date: '23', hours: 7 },\n      { day: 'C', date: '24', hours: 6 },\n      { day: 'P', date: '25', hours: 7 },\n      { day: 'O', date: '26', hours: 8 },\n      { day: 'T', date: '27', hours: 7 },\n      { day: 'C', date: '28', hours: 6 },\n      { day: 'P', date: '29', hours: 7 },\n      { day: 'O', date: '30', hours: 8 },\n      { day: 'T', date: '31', hours: 7 },\n    ],\n  },\n  {\n    employeeName: 'Jānis Bērziņš',\n    jobTitle: 'Projektu vadītājs',\n    planningHours: 10,\n    totalHours: 110,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 9 },\n      { day: 'O', date: '2', hours: 8 },\n      { day: 'T', date: '3', hours: 9 },\n      { day: 'C', date: '4', hours: 6 },\n      { day: 'P', date: '5', hours: 8 },\n      { day: 'O', date: '6', hours: 9 },\n      { day: 'T', date: '7', hours: 8 },\n      { day: 'C', date: '8', hours: 6 },\n      { day: 'P', date: '9', hours: 8 },\n      { day: 'O', date: '10', hours: 9 },\n      { day: 'T', date: '11', hours: 8 },\n      { day: 'C', date: '12', hours: 6 },\n      { day: 'P', date: '13', hours: 8 },\n      { day: 'O', date: '14', hours: 9 },\n      { day: 'T', date: '15', hours: 8 },\n      { day: 'C', date: '16', hours: 6 },\n      { day: 'P', date: '17', hours: 8 },\n      { day: 'O', date: '18', hours: 9 },\n      { day: 'T', date: '19', hours: 8 },\n      { day: 'C', date: '20', hours: 6 },\n      { day: 'P', date: '21', hours: 8 },\n      { day: 'O', date: '22', hours: 9 },\n      { day: 'T', date: '23', hours: 8 },\n      { day: 'C', date: '24', hours: 6 },\n      { day: 'P', date: '25', hours: 8 },\n      { day: 'O', date: '26', hours: 9 },\n      { day: 'T', date: '27', hours: 8 },\n      { day: 'C', date: '28', hours: 6 },\n      { day: 'P', date: '29', hours: 8 },\n      { day: 'O', date: '30', hours: 9 },\n      { day: 'T', date: '31', hours: 8 },\n    ],\n  },\n  {\n    employeeName: 'Laura Kalniņa',\n    jobTitle: 'Programmētājs',\n    planningHours: 9,\n    totalHours: 100,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 6 },\n      { day: 'O', date: '2', hours: 5 },\n      { day: 'T', date: '3', hours: 7 },\n      { day: 'C', date: '4', hours: 8 },\n      { day: 'P', date: '5', hours: 7 },\n      { day: 'O', date: '6', hours: 6 },\n      { day: 'T', date: '7', hours: 7 },\n      { day: 'C', date: '8', hours: 8 },\n      { day: 'P', date: '9', hours: 7 },\n      { day: 'O', date: '10', hours: 6 },\n      { day: 'T', date: '11', hours: 7 },\n      { day: 'C', date: '12', hours: 8 },\n      { day: 'P', date: '13', hours: 7 },\n      { day: 'O', date: '14', hours: 6 },\n      { day: 'T', date: '15', hours: 7 },\n      { day: 'C', date: '16', hours: 8 },\n      { day: 'P', date: '17', hours: 7 },\n      { day: 'O', date: '18', hours: 6 },\n      { day: 'T', date: '19', hours: 7 },\n      { day: 'C', date: '20', hours: 8 },\n      { day: 'P', date: '21', hours: 7 },\n      { day: 'O', date: '22', hours: 6 },\n      { day: 'T', date: '23', hours: 7 },\n      { day: 'C', date: '24', hours: 8 },\n      { day: 'P', date: '25', hours: 7 },\n      { day: 'O', date: '26', hours: 6 },\n      { day: 'T', date: '27', hours: 7 },\n      { day: 'C', date: '28', hours: 8 },\n      { day: 'P', date: '29', hours: 7 },\n      { day: 'O', date: '30', hours: 6 },\n      { day: 'T', date: '31', hours: 7 },\n    ],\n  },\n]"
             },
             {
                 "name": "TimePlanning",
@@ -2926,6 +3057,48 @@
                     "defaultValue": "[\n    {\n        key: '0',\n        label: 'Documents',\n        data: 'Documents Folder',\n        icon: 'pi pi-fw pi-inbox',\n        children: [\n            {\n                key: '0-0',\n                label: 'Work',\n                data: 'Work Folder',\n                icon: 'pi pi-fw pi-cog',\n                children: [\n                    { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },\n                    { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }\n                ]\n            },\n            {\n                key: '0-1',\n                label: 'Home',\n                data: 'Home Folder',\n                icon: 'pi pi-fw pi-home',\n                children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]\n            }\n        ]\n    },\n    {\n        key: '1',\n        label: 'Events',\n        data: 'Events Folder',\n        icon: 'pi pi-fw pi-calendar',\n        children: [\n            { key: '1-0', label: 'Meeting', icon: 'pi pi-fw pi-calendar-plus', data: 'Meeting' },\n            { key: '1-1', label: 'Product Launch', icon: 'pi pi-fw pi-calendar-plus', data: 'Product Launch' },\n            { key: '1-2', label: 'Report Review', icon: 'pi pi-fw pi-calendar-plus', data: 'Report Review' }\n        ]\n    },\n    {\n        key: '2',\n        label: 'Movies',\n        data: 'Movies Folder',\n        icon: 'pi pi-fw pi-star-fill',\n        children: [\n            {\n                key: '2-0',\n                icon: 'pi pi-fw pi-star-fill',\n                label: 'Al Pacino',\n                data: 'Pacino Movies',\n                children: [\n                    { key: '2-0-0', label: 'Scarface', icon: 'pi pi-fw pi-video', data: 'Scarface Movie' },\n                    { key: '2-0-1', label: 'Serpico', icon: 'pi pi-fw pi-video', data: 'Serpico Movie' }\n                ]\n            },\n            {\n                key: '2-1',\n                label: 'Robert De Niro',\n                icon: 'pi pi-fw pi-star-fill',\n                data: 'De Niro Movies',\n                children: [\n                    { key: '2-1-0', label: 'Goodfellas', icon: 'pi pi-fw pi-video', data: 'Goodfellas Movie' },\n                    { key: '2-1-1', label: 'Untouchables', icon: 'pi pi-fw pi-video', data: 'Untouchables Movie' }\n                ]\n            }\n        ]\n    }\n]"
                 }
             ],
+            "src/stories/components/table/table.data.ts": [
+                {
+                    "name": "Products",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  {\n    id: 1,\n    code: 'f230fh0g3',\n    name: 'Darba dienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Parasts',\n    badgeSeverity: 'info',\n    inventoryStatus: 'Standarta',\n    days: [1, 2, 3, 4, 5],\n  },\n  {\n    id: 2,\n    code: 'f230fh0g3',\n    name: 'Citas foršas darba dienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Ideāls',\n    badgeSeverity: 'success',\n    inventoryStatus: 'Nestandarta',\n    days: [1, 4, 5],\n    dates: ['12.12.2024', '12.12.2024'],\n  },\n  {\n    id: 3,\n    code: 'f230fh0g3',\n    name: 'Brīvdienas',\n    slots: ['8:00 - 17:00 (8h 15min)', '18:00 - 23:00 (4h 45min)'],\n    badgeName: 'Nestandarta',\n    badgeSeverity: 'warning',\n    inventoryStatus: 'Standarta',\n    days: [1, 5],\n    dates: ['12.12.2024'],\n  },\n]"
+                },
+                {
+                    "name": "TableData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TableData[]",
+                    "defaultValue": "[\n  {\n    darbaLaiks: '8:00 - 17:00 (8h 15min)',\n    partraukums: 'Pusdienlaiks',\n    darbaVieta: 'Ofiss',\n  },\n  {\n    darbaLaiks: '18:00 - 23:00 (4h 45min)',\n    partraukums: '15min',\n    darbaVieta: 'Noliktava',\n  },\n]"
+                },
+                {
+                    "name": "TableData2",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  {\n    amats: 'Biroja administrators',\n    kompetence: 'Māk rakstīt | Sertificēts revidents',\n    kompetencuSkaits: '2',\n    darbniekuSkaits: 'min: 1 / max: 1 / opt: 1',\n  },\n]"
+                },
+                {
+                    "name": "TimePlanning",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  {\n    employeeName: 'Anita Jēgermane',\n    jobTitle: 'Biroja administrators',\n    planningHours: 12,\n    totalHours: 121,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 8 },\n      { day: 'O', date: '2', hours: 7 },\n      { day: 'T', date: '3', hours: 8 },\n      { day: 'C', date: '4', hours: 6 },\n      { day: 'P', date: '5', hours: 7 },\n      { day: 'O', date: '6', hours: 8 },\n      { day: 'T', date: '7', hours: 7 },\n      { day: 'C', date: '8', hours: 6 },\n      { day: 'P', date: '9', hours: 7 },\n      { day: 'O', date: '10', hours: 8 },\n      { day: 'T', date: '11', hours: 7 },\n      { day: 'C', date: '12', hours: 6 },\n      { day: 'P', date: '13', hours: 7 },\n      { day: 'O', date: '14', hours: 8 },\n      { day: 'T', date: '15', hours: 7 },\n      { day: 'C', date: '16', hours: 6 },\n      { day: 'P', date: '17', hours: 7 },\n      { day: 'O', date: '18', hours: 8 },\n      { day: 'T', date: '19', hours: 7 },\n      { day: 'C', date: '20', hours: 6 },\n      { day: 'P', date: '21', hours: 7 },\n      { day: 'O', date: '22', hours: 8 },\n      { day: 'T', date: '23', hours: 7 },\n      { day: 'C', date: '24', hours: 6 },\n      { day: 'P', date: '25', hours: 7 },\n      { day: 'O', date: '26', hours: 8 },\n      { day: 'T', date: '27', hours: 7 },\n      { day: 'C', date: '28', hours: 6 },\n      { day: 'P', date: '29', hours: 7 },\n      { day: 'O', date: '30', hours: 8 },\n      { day: 'T', date: '31', hours: 7 },\n    ],\n  },\n  {\n    employeeName: 'Jānis Bērziņš',\n    jobTitle: 'Projektu vadītājs',\n    planningHours: 10,\n    totalHours: 110,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 9 },\n      { day: 'O', date: '2', hours: 8 },\n      { day: 'T', date: '3', hours: 9 },\n      { day: 'C', date: '4', hours: 6 },\n      { day: 'P', date: '5', hours: 8 },\n      { day: 'O', date: '6', hours: 9 },\n      { day: 'T', date: '7', hours: 8 },\n      { day: 'C', date: '8', hours: 6 },\n      { day: 'P', date: '9', hours: 8 },\n      { day: 'O', date: '10', hours: 9 },\n      { day: 'T', date: '11', hours: 8 },\n      { day: 'C', date: '12', hours: 6 },\n      { day: 'P', date: '13', hours: 8 },\n      { day: 'O', date: '14', hours: 9 },\n      { day: 'T', date: '15', hours: 8 },\n      { day: 'C', date: '16', hours: 6 },\n      { day: 'P', date: '17', hours: 8 },\n      { day: 'O', date: '18', hours: 9 },\n      { day: 'T', date: '19', hours: 8 },\n      { day: 'C', date: '20', hours: 6 },\n      { day: 'P', date: '21', hours: 8 },\n      { day: 'O', date: '22', hours: 9 },\n      { day: 'T', date: '23', hours: 8 },\n      { day: 'C', date: '24', hours: 6 },\n      { day: 'P', date: '25', hours: 8 },\n      { day: 'O', date: '26', hours: 9 },\n      { day: 'T', date: '27', hours: 8 },\n      { day: 'C', date: '28', hours: 6 },\n      { day: 'P', date: '29', hours: 8 },\n      { day: 'O', date: '30', hours: 9 },\n      { day: 'T', date: '31', hours: 8 },\n    ],\n  },\n  {\n    employeeName: 'Laura Kalniņa',\n    jobTitle: 'Programmētājs',\n    planningHours: 9,\n    totalHours: 100,\n    daysOfMonth: [\n      { day: 'P', date: '1', hours: 6 },\n      { day: 'O', date: '2', hours: 5 },\n      { day: 'T', date: '3', hours: 7 },\n      { day: 'C', date: '4', hours: 8 },\n      { day: 'P', date: '5', hours: 7 },\n      { day: 'O', date: '6', hours: 6 },\n      { day: 'T', date: '7', hours: 7 },\n      { day: 'C', date: '8', hours: 8 },\n      { day: 'P', date: '9', hours: 7 },\n      { day: 'O', date: '10', hours: 6 },\n      { day: 'T', date: '11', hours: 7 },\n      { day: 'C', date: '12', hours: 8 },\n      { day: 'P', date: '13', hours: 7 },\n      { day: 'O', date: '14', hours: 6 },\n      { day: 'T', date: '15', hours: 7 },\n      { day: 'C', date: '16', hours: 8 },\n      { day: 'P', date: '17', hours: 7 },\n      { day: 'O', date: '18', hours: 6 },\n      { day: 'T', date: '19', hours: 7 },\n      { day: 'C', date: '20', hours: 8 },\n      { day: 'P', date: '21', hours: 7 },\n      { day: 'O', date: '22', hours: 6 },\n      { day: 'T', date: '23', hours: 7 },\n      { day: 'C', date: '24', hours: 8 },\n      { day: 'P', date: '25', hours: 7 },\n      { day: 'O', date: '26', hours: 6 },\n      { day: 'T', date: '27', hours: 7 },\n      { day: 'C', date: '28', hours: 8 },\n      { day: 'P', date: '29', hours: 7 },\n      { day: 'O', date: '30', hours: 6 },\n      { day: 'T', date: '31', hours: 7 },\n    ],\n  },\n]"
+                }
+            ],
             "src/app/app.routes.server.ts": [
                 {
                     "name": "serverRoutes",
@@ -3093,7 +3266,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/15",
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {
@@ -3170,6 +3343,55 @@
                 "name": "BasicSelectComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.data.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Product",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.data.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Products",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.data.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TableData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.data.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TableData2",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.data.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TimePlanning",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

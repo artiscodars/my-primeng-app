@@ -57,11 +57,17 @@ export class HeaderComponent {
     if (leftMenu) {
       // Toggle the class on the element with ID "left-menu"
       if (this.isMenuVisible) {
-        leftMenu.classList.add('!left-[15px]');
-        document.body.classList.add('!pl-[300px]');
+        leftMenu.classList.add('left-[15px]');
+        //document.body.classList.add('md:pl-[300px]');
+        document
+          .getElementById('content_holder')
+          ?.classList.add('lg:pl-[285px]');
       } else {
-        leftMenu.classList.remove('!left-[15px]');
-        document.body.classList.remove('!pl-[300px]');
+        leftMenu.classList.remove('left-[15px]');
+        //document.body.classList.remove('md:pl-[300px]');
+        document
+          .getElementById('content_holder')
+          ?.classList.remove('lg:pl-[285px]');
       }
     }
   }

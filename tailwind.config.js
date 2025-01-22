@@ -1,6 +1,7 @@
 const { createThemes } = require('tailwindcss-primeui');
 
 module.exports = {
+  important: true,
   content: [
     './src/**/*.{html,ts}', // Angular HTML and TypeScript files
     './node_modules/primeng/**/*.{js,html}', // PrimeNG components
