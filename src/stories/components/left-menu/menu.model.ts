@@ -118,12 +118,6 @@ export const Menu: MenuItem[] = [
         items: [],
         route: '#',
       },
-      {
-        label: 'Darba plūsmas',
-        icon: 'pi pi-file',
-        items: [],
-        route: '#',
-      },
     ],
   },
   {
@@ -148,12 +142,16 @@ export const Menu: MenuItem[] = [
       },
       {
         label: 'Moduļi',
+        seperator: true,
+      },
+      {
+        label: 'Darba laika plānošana',
         icon: 'pi pi-file',
         items: [],
         route: '#',
       },
       {
-        label: 'Darba laika plānošana',
+        label: 'Darba plūsmas',
         icon: 'pi pi-file',
         items: [],
         route: '#',
