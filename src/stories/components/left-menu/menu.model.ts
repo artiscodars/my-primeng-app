@@ -10,7 +10,7 @@ export interface MenuItem {
 export const Menu: MenuItem[] = [
   {
     label: 'Darba rīki',
-    expanded: false,
+    expanded: true,
     items: [
       {
         label: 'Rēķini',
@@ -113,7 +113,7 @@ export const Menu: MenuItem[] = [
   },
   {
     label: 'Mana darba vieta',
-    expanded: true,
+    expanded: false,
     items: [
       {
         label: 'Alga',
