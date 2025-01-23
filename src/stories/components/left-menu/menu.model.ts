@@ -9,70 +9,6 @@ export interface MenuItem {
 
 export const Menu: MenuItem[] = [
   {
-    label: 'Mana darba vieta',
-    expanded: true,
-    items: [
-      {
-        label: 'Alga',
-        items: [],
-        icon: 'pi pi-file',
-        route: '#',
-      },
-      {
-        label: 'Atvaļinājumi',
-        icon: 'pi pi-file',
-        items: [],
-        route: '#',
-      },
-      {
-        label: 'Mācību pieteikumi',
-        items: [],
-        icon: 'pi pi-file',
-        route: '#',
-      },
-      {
-        label: 'Izdevumi',
-        icon: 'pi pi-file',
-        items: [],
-        route: '#',
-      },
-      {
-        label: 'Komandējumi',
-        icon: 'pi pi-file',
-        items: [],
-        route: '#',
-      },
-      {
-        label: 'Noderīgi',
-        seperator: true,
-      },
-      {
-        label: 'Atskaites',
-        icon: 'pi pi-file',
-        items: [],
-        route: '#',
-      },
-      {
-        label: 'Meklēt kolēģi',
-        items: [],
-        icon: 'pi pi-file',
-        route: '#',
-      },
-      {
-        label: 'Prombūtnes kalendārs',
-        items: [],
-        icon: 'pi pi-file',
-        route: '#',
-      },
-      {
-        label: 'Ārējās saites',
-        items: [],
-        icon: 'pi pi-file',
-        route: '#',
-      },
-    ],
-  },
-  {
     label: 'Darba rīki',
     expanded: false,
     items: [
@@ -171,6 +107,70 @@ export const Menu: MenuItem[] = [
         label: 'Serviss',
         icon: 'pi pi-file',
         items: [],
+        route: '#',
+      },
+    ],
+  },
+  {
+    label: 'Mana darba vieta',
+    expanded: true,
+    items: [
+      {
+        label: 'Alga',
+        items: [],
+        icon: 'pi pi-file',
+        route: '#',
+      },
+      {
+        label: 'Atvaļinājumi',
+        icon: 'pi pi-file',
+        items: [],
+        route: '#',
+      },
+      {
+        label: 'Mācību pieteikumi',
+        items: [],
+        icon: 'pi pi-file',
+        route: '#',
+      },
+      {
+        label: 'Izdevumi',
+        icon: 'pi pi-file',
+        items: [],
+        route: '#',
+      },
+      {
+        label: 'Komandējumi',
+        icon: 'pi pi-file',
+        items: [],
+        route: '#',
+      },
+      {
+        label: 'Noderīgi',
+        seperator: true,
+      },
+      {
+        label: 'Atskaites',
+        icon: 'pi pi-file',
+        items: [],
+        route: '#',
+      },
+      {
+        label: 'Meklēt kolēģi',
+        items: [],
+        icon: 'pi pi-file',
+        route: '#',
+      },
+      {
+        label: 'Prombūtnes kalendārs',
+        items: [],
+        icon: 'pi pi-file',
+        route: '#',
+      },
+      {
+        label: 'Ārējās saites',
+        items: [],
+        icon: 'pi pi-file',
         route: '#',
       },
     ],
