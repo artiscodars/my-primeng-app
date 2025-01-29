@@ -182,6 +182,51 @@
             "extends": []
         },
         {
+            "name": "TaskItem",
+            "id": "interface-TaskItem-76000dd221c8828c4ff0dcb8eb275236a96c2e36e23d1d1d17608cf26c4e8fc1324c21c556281ffdf92a97c5129f1d5bd5869a8fe491b62480a52335f74a7a6d",
+            "file": "src/stories/widgets/tasks/tasks.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface TaskItem {\r\n  title: string; // The label of the menu item\r\n  date?: string; // Optional: For expandable/collapsible menus\r\n  status?: string; // Optional: Nested menu items\r\n}\r\n\r\nexport const Tasks: TaskItem[] = [\r\n  {\r\n    title: 'Darba rīki',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Rēķini',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Esmu iepazinies',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Darbinieki',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Materiālie resursi',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Krājumu norakstīšana',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n\r\n  {\r\n    title: 'Iziet',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n];\r\n",
+            "properties": [
+                {
+                    "name": "date",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
             "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
             "file": "src/stories/user.ts",
@@ -269,7 +314,7 @@
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-856d87edcd452fb0f7aa484d642bb6e8ebaa0fe07858a4065a58813d9f6799d8d7f2ca25fb16ca39eeff66a753d9aefb220d2c06e867c418e25885ca7b4d8e31-1",
+            "id": "component-AppComponent-71627618c602919d1b57fbd4afbfac94c83e1f2ec28deb16946a48d035f83325e284dda34ea09263a1c0be7c6fa8f6a1a3ffc69cf3ec276cbfed7aef175e49bb-1",
             "file": "src/stories/layouts/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -277,9 +322,7 @@
             "outputs": [],
             "providers": [],
             "styleUrls": [],
-            "styles": [
-                "\n            .container {\n                display: flex;\n                grid-gap: 20px;\n                margin-top: 20px;\n            }\n\n            .menu {\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                flex: 1;\n                max-width: 230px;\n                @media (max-width: var(--breakpoint)) {\n                    display: none;\n                }\n            }\n\n            .dashboard {\n                flex: 1;\n            }\n\n            :host ::ng-deep .p-card .p-card-content {\n                padding: 5px;\n            }\n        "
-            ],
+            "styles": [],
             "templateUrl": [
                 "./home.template.html"
             ],
@@ -287,71 +330,8 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "isMenuVisible",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 54
-                },
-                {
-                    "name": "items",
-                    "defaultValue": "[{ label: \"UZDEVUMI\", menu: [...Menu] }]",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 56
-                },
-                {
-                    "name": "title",
-                    "defaultValue": "\"angular-latest\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 55
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "toggleMenu",
-                    "args": [
-                        {
-                            "name": "isMenuVisible",
-                            "type": "boolean",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 58,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "isMenuVisible",
-                            "type": "boolean",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
+            "propertiesClass": [],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -359,15 +339,11 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "RouterOutlet"
-                },
-                {
                     "name": "HeaderComponent",
                     "type": "component"
                 },
                 {
-                    "name": "DashboardComponent",
-                    "type": "component"
+                    "name": "TasksWidget"
                 },
                 {
                     "name": "CardModule",
@@ -376,28 +352,24 @@
                 {
                     "name": "CommonModule",
                     "type": "module"
-                },
-                {
-                    "name": "LeftMenuComponent",
-                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, CUSTOM_ELEMENTS_SCHEMA } from \"@angular/core\";\nimport { RouterOutlet } from \"@angular/router\";\nimport { HeaderComponent } from \"../../components/header/header.component\";\nimport { DashboardComponent } from \"../dashboard/dashboard.component\";\nimport { Menu } from \"../../components/left-menu/menu.model\";\nimport { CardModule } from \"primeng/card\";\nimport { CommonModule } from \"@angular/common\";\nimport { LeftMenuComponent } from \"../../components/left-menu/left-menu.component\";\n\n@Component({\n    // selector: \"numo-home\",\n    standalone: true,\n    imports: [\n        RouterOutlet,\n        HeaderComponent,\n        DashboardComponent,\n        CardModule,\n        CommonModule,\n        LeftMenuComponent,\n    ],\n    templateUrl: \"./home.template.html\",\n    styles: [\n        `\n            .container {\n                display: flex;\n                grid-gap: 20px;\n                margin-top: 20px;\n            }\n\n            .menu {\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                flex: 1;\n                max-width: 230px;\n                @media (max-width: var(--breakpoint)) {\n                    display: none;\n                }\n            }\n\n            .dashboard {\n                flex: 1;\n            }\n\n            :host ::ng-deep .p-card .p-card-content {\n                padding: 5px;\n            }\n        `,\n    ],\n    schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class AppComponent {\n    isMenuVisible = false;\n    title = \"angular-latest\";\n    items = [{ label: \"UZDEVUMI\", menu: [...Menu] }];\n\n    toggleMenu(isMenuVisible: boolean) {\n        this.isMenuVisible = isMenuVisible;\n    }\n}\n",
+            "sourceCode": "import { Component /*, CUSTOM_ELEMENTS_SCHEMA */ } from '@angular/core';\nimport { HeaderComponent } from '../../components/header/header.component';\nimport { TasksWidget } from '../../widgets/tasks/tasks.component';\n//import { Menu } from '../../components/left-menu/menu.model';\n//import { Tasks } from '../../widgets/tasks/tasks.model';\nimport { CardModule } from 'primeng/card';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  // selector: \"numo-home\",\n  standalone: true,\n  imports: [HeaderComponent, TasksWidget, CardModule, CommonModule],\n  templateUrl: './home.template.html',\n  // schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class AppComponent {\n  // isMenuVisible = false;\n  // title = 'angular-latest';\n  // items = [{ label: 'UZDEVUMI', menu: [...Menu] }];\n  //  tasks = [...Tasks];\n  //  toggleMenu(isMenuVisible: boolean) {\n  //   this.isMenuVisible = isMenuVisible;\n  //  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "\n            .container {\n                display: flex;\n                grid-gap: 20px;\n                margin-top: 20px;\n            }\n\n            .menu {\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                flex: 1;\n                max-width: 230px;\n                @media (max-width: var(--breakpoint)) {\n                    display: none;\n                }\n            }\n\n            .dashboard {\n                flex: 1;\n            }\n\n            :host ::ng-deep .p-card .p-card-content {\n                padding: 5px;\n            }\n        \n",
+            "stylesData": "",
             "extends": [],
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "AppComponent-1",
-            "templateData": "<numo-header></numo-header>\n\n<numo-dashboard></numo-dashboard>"
+            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n\n  <div class=\"grid grid-cols-12 gap-8\">\n    <div class=\"col-span-12 xl:col-span-6\">\n      <numo-tasks-widget />\n    </div>\n    <div class=\"col-span-12 xl:col-span-6\">...</div>\n  </div>\n\n\n</div>\n"
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-a338aee1149ab2118607aac3fca0aeaad0a1bbd29d90372b547eca9a56a77ab4ff099d9e32fbead297ac3b7a6958abad6f884234e87fc4c3b8cbbf07aeb50041-2",
+            "id": "component-AppComponent-86b51130f9af7ce20191dfa0566f23725906fb57ff0faffb0d718691ec19b297e242517e8626af95e05bd2d8fe76ac995d63cf85103bd029a013ac3cebf2bdef-2",
             "file": "src/stories/layouts/timeplaning/timeplaning.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -411,9 +383,84 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "class",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 77,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 71,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "max",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 74,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "min",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 73,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "required",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 72,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "step",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 75,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 79,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "amatsOptions",
+                    "defaultValue": "['Konsultants', 'Vadītājs', 'Kases darbinieks']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 84
+                },
                 {
                     "name": "breadCrumbItems",
                     "defaultValue": "[{ label: 'Darba laika plānošana', route: '/timeplaning' }]",
@@ -423,7 +470,18 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 122
+                    "line": 131
+                },
+                {
+                    "name": "breakOptions",
+                    "defaultValue": "['15 min', '30 min', '45 min', '1 h', '1.5 h', '2 h']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 81
                 },
                 {
                     "name": "date",
@@ -433,7 +491,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 71
+                    "line": 64
                 },
                 {
                     "name": "displayAddDataDialog",
@@ -444,7 +502,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 130
+                    "line": 139
                 },
                 {
                     "name": "expandedRows",
@@ -455,7 +513,18 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 68
+                    "line": 62
+                },
+                {
+                    "name": "groupOptions",
+                    "defaultValue": "['Grupa 1', 'Grupa 2', 'Grupa 3']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 83
                 },
                 {
                     "name": "home",
@@ -466,7 +535,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 70
+                    "line": 63
                 },
                 {
                     "name": "isMenuVisible",
@@ -477,18 +546,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 66
-                },
-                {
-                    "name": "items",
-                    "defaultValue": "[{ label: 'UZDEVUMI', menu: [...Menu] }]",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 69
+                    "line": 60
                 },
                 {
                     "name": "itemsWithIsLast",
@@ -499,7 +557,18 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 124
+                    "line": 133
+                },
+                {
+                    "name": "kompetencesOptions",
+                    "defaultValue": "['Kases darbs', 'Preču uzpakošana', 'Preču izkraušana']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 85
                 },
                 {
                     "name": "menuItems",
@@ -510,7 +579,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 75
+                    "line": 68
                 },
                 {
                     "name": "newData",
@@ -521,7 +590,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 133
+                    "line": 142
                 },
                 {
                     "name": "options",
@@ -532,7 +601,18 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 117
+                    "line": 126
+                },
+                {
+                    "name": "placeOptions",
+                    "defaultValue": "['Barona ielas veikals', 'Dzelzavas ielas veikals']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 82
                 },
                 {
                     "name": "Products",
@@ -543,7 +623,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 74
+                    "line": 67
                 },
                 {
                     "name": "tableData",
@@ -554,7 +634,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 72
+                    "line": 65
                 },
                 {
                     "name": "tableData2",
@@ -565,7 +645,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 73
+                    "line": 66
                 },
                 {
                     "name": "timePlanning",
@@ -576,7 +656,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 76
+                    "line": 69
                 },
                 {
                     "name": "title",
@@ -587,7 +667,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 67
+                    "line": 61
                 }
             ],
             "methodsClass": [
@@ -597,7 +677,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 141,
+                    "line": 150,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -614,7 +694,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 114,
+                    "line": 123,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -635,7 +715,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 146,
+                    "line": 155,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -645,7 +725,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 136,
+                    "line": 145,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -662,7 +742,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 102,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -767,7 +847,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';\nimport { RouterModule } from '@angular/router';\nimport { HeaderComponent } from '../../components/header/header.component';\nimport { DashboardComponent } from '../dashboard/dashboard.component';\nimport { Menu } from '../../components/left-menu/menu.model';\nimport { CardModule } from 'primeng/card';\nimport { CommonModule } from '@angular/common';\nimport { LeftMenuComponent } from '../../components/left-menu/left-menu.component';\nimport { BreadcrumbModule } from 'primeng/breadcrumb';\nimport { IconComponent } from '../../components/icon/icon.component';\nimport { Select } from 'primeng/select';\nimport { CalendarModule } from 'primeng/calendar';\nimport { TabViewModule } from 'primeng/tabview';\nimport { MenuModule } from 'primeng/menu';\nimport { ButtonModule } from 'primeng/button';\nimport { BadgeModule } from 'primeng/badge';\nimport { CheckboxModule } from 'primeng/checkbox';\nimport {\n  MenuItem,\n  TableData,\n  TableData2,\n  Products,\n  TimePlanning,\n} from './timeplanning.data';\nimport { TableModule } from 'primeng/table';\nimport { InputGroupModule } from 'primeng/inputgroup';\nimport { InputGroupAddonModule } from 'primeng/inputgroupaddon';\nimport { ChipModule } from 'primeng/chip';\n\nimport { DialogModule } from 'primeng/dialog';\nimport { FormsModule } from '@angular/forms';\nimport { InputTextModule } from 'primeng/inputtext';\n\nimport { TimePickerComponent } from '../../components/time-picker/time-picker.component';\n\n@Component({\n  // selector: \"numo-timeplaning\",\n  standalone: true,\n  imports: [\n    RouterModule,\n    HeaderComponent,\n    CardModule,\n    CommonModule,\n    BreadcrumbModule,\n    Select,\n    CalendarModule,\n    TabViewModule,\n    MenuModule,\n    ButtonModule,\n    TableModule,\n    BadgeModule,\n    InputGroupModule,\n    InputGroupAddonModule,\n    ChipModule,\n    CheckboxModule,\n    DialogModule,\n    FormsModule,\n    InputTextModule,\n    TimePickerComponent,\n  ],\n  templateUrl: './timeplaning.template.html',\n\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class AppComponent {\n  isMenuVisible = false;\n  title = 'angular-latest';\n  expandedRows: any[] = [];\n  items = [{ label: 'UZDEVUMI', menu: [...Menu] }];\n  home = { icon: 'pi pi-home', route: '/' };\n  date: Date[] | undefined;\n  tableData = TableData;\n  tableData2 = TableData2;\n  Products = Products;\n  menuItems = MenuItem;\n  timePlanning = TimePlanning;\n\n  // Sum of planning hours for all employees\n  get totalPlanningHours(): number {\n    return this.timePlanning.reduce((sum, emp) => sum + emp.planningHours, 0);\n  }\n\n  // Sum of total hours for all employees\n  get totalHours(): number {\n    return this.timePlanning.reduce((sum, emp) => sum + emp.totalHours, 0);\n  }\n\n  // Total hours per day across all employees\n  get dailyTotals(): number[] {\n    if (this.timePlanning.length === 0) return [];\n    const daysInMonth = this.timePlanning[0].daysOfMonth.length;\n\n    return Array.from({ length: daysInMonth }, (_, dayIndex) =>\n      this.timePlanning.reduce(\n        (sum, emp) => sum + (emp.daysOfMonth[dayIndex]?.hours || 0),\n        0\n      )\n    );\n  }\n\n  // Method to toggle row expansion\n  toggleRow(product: any) {\n    const index = this.expandedRows.indexOf(product.id);\n    if (index !== -1) {\n      // Row is already expanded, so collapse it\n      this.expandedRows.splice(index, 1);\n    } else {\n      // Row is not expanded, so expand it\n      this.expandedRows.push(product.id);\n    }\n  }\n\n  // Method to check if a row is expanded\n  isRowExpanded(product: any): boolean {\n    return this.expandedRows.includes(product.id);\n  }\n  options = [\n    {\n      name: 'Barona ielas veikals',\n    },\n  ];\n  breadCrumbItems = [{ label: 'Darba laika plānošana', route: '/timeplaning' }];\n\n  itemsWithIsLast = this.breadCrumbItems.map((item, index, array) => ({\n    ...item,\n    isLast: index === array.length - 1,\n  }));\n\n  // Variable to control the visibility of the 'Add Data' modal dialog\n  displayAddDataDialog: boolean = false;\n\n  // Object to hold new data from the form\n  newData: any = {};\n\n  // Method to open the dialog\n  showAddDataDialog() {\n    this.displayAddDataDialog = true;\n  }\n\n  // Method to close the dialog\n  hideAddDataDialog() {\n    this.displayAddDataDialog = false;\n  }\n\n  // Method to save the data\n  saveData() {\n    // Implement the logic to save data\n    console.log('Data saved:', this.newData);\n    // Close the dialog\n    this.hideAddDataDialog();\n  }\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { RouterModule } from '@angular/router';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\nimport { CardModule } from 'primeng/card';\nimport { BreadcrumbModule } from 'primeng/breadcrumb';\nimport { Select } from 'primeng/select';\nimport { CalendarModule } from 'primeng/calendar';\nimport { TabViewModule } from 'primeng/tabview';\nimport { MenuModule } from 'primeng/menu';\nimport { ButtonModule } from 'primeng/button';\nimport { BadgeModule } from 'primeng/badge';\nimport { CheckboxModule } from 'primeng/checkbox';\nimport { TableModule } from 'primeng/table';\nimport { InputGroupModule } from 'primeng/inputgroup';\nimport { InputGroupAddonModule } from 'primeng/inputgroupaddon';\nimport { ChipModule } from 'primeng/chip';\nimport { DialogModule } from 'primeng/dialog';\nimport { InputTextModule } from 'primeng/inputtext';\n\nimport {\n  MenuItem,\n  TableData,\n  TableData2,\n  Products,\n  TimePlanning,\n} from './timeplanning.data';\n\nimport { HeaderComponent } from '../../components/header/header.component';\nimport { TimePickerComponent } from '../../components/time-picker/time-picker.component';\n\n@Component({\n  standalone: true,\n  imports: [\n    RouterModule,\n    HeaderComponent,\n    CardModule,\n    CommonModule,\n    BreadcrumbModule,\n    Select,\n    CalendarModule,\n    TabViewModule,\n    MenuModule,\n    ButtonModule,\n    TableModule,\n    BadgeModule,\n    InputGroupModule,\n    InputGroupAddonModule,\n    ChipModule,\n    CheckboxModule,\n    DialogModule,\n    FormsModule,\n    InputTextModule,\n    TimePickerComponent,\n  ],\n  templateUrl: './timeplaning.template.html',\n})\nexport class AppComponent {\n  isMenuVisible = false;\n  title = 'angular-latest';\n  expandedRows: any[] = [];\n  home = { icon: 'pi pi-home', route: '/' };\n  date: Date[] | undefined;\n  tableData = TableData;\n  tableData2 = TableData2;\n  Products = Products;\n  menuItems = MenuItem;\n  timePlanning = TimePlanning;\n\n  @Input() disabled: boolean = false;\n  @Input() required: boolean = false;\n  @Input() min: string = '';\n  @Input() max: string = '';\n  @Input() step: string = '';\n\n  @Input() class: string = '';\n\n  @Input() value: string = '';\n\n  breakOptions = ['15 min', '30 min', '45 min', '1 h', '1.5 h', '2 h'];\n  placeOptions = ['Barona ielas veikals', 'Dzelzavas ielas veikals'];\n  groupOptions = ['Grupa 1', 'Grupa 2', 'Grupa 3'];\n  amatsOptions = ['Konsultants', 'Vadītājs', 'Kases darbinieks'];\n  kompetencesOptions = ['Kases darbs', 'Preču uzpakošana', 'Preču izkraušana'];\n\n  // Sum of planning hours for all employees\n  get totalPlanningHours(): number {\n    return this.timePlanning.reduce((sum, emp) => sum + emp.planningHours, 0);\n  }\n\n  // Sum of total hours for all employees\n  get totalHours(): number {\n    return this.timePlanning.reduce((sum, emp) => sum + emp.totalHours, 0);\n  }\n\n  // Total hours per day across all employees\n  get dailyTotals(): number[] {\n    if (this.timePlanning.length === 0) return [];\n    const daysInMonth = this.timePlanning[0].daysOfMonth.length;\n\n    return Array.from({ length: daysInMonth }, (_, dayIndex) =>\n      this.timePlanning.reduce(\n        (sum, emp) => sum + (emp.daysOfMonth[dayIndex]?.hours || 0),\n        0\n      )\n    );\n  }\n\n  // Method to toggle row expansion\n  toggleRow(product: any) {\n    const index = this.expandedRows.indexOf(product.id);\n    if (index !== -1) {\n      // Row is already expanded, so collapse it\n      this.expandedRows.splice(index, 1);\n    } else {\n      // Row is not expanded, so expand it\n      this.expandedRows.push(product.id);\n    }\n  }\n\n  // Method to check if a row is expanded\n  isRowExpanded(product: any): boolean {\n    return this.expandedRows.includes(product.id);\n  }\n  options = [\n    {\n      name: 'Barona ielas veikals',\n    },\n  ];\n  breadCrumbItems = [{ label: 'Darba laika plānošana', route: '/timeplaning' }];\n\n  itemsWithIsLast = this.breadCrumbItems.map((item, index, array) => ({\n    ...item,\n    isLast: index === array.length - 1,\n  }));\n\n  // Variable to control the visibility of the 'Add Data' modal dialog\n  displayAddDataDialog: boolean = false;\n\n  // Object to hold new data from the form\n  newData: any = {};\n\n  // Method to open the dialog\n  showAddDataDialog() {\n    this.displayAddDataDialog = true;\n  }\n\n  // Method to close the dialog\n  hideAddDataDialog() {\n    this.displayAddDataDialog = false;\n  }\n\n  // Method to save the data\n  saveData() {\n    // Implement the logic to save data\n    console.log('Data saved:', this.newData);\n    // Close the dialog\n    this.hideAddDataDialog();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -779,7 +859,7 @@
                         "name": "totalPlanningHours",
                         "type": "number",
                         "returnType": "number",
-                        "line": 79
+                        "line": 88
                     }
                 },
                 "totalHours": {
@@ -788,7 +868,7 @@
                         "name": "totalHours",
                         "type": "number",
                         "returnType": "number",
-                        "line": 84
+                        "line": 93
                     }
                 },
                 "dailyTotals": {
@@ -797,14 +877,14 @@
                         "name": "dailyTotals",
                         "type": "[]",
                         "returnType": "number[]",
-                        "line": 89
+                        "line": 98
                     }
                 }
             },
             "isDuplicate": true,
             "duplicateId": 2,
             "duplicateName": "AppComponent-2",
-            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n  <div class=\"flex-grow-1\">\n    <div class=\"w-full mb-3 rounded-lg border border-gray-200 overflow-hidden\">\n      <p-breadcrumb class=\"max-w-full block border-0\" [model]=\"itemsWithIsLast\" [home]=\"home\">\n        <ng-template pTemplate=\"item\" let-item>\n          <ng-container *ngIf=\"!item.isLast; else lastBreadcrumb\">\n            <!-- For all items except the last one -->\n            <ng-container *ngIf=\"item.route; else urlItem\">\n              <!-- If the item has a route -->\n              <a [routerLink]=\"item.route\" class=\"p-menuitem-link underline\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-container>\n            <ng-template #urlItem>\n              <!-- If the item has a URL -->\n              <a [href]=\"item.url\" class=\"p-menuitem-link\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-template>\n          </ng-container>\n          <ng-template #lastBreadcrumb>\n            <!-- For the last item, render as plain text -->\n            <span class=\"text-color\">{{ item.label }}</span>\n          </ng-template>\n        </ng-template>\n      </p-breadcrumb>\n    </div>\n\n    <div\n      class=\"card flex flex-col md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 justify-content-start rounded-lg\">\n      <div class=\"flex flex-col mr-2 items-start md:gap-2\">\n        <label for=\"dropdown\" class=\"mb-1 label text-sm\">Struktūrvienība</label>\n        <p-select id=\"dropdown\" [options]=\"options\" optionLabel=\"name\" placeholder=\"Barona ielas veikals\"\n          styleClass=\"w-full\" />\n      </div>\n      <div class=\"flex flex-col items-start md:gap-2\">\n        <label for=\"calendar\" class=\"mb-1 label text-sm\">Mēnesis</label>\n        <div class=\"flex items-center w-full\">\n          <p-calendar id=\"calendar\" [(ngModel)]=\"date\" view=\"month\" [iconDisplay]=\"'input'\" [showIcon]=\"true\"\n            styleClass=\"w-full\" dateFormat=\"MM, yy\" [readonlyInput]=\"true\" />\n        </div>\n      </div>\n    </div>\n    <div class=\"border border-gray-200 rounded-lg overflow-hidden mt-4\">\n      <p-tabView class=\"bg-transparent m-0\">\n        <p-tabPanel header=\"Uzstādījumi\">\n          <div class=\"flex gap-3 flex-col lg:flex-row\">\n            <p-menu [model]=\"menuItems\" class=\"hidden lg:flex\" />\n            <div class=\"lg:hidden w-full\">\n              <p-select [options]=\"menuItems\" class=\"w-full\" />\n            </div>\n            <div class=\"flex-1\">\n              <!-- Existing \"Pievienot\" Button for Desktop -->\n              <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"plus-button hidden lg:block pb-3\" size=\"small\"\n                (onClick)=\"showAddDataDialog()\" />\n\n              <!-- Existing \"Pievienot\" Button for Mobile -->\n              <p-button icon=\"pi pi-plus\" class=\"fixed bottom-0 right-0 mr-4 mb-4 z-50 shadow-2 border-circle lg:hidden\"\n                size=\"small\" rounded=\"true\" (onClick)=\"showAddDataDialog()\" />\n\n              <div>\n                <p-table [value]=\"Products\" dataKey=\"id\">\n                  <!-- Body Template for Product Rows -->\n                  <ng-template pTemplate=\"body\" let-product>\n                    <tr class=\"border-b-2 lg:border-none block md:table-row border-gray-400\">\n                      <!-- Caret Icon for Expand/Collapse -->\n\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex flex-wrap items-center gap-2\">\n                          <p-button severity=\"secondary\" [text]=\"true\" (click)=\"toggleRow(product)\">\n                            <span class=\"material-symbols-rounded\">\n                              {{ isRowExpanded(product) ? 'expand_more' :\n                              'chevron_right' }}\n                            </span>\n                          </p-button>\n\n                          <span\n                            class=\"flex items-center justify-content-center font-semibold white-space-nowrap\">{{product.name}}</span>\n                          <p-badge [value]=\"product.badgeName\" [severity]=\"product.badgeSeverity\"\n                            class=\"flex items-center justify-content-center\" styleClass=\"text-xs font-normal\"></p-badge>\n                        </div>\n                      </td>\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex flex-wrap gap-2\">\n                          <p-badge *ngFor=\"let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index\" [value]=\"day\"\n                            [severity]=\"product.days.includes(i + 1) ? 'info' : 'secondary'\"\n                            [styleClass]=\"product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'\" />\n                          <p-badge *ngFor=\"let date of product.dates\" severity=\"info\" [value]=\"date\"\n                            class=\"rounded-full whitespace-nowrap\"></p-badge>\n                        </div>\n                      </td>\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex flex-wrap gap-2\">\n                          <p-chip *ngFor=\"let slot of product.slots\" [label]=\"slot\"\n                            styleClass=\"whitespace-nowrap text-xs bg-gray-100 text-gray-900 py-1 px-3\" />\n                        </div>\n                      </td>\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex w-full justify-between gap-3 md:justify-end\">\n                          <p-button severity=\"secondary\" [text]=\"true\" size=\"small\">\n                            <span class=\"material-symbols-rounded\"> edit </span>\n                          </p-button>\n\n                          <p-button severity=\"danger\" [text]=\"true\" size=\"small\">\n                            <span class=\"material-symbols-rounded\"> delete </span>\n                          </p-button>\n                        </div>\n                      </td>\n                    </tr>\n                    <!-- Expanded Row Content -->\n                    <tr *ngIf=\"isRowExpanded(product)\">\n                      <td colspan=\"4\">\n                        <div class=\"p-2\">\n                          <h3>Darba laiki</h3>\n                          <p-table [value]=\"tableData\" [tableStyle]=\"{ ' min-width': '50rem' }\">\n                            <ng-template pTemplate=\"header\">\n                    <tr>\n                      <th>Darba laiks</th>\n                      <th>Pārtraukums</th>\n                      <th>Darba vieta</th>\n                    </tr>\n                  </ng-template>\n                  <ng-template pTemplate=\"body\" let-innerProduct>\n                    <tr>\n                      <td>{{ innerProduct.darbaLaiks }}</td>\n                      <td>{{ innerProduct.partraukums }}</td>\n                      <td>{{ innerProduct.darbaVieta }}</td>\n                    </tr>\n                  </ng-template>\n                </p-table>\n\n                <h3 class=\"mt-4\">Vajadzības</h3>\n                <p-table [value]=\"tableData2\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n                  <ng-template pTemplate=\"header\">\n                    <tr>\n                      <th>Amats</th>\n                      <th>Kompetence</th>\n                      <th>Kompetenču skaits</th>\n                      <th>Darbnieku skaits</th>\n                    </tr>\n                  </ng-template>\n                  <ng-template pTemplate=\"body\" let-innerProduct>\n                    <tr>\n                      <td>{{ innerProduct.amats }}</td>\n                      <td>{{ innerProduct.kompetence }}</td>\n                      <td>{{ innerProduct.kompetencuSkaits }}</td>\n                      <td>{{ innerProduct.darbniekuSkaits }}</td>\n                    </tr>\n                  </ng-template>\n                </p-table>\n              </div>\n              </td>\n              </tr>\n              </ng-template>\n              </p-table>\n            </div>\n          </div>\n    </div>\n    </p-tabPanel>\n    <p-tabPanel header=\"Plāns & Fakts\">\n      <div class=\"overflow-x-auto\">\n        <p-table [value]=\"timePlanning\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"sticky-column-1\">\n                <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n              </th>\n              <th class=\"sticky-column-2\" data-column=\"name\">\n                <div>Vārds, Uzvārds</div>\n              </th>\n              <th class=\"sticky-column-3\" data-column=\"job-title-name\">\n                <div>Amats</div>\n              </th>\n              <th class=\"sticky-column-4\" data-column=\"planning-hours\">\n                <div>Stundas</div>\n              </th>\n              <th class=\"sticky-column-5\" data-column=\"sum\">\n                <div>Summa</div>\n              </th>\n              <th *ngFor=\"let tday of timePlanning[0]?.daysOfMonth\">\n                <div>{{ tday.day }} {{ tday.date }}</div>\n              </th>\n            </tr>\n          </ng-template>\n\n          <ng-template pTemplate=\"body\" let-employee>\n            <tr>\n              <td class=\"sticky-column-1\">\n                <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n              </td>\n              <td class=\"sticky-column-2\" data-column=\"name\">\n                <div>{{ employee.employeeName }}</div>\n              </td>\n              <td class=\"sticky-column-3\">\n                <div>{{ employee.jobTitle }}</div>\n              </td>\n              <td class=\"sticky-column-4\">\n                <div>{{ employee.planningHours }}</div>\n              </td>\n              <td class=\"sticky-column-5\">\n                <div>{{ employee.totalHours }}</div>\n              </td>\n              <td *ngFor=\"let day of employee.daysOfMonth\">\n                <div>{{ day.hours }}</div>\n              </td>\n            </tr>\n          </ng-template>\n\n          <ng-template pTemplate=\"footer\">\n            <tr>\n              <td class=\"sticky-column-1-3 text-right\" colspan=\"3\">Totals</td>\n              <td class=\"sticky-column-4\">{{ totalPlanningHours }}</td>\n              <td class=\"sticky-column-5\">{{ totalHours }}</td>\n              <td *ngFor=\"let dailyTotal of dailyTotals\">{{ dailyTotal }}</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </p-tabPanel>\n    <p-tabPanel header=\"Dokumenti\"> </p-tabPanel>\n    </p-tabView>\n  </div>\n\n</div>\n</div>\n\n<p-dialog header=\"Darba laiks/vajadzības\" [(visible)]=\"displayAddDataDialog\" [modal]=\"true\"\n  (onHide)=\"hideAddDataDialog()\">\n  <h3 class=\"font-semibold text-xl\">Darbalaiks</h3>\n  <div class=\"flex flex-col md:flex-row flex-wrap mb-3 gap-3 w-full\">\n    <!-- Input Fields Row -->\n    <div class=\"flex-1\">\n      <label for=\"name\" class=\"block font-semibold pb-1\">Nosaukums</label>\n      <input id=\"name\" type=\"text\" class=\"w-full\" pInputText [(ngModel)]=\"newData.name\" />\n    </div>\n    <div class=\"w-full md:w-[300px]\">\n      <label for=\"selectOption\" class=\"block font-semibold pb-1\">Grupa</label>\n      <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n        styleClass=\"w-full\"></p-select>\n    </div>\n  </div>\n\n  <!-- Days and Time Selection -->\n  <div class=\"flex flex-wrap mb-3 gap-3\">\n    <div class=\"flex-initial\">\n      <label class=\"block font-semibold pb-1\">Dienas</label>\n\n      <div class=\"daycalendar\">\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"O\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"T\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\"\n          styleClass=\"font-normal\" />\n        <p-button type=\"button\" label=\"C\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n      </div>\n    </div>\n    <div class=\"datecalendar\">\n      <label class=\"block font-semibold pb-1\">Datumi</label>\n      <div>\n        <p-button icon=\"pi pi-plus\" severity=\"secondary\" outlined=\"true\" rounded=\"true\" size=\"small\" /><p-chip\n          label=\"12.10.2024\" removable=\"true\" styleClass=\"bg-secondary\" />\n      </div>\n    </div>\n  </div>\n\n  <!-- Time Range -->\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3 items-center\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n          <div class=\"flex items-center white-space-nowrap\">3h 15min</div>\n          <div class=\"flex items-center white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n          <div class=\"flex items-center white-space-nowrap\">3h 15min</div>\n          <div class=\"flex items-center white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n\n  <!-- Additional Entries -->\n  <div class=\"grid mb-3\">\n    <div class=\"col-12\">\n      <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n    </div>\n  </div>\n\n  <h3 class=\"font-semibold text-xl\">Vajadzības</h3>\n\n  <div class=\"flex justify-between items-end bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-col md:flex-row gap-3\">\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Amats</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Kompetences</label>\n        <p-select id=\"selectOption\" [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darbinieku skaits</label>\n        <div class=\"flex flex-row items-center gap-2\">\n          <div><input type=\"text\" pInputText class=\"w-full\" /></div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Min</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Opt</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Max</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n\n  <!-- Other Details -->\n\n  <!-- Final Add Button -->\n  <div class=\"mt-3\">\n    <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n  </div>\n\n  <div class=\"flex justify-content-start gap-2 pt-6\">\n    <p-button label=\"Saglabāt\" severity=\"success\" />\n    <p-button label=\"Atcelt\" severity=\"secondary\" outlined=\"true\" (onClick)=\"hideAddDataDialog()\" />\n  </div>\n</p-dialog>"
+            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n  <div class=\"flex-grow-1\">\n    <div class=\"w-full mb-3 rounded-lg border border-gray-200 overflow-hidden\">\n      <p-breadcrumb class=\"max-w-full block border-0\" [model]=\"itemsWithIsLast\" [home]=\"home\">\n        <ng-template pTemplate=\"item\" let-item>\n          <ng-container *ngIf=\"!item.isLast; else lastBreadcrumb\">\n            <!-- For all items except the last one -->\n            <ng-container *ngIf=\"item.route; else urlItem\">\n              <!-- If the item has a route -->\n              <a [routerLink]=\"item.route\" class=\"p-menuitem-link underline\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-container>\n            <ng-template #urlItem>\n              <!-- If the item has a URL -->\n              <a [href]=\"item.url\" class=\"p-menuitem-link\">\n                <span [ngClass]=\"[item.icon ? item.icon : '', 'text-color']\"></span>\n                <span class=\"text-primary\">{{ item.label }}</span>\n              </a>\n            </ng-template>\n          </ng-container>\n          <ng-template #lastBreadcrumb>\n            <!-- For the last item, render as plain text -->\n            <span class=\"text-color\">{{ item.label }}</span>\n          </ng-template>\n        </ng-template>\n      </p-breadcrumb>\n    </div>\n\n    <div\n      class=\"card flex flex-col md:flex-row bg-white p-3 mb-4 gap-3 border-round-sm border border-1 border-gray-200 justify-content-start rounded-lg\">\n      <div class=\"flex flex-col mr-2 items-start md:gap-2\">\n        <label for=\"dropdown\" class=\"mb-1 label text-sm\">Struktūrvienība</label>\n        <p-select id=\"dropdown\" [options]=\"options\" optionLabel=\"name\" placeholder=\"Barona ielas veikals\"\n          styleClass=\"w-full\" />\n      </div>\n      <div class=\"flex flex-col items-start md:gap-2\">\n        <label for=\"calendar\" class=\"mb-1 label text-sm\">Mēnesis</label>\n        <div class=\"flex items-center w-full\">\n          <p-calendar id=\"calendar\" [(ngModel)]=\"date\" view=\"month\" [iconDisplay]=\"'input'\" [showIcon]=\"true\"\n            styleClass=\"w-full\" dateFormat=\"MM, yy\" [readonlyInput]=\"true\" />\n        </div>\n      </div>\n    </div>\n    <div class=\"border border-gray-200 rounded-lg overflow-hidden mt-4\">\n      <p-tabView class=\"bg-transparent m-0\">\n        <p-tabPanel header=\"Uzstādījumi\">\n          <div class=\"flex gap-3 flex-col lg:flex-row\">\n            <p-menu [model]=\"menuItems\" class=\"hidden lg:flex\" />\n            <div class=\"lg:hidden w-full\">\n              <p-select [options]=\"menuItems\" class=\"w-full\" />\n            </div>\n            <div class=\"flex-1\">\n              <!-- Existing \"Pievienot\" Button for Desktop -->\n              <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"plus-button hidden lg:block pb-3\" size=\"small\"\n                (onClick)=\"showAddDataDialog()\" />\n\n              <!-- Existing \"Pievienot\" Button for Mobile -->\n              <p-button icon=\"pi pi-plus\" class=\"fixed bottom-0 right-0 mr-4 mb-4 z-50 shadow-2 border-circle lg:hidden\"\n                size=\"small\" rounded=\"true\" (onClick)=\"showAddDataDialog()\" />\n\n              <div>\n                <p-table [value]=\"Products\" dataKey=\"id\">\n                  <!-- Body Template for Product Rows -->\n                  <ng-template pTemplate=\"body\" let-product>\n                    <tr class=\"border-b-2 lg:border-none block md:table-row border-gray-400\">\n                      <!-- Caret Icon for Expand/Collapse -->\n\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex flex-wrap items-center gap-2\">\n                          <p-button severity=\"secondary\" [text]=\"true\" (click)=\"toggleRow(product)\">\n                            <span class=\"material-symbols-rounded\">\n                              {{ isRowExpanded(product) ? 'expand_more' :\n                              'chevron_right' }}\n                            </span>\n                          </p-button>\n\n                          <span\n                            class=\"flex items-center justify-content-center font-semibold white-space-nowrap\">{{product.name}}</span>\n                          <p-badge [value]=\"product.badgeName\" [severity]=\"product.badgeSeverity\"\n                            class=\"flex items-center justify-content-center\" styleClass=\"text-xs font-normal\"></p-badge>\n                        </div>\n                      </td>\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex flex-wrap gap-2\">\n                          <p-badge *ngFor=\"let day of ['P', 'O', 'T', 'C', 'P', 'S', 'S']; let i = index\" [value]=\"day\"\n                            [severity]=\"product.days.includes(i + 1) ? 'info' : 'secondary'\"\n                            [styleClass]=\"product.days.includes(i + 1) ? 'font-semibold' : 'font-normal'\" />\n                          <p-badge *ngFor=\"let date of product.dates\" severity=\"info\" [value]=\"date\"\n                            class=\"rounded-full whitespace-nowrap\"></p-badge>\n                        </div>\n                      </td>\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex flex-wrap gap-2\">\n                          <p-chip *ngFor=\"let slot of product.slots\" [label]=\"slot\"\n                            styleClass=\"whitespace-nowrap text-xs bg-gray-100 text-gray-900 py-1 px-3\" />\n                        </div>\n                      </td>\n                      <td class=\"block lg:table-cell\">\n                        <div class=\"flex w-full justify-between gap-3 md:justify-end\">\n                          <p-button severity=\"secondary\" [text]=\"true\" size=\"small\">\n                            <span class=\"material-symbols-rounded\"> edit </span>\n                          </p-button>\n\n                          <p-button severity=\"danger\" [text]=\"true\" size=\"small\">\n                            <span class=\"material-symbols-rounded\"> delete </span>\n                          </p-button>\n                        </div>\n                      </td>\n                    </tr>\n                    <!-- Expanded Row Content -->\n                    <tr *ngIf=\"isRowExpanded(product)\">\n                      <td colspan=\"4\">\n                        <div class=\"p-2\">\n                          <h3>Darba laiki</h3>\n                          <p-table [value]=\"tableData\" [tableStyle]=\"{ ' min-width': '50rem' }\">\n                            <ng-template pTemplate=\"header\">\n                    <tr>\n                      <th>Darba laiks</th>\n                      <th>Pārtraukums</th>\n                      <th>Darba vieta</th>\n                    </tr>\n                  </ng-template>\n                  <ng-template pTemplate=\"body\" let-innerProduct>\n                    <tr>\n                      <td>{{ innerProduct.darbaLaiks }}</td>\n                      <td>{{ innerProduct.partraukums }}</td>\n                      <td>{{ innerProduct.darbaVieta }}</td>\n                    </tr>\n                  </ng-template>\n                </p-table>\n\n                <h3 class=\"mt-4\">Vajadzības</h3>\n                <p-table [value]=\"tableData2\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n                  <ng-template pTemplate=\"header\">\n                    <tr>\n                      <th>Amats</th>\n                      <th>Kompetence</th>\n                      <th>Kompetenču skaits</th>\n                      <th>Darbnieku skaits</th>\n                    </tr>\n                  </ng-template>\n                  <ng-template pTemplate=\"body\" let-innerProduct>\n                    <tr>\n                      <td>{{ innerProduct.amats }}</td>\n                      <td>{{ innerProduct.kompetence }}</td>\n                      <td>{{ innerProduct.kompetencuSkaits }}</td>\n                      <td>{{ innerProduct.darbniekuSkaits }}</td>\n                    </tr>\n                  </ng-template>\n                </p-table>\n              </div>\n              </td>\n              </tr>\n              </ng-template>\n              </p-table>\n            </div>\n          </div>\n    </div>\n    </p-tabPanel>\n    <p-tabPanel header=\"Plāns & Fakts\">\n      <div class=\"overflow-x-auto\">\n        <p-table [value]=\"timePlanning\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th class=\"sticky-column-1\">\n                <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n              </th>\n              <th class=\"sticky-column-2\" data-column=\"name\">\n                <div>Vārds, Uzvārds</div>\n              </th>\n              <th class=\"sticky-column-3\" data-column=\"job-title-name\">\n                <div>Amats</div>\n              </th>\n              <th class=\"sticky-column-4\" data-column=\"planning-hours\">\n                <div>Stundas</div>\n              </th>\n              <th class=\"sticky-column-5\" data-column=\"sum\">\n                <div>Summa</div>\n              </th>\n              <th *ngFor=\"let tday of timePlanning[0]?.daysOfMonth\">\n                <div>{{ tday.day }} {{ tday.date }}</div>\n              </th>\n            </tr>\n          </ng-template>\n\n          <ng-template pTemplate=\"body\" let-employee>\n            <tr>\n              <td class=\"sticky-column-1\">\n                <div><p-checkbox [binary]=\"true\" inputId=\"binary\" /></div>\n              </td>\n              <td class=\"sticky-column-2\" data-column=\"name\">\n                <div>{{ employee.employeeName }}</div>\n              </td>\n              <td class=\"sticky-column-3\">\n                <div>{{ employee.jobTitle }}</div>\n              </td>\n              <td class=\"sticky-column-4\">\n                <div>{{ employee.planningHours }}</div>\n              </td>\n              <td class=\"sticky-column-5\">\n                <div>{{ employee.totalHours }}</div>\n              </td>\n              <td *ngFor=\"let day of employee.daysOfMonth\">\n                <div>{{ day.hours }}</div>\n              </td>\n            </tr>\n          </ng-template>\n\n          <ng-template pTemplate=\"footer\">\n            <tr>\n              <td class=\"sticky-column-1-3 text-right\" colspan=\"3\">Totals</td>\n              <td class=\"sticky-column-4\">{{ totalPlanningHours }}</td>\n              <td class=\"sticky-column-5\">{{ totalHours }}</td>\n              <td *ngFor=\"let dailyTotal of dailyTotals\">{{ dailyTotal }}</td>\n            </tr>\n          </ng-template>\n        </p-table>\n      </div>\n    </p-tabPanel>\n    <p-tabPanel header=\"Dokumenti\"> </p-tabPanel>\n    </p-tabView>\n  </div>\n\n</div>\n</div>\n\n<p-dialog header=\"Darba laiks/vajadzības\" [(visible)]=\"displayAddDataDialog\" [modal]=\"true\"\n  (onHide)=\"hideAddDataDialog()\">\n  <h3 class=\"font-semibold text-xl\">Darbalaiks</h3>\n  <div class=\"flex flex-col md:flex-row flex-wrap mb-3 gap-3 w-full\">\n    <!-- Input Fields Row -->\n    <div class=\"flex-1\">\n      <label for=\"name\" class=\"block font-semibold pb-1\">Nosaukums</label>\n      <input id=\"name\" type=\"text\" class=\"w-full\" pInputText [(ngModel)]=\"newData.name\" />\n    </div>\n    <div class=\"w-full md:w-[300px]\">\n      <label for=\"selectOption\" class=\"block font-semibold pb-1\">Grupa</label>\n      <p-select id=\"selectOption\" [options]=\"groupOptions\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n        styleClass=\"w-full\"></p-select>\n    </div>\n  </div>\n\n  <!-- Days and Time Selection -->\n  <div class=\"flex flex-wrap mb-3 gap-3\">\n    <div class=\"flex-initial\">\n      <label class=\"block font-semibold pb-1\">Dienas</label>\n\n      <div class=\"daycalendar\">\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"O\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"T\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\"\n          styleClass=\"font-normal\" />\n        <p-button type=\"button\" label=\"C\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"P\" severity=\"secondary\" rounded=\"true\" outlined=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n        <p-button type=\"button\" label=\"S\" severity=\"secondary\" rounded=\"true\" size=\"small\" />\n      </div>\n    </div>\n    <div class=\"datecalendar\">\n      <label class=\"block font-semibold pb-1\">Datumi</label>\n      <div>\n        <p-button icon=\"pi pi-plus\" severity=\"secondary\" outlined=\"true\" rounded=\"true\" size=\"small\" /><p-chip\n          label=\"12.10.2024\" removable=\"true\" styleClass=\"bg-secondary\" />\n      </div>\n    </div>\n  </div>\n\n  <!-- Time Range -->\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3 items-center\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n          <div class=\"flex items-center white-space-nowrap\">3h 15min</div>\n          <div class=\"flex items-center white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"placeOptions\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n  <div class=\"flex justify-content-between items-end mb-2 bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-wrap gap-3\">\n      <div>\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba laiks</label>\n        <div class=\"flex flex-wrap items-center gap-2\">\n          <label for=\"startTime\" class=\"block\">No</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n          <label for=\"endTime\" class=\"block\">līdz</label>\n          <numo-time-picker [value]=\"value\" [min]=\"min\" [max]=\"max\" [step]=\"step\" [required]=\"required\"\n            [disabled]=\"disabled\" [class]=\"class\"></numo-time-picker>\n\n          <div class=\"flex items-center white-space-nowrap\">3h 15min</div>\n          <div class=\"flex items-center white-space-nowrap\">\n            <p-checkbox [(ngModel)]=\"newData.is24Hours\" label=\"24 h\" binary=\"true\"></p-checkbox>\n          </div>\n        </div>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Pārtraukums</label>\n        <p-select id=\"breakTime\" [options]=\"breakOptions\" [(ngModel)]=\"newData.breakTime\"\n          placeholder=\"45 min\"></p-select>\n      </div>\n      <div class=\"\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darba vieta</label>\n        <p-select [options]=\"options\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"></p-select>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n\n  <!-- Additional Entries -->\n  <div class=\"grid mb-3\">\n    <div class=\"col-12\">\n      <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n    </div>\n  </div>\n\n  <h3 class=\"font-semibold text-xl\">Vajadzības</h3>\n\n  <div class=\"flex justify-between items-end bg-gray-100 border-round-lg p-3 relative\">\n    <div class=\"flex flex-col md:flex-row gap-3\">\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Amats</label>\n        <p-select id=\"selectOption\" [options]=\"amatsOptions\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Kompetences</label>\n        <p-select id=\"selectOption\" [options]=\"kompetencesOptions\" [(ngModel)]=\"newData.option\" placeholder=\"Izvēlies\"\n          styleClass=\"w-full\"></p-select>\n      </div>\n      <div class=\"flex-1\">\n        <label for=\"breakTime\" class=\"block font-semibold pb-1\">Darbinieku skaits</label>\n        <div class=\"flex flex-row items-center gap-2\">\n          <div><input type=\"text\" pInputText class=\"w-full\" /></div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Min</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Opt</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n          <div class=\"flex flex-row items-center gap-1\">\n            <div>Max</div>\n            <div class=\"flex-1\">\n              <input type=\"text\" pInputText class=\"w-full\" />\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <p-button severity=\"danger\" [text]=\"true\">\n      <span class=\"material-symbols-rounded\"> delete </span>\n    </p-button>\n  </div>\n\n  <!-- Other Details -->\n\n  <!-- Final Add Button -->\n  <div class=\"mt-3\">\n    <p-button label=\"Pievienot\" icon=\"pi pi-plus\" class=\"btn-primary\"></p-button>\n  </div>\n\n  <div class=\"flex justify-content-start gap-2 pt-6\">\n    <p-button label=\"Saglabāt\" severity=\"success\" />\n    <p-button label=\"Atcelt\" severity=\"secondary\" outlined=\"true\" (onClick)=\"hideAddDataDialog()\" />\n  </div>\n</p-dialog>\n"
         },
         {
             "name": "BasicSelectComponent",
@@ -983,7 +1063,7 @@
         },
         {
             "name": "DashboardComponent",
-            "id": "component-DashboardComponent-f5f3df4c3f6e66f8ae5f845a0445c97600427de2a0e61583be8a8d6d70ea190f8610c2a12b424dd13df63eb6c804eb095bf2116fa4bb6d542ac95840509ead36",
+            "id": "component-DashboardComponent-7215fda65539dc00cca2712902306cbd97d088d7fcb8f3c30f26fcd242b7b0ad17b71232e410fc5b1bb932f8423320332e891a24590acb6b3950b3329189a026",
             "file": "src/stories/layouts/dashboard/dashboard.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -993,46 +1073,32 @@
             "selector": "numo-dashboard",
             "styleUrls": [],
             "styles": [],
-            "templateUrl": [
-                "./dashboard.template.html"
-            ],
+            "template": "<div class=\"grid grid-cols-12 gap-8\">\n  <div class=\"col-span-12 xl:col-span-6\">\n    <numo-tasks-widget />\n  </div>\n  <div class=\"col-span-12 xl:col-span-6\">...</div>\n</div>\n",
+            "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "title",
-                    "defaultValue": "\"angular-latest\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": true,
+            "standalone": false,
             "imports": [
                 {
-                    "name": "RouterOutlet"
+                    "name": "TasksWidget"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, CUSTOM_ELEMENTS_SCHEMA } from \"@angular/core\";\nimport { RouterOutlet } from \"@angular/router\";\n\n@Component({\n    selector: \"numo-dashboard\",\n    standalone: true,\n    imports: [RouterOutlet],\n    templateUrl: \"./dashboard.template.html\",\n    schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class DashboardComponent {\n    title = \"angular-latest\";\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { TasksWidget } from '../../widgets/tasks/tasks.component';\n//import { StatsWidget } from './components/statswidget';\n//import { RecentSalesWidget } from './components/recentsaleswidget';\n//import { BestSellingWidget } from './components/bestsellingwidget';\n//import { RevenueStreamWidget } from './components/revenuestreamwidget';\n\n@Component({\n  selector: 'numo-dashboard',\n  imports: [\n    TasksWidget /* RecentSalesWidget, BestSellingWidget, RevenueStreamWidget, NotificationsWidget */,\n  ],\n  template: `\n    <div class=\"grid grid-cols-12 gap-8\">\n      <div class=\"col-span-12 xl:col-span-6\">\n        <numo-tasks-widget />\n      </div>\n      <div class=\"col-span-12 xl:col-span-6\">...</div>\n    </div>\n  `,\n})\nexport class DashboardComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
-            "extends": [],
-            "templateData": "<!-- create a html div class card that has dynamic width width -->\n<div class=\"card flex bg-white p-4 justify-content-center border-round-sm border border-1 border-gray-200\">\n    Dashboard\n</div>"
+            "extends": []
         },
         {
             "name": "FileUploadComponent",
@@ -1416,7 +1482,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-310b5bbaaa8930fc34e7457f0af7c6453d938870933dab591969a8b073970e377b198152dbe2e4898ae6db0939185809d86aefbb4f2b850d8fcbe7e0ba30c553",
+            "id": "component-HeaderComponent-2ec01a45b371f29ea551c9ae1be01c3c0816304d6153656f0e43942e6ad9b8dfdd48c64c02fddbb71496bd4404c141c99cb8a70518aa0451b9636c5b0879cf49",
             "file": "src/stories/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1431,47 +1497,9 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "isStoryBook",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 41,
-                    "type": "boolean",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "menuClicked",
-                    "defaultValue": "new EventEmitter<boolean>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 45,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "userMenuItemSelected",
-                    "defaultValue": "new EventEmitter<string>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 46,
-                    "type": "EventEmitter"
-                }
-            ],
+            "inputsClass": [],
+            "outputsClass": [],
             "propertiesClass": [
-                {
-                    "name": "BreakPoint",
-                    "defaultValue": "1024",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 49
-                },
                 {
                     "name": "isMenuVisible",
                     "defaultValue": "false",
@@ -1481,7 +1509,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 40
+                    "line": 30
                 },
                 {
                     "name": "items",
@@ -1492,7 +1520,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 47
+                    "line": 34
                 },
                 {
                     "name": "leftMenu",
@@ -1502,30 +1530,11 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 42,
+                    "line": 32,
                     "decorators": [
                         {
                             "name": "ViewChild",
                             "stringifiedArguments": "'leftMenu'"
-                        }
-                    ],
-                    "modifierKind": [
-                        170
-                    ]
-                },
-                {
-                    "name": "storyMenu",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "any",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 43,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'storyMenu'"
                         }
                     ],
                     "modifierKind": [
@@ -1540,7 +1549,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 44,
+                    "line": 33,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -1560,38 +1569,10 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 48
+                    "line": 35
                 }
             ],
             "methodsClass": [
-                {
-                    "name": "onUserMenuItemClick",
-                    "args": [
-                        {
-                            "name": "menuItem",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 75,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "menuItem",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
                 {
                     "name": "showUserMenu",
                     "args": [
@@ -1605,7 +1586,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1633,7 +1614,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1672,10 +1653,6 @@
                     "type": "module"
                 },
                 {
-                    "name": "OverlayPanelModule",
-                    "type": "module"
-                },
-                {
                     "name": "LeftMenuComponent",
                     "type": "component"
                 },
@@ -1686,16 +1663,12 @@
                 {
                     "name": "InputIconModule",
                     "type": "module"
-                },
-                {
-                    "name": "ButtonModule",
-                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport {\n  Component,\n  CUSTOM_ELEMENTS_SCHEMA,\n  EventEmitter,\n  Input,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { FormsModule } from '@angular/forms';\nimport { InputTextModule } from 'primeng/inputtext';\nimport { MenuModule } from 'primeng/menu';\nimport { Menu, MenuItem } from '../left-menu/menu.model';\nimport { UserMenuItems } from './user-menu.model';\nimport { OverlayPanelModule } from 'primeng/overlaypanel';\nimport { LeftMenuComponent } from '../left-menu/left-menu.component';\nimport { IconFieldModule } from 'primeng/iconfield';\nimport { InputIconModule } from 'primeng/inputicon';\nimport { ButtonModule } from 'primeng/button';\n\n@Component({\n  selector: 'numo-header',\n  standalone: true,\n  imports: [\n    FormsModule,\n    CommonModule,\n    InputTextModule,\n    MenuModule,\n    OverlayPanelModule,\n    LeftMenuComponent,\n    IconFieldModule,\n    InputIconModule,\n    ButtonModule,\n  ],\n  templateUrl: './header.template.html',\n  styles: [],\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\n})\nexport class HeaderComponent {\n  isMenuVisible = false;\n  @Input() isStoryBook = false;\n  @ViewChild('leftMenu') leftMenu: any;\n  @ViewChild('storyMenu') storyMenu: any;\n  @ViewChild('userMenu') userMenu: any; // Reference to user menu\n  @Output() menuClicked = new EventEmitter<boolean>(); // Emit boolean state\n  @Output() userMenuItemSelected = new EventEmitter<string>(); // New event\n  items: MenuItem[] = [...Menu];\n  userMenuItems = [...UserMenuItems]; // Use the imported user menu items\n  BreakPoint = 1024;\n\n  toggleMenu(event: Event) {\n    this.isMenuVisible = !this.isMenuVisible;\n\n    // Get the element by ID\n    const leftMenu = document.getElementById('left-menu');\n\n    if (leftMenu) {\n      // Toggle the class on the element with ID \"left-menu\"\n      if (this.isMenuVisible) {\n        leftMenu.classList.add('left-[15px]');\n        //document.body.classList.add('md:pl-[300px]');\n        document\n          .getElementById('content_holder')\n          ?.classList.add('lg:pl-[285px]');\n      } else {\n        leftMenu.classList.remove('left-[15px]');\n        //document.body.classList.remove('md:pl-[300px]');\n        document\n          .getElementById('content_holder')\n          ?.classList.remove('lg:pl-[285px]');\n      }\n    }\n  }\n\n  onUserMenuItemClick(menuItem: string) {\n    this.userMenuItemSelected.emit(menuItem); // Emit the selected menu item\n  }\n\n  showUserMenu(event: Event) {\n    this.userMenu.toggle(event); // Show the user menu\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\nimport { Component, ViewChild } from '@angular/core';\n\nimport { InputTextModule } from 'primeng/inputtext';\nimport { MenuModule } from 'primeng/menu';\nimport { IconFieldModule } from 'primeng/iconfield';\nimport { InputIconModule } from 'primeng/inputicon';\n\nimport { LeftMenuComponent } from '../left-menu/left-menu.component';\n\nimport { Menu, MenuItem } from '../left-menu/menu.model';\nimport { UserMenuItems } from './user-menu.model';\n\n@Component({\n  selector: 'numo-header',\n  standalone: true,\n  imports: [\n    FormsModule,\n    CommonModule,\n    InputTextModule,\n    MenuModule,\n    LeftMenuComponent,\n    IconFieldModule,\n    InputIconModule,\n  ],\n  templateUrl: './header.template.html',\n})\nexport class HeaderComponent {\n  isMenuVisible = false;\n\n  @ViewChild('leftMenu') leftMenu: any;\n  @ViewChild('userMenu') userMenu: any; // Reference to user menu\n  items: MenuItem[] = [...Menu];\n  userMenuItems = [...UserMenuItems]; // Use the imported user menu items\n\n  toggleMenu(event: Event) {\n    this.isMenuVisible = !this.isMenuVisible;\n\n    // Get the element by ID\n    const leftMenu = document.getElementById('left-menu');\n\n    if (leftMenu) {\n      // Toggle the class on the element with ID \"left-menu\"\n      if (this.isMenuVisible) {\n        leftMenu.classList.add('left-[15px]');\n        document\n          .getElementById('content_holder')\n          ?.classList.add('lg:pl-[285px]');\n      } else {\n        leftMenu.classList.remove('left-[15px]');\n        document\n          .getElementById('content_holder')\n          ?.classList.remove('lg:pl-[285px]');\n      }\n    }\n  }\n\n  showUserMenu(event: Event) {\n    this.userMenu.toggle(event); // Show the user menu\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1992,6 +1965,76 @@
                 "OnInit"
             ],
             "templateData": "<p-tree [value]=\"files\" selectionMode=\"checkbox\" [(selection)]=\"selectedFiles\" />\n"
+        },
+        {
+            "name": "TasksWidget",
+            "id": "component-TasksWidget-418ebc78e6f0922f1cb0e887fb1e1f1fd2dbeb32a3ad24d6a9dc551294d844a3e6ebe99b184bf4272b986c7ea8026f5bde3bdbdfdaf4c074623f154a83710941",
+            "file": "src/stories/widgets/tasks/tasks.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "numo-tasks-widget",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./tasks.template.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "tasks",
+                    "defaultValue": "[...Tasks]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CardModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "TableModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "RippleModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { RippleModule } from 'primeng/ripple';\nimport { TableModule } from 'primeng/table';\nimport { ButtonModule } from 'primeng/button';\n\nimport { Tasks } from './tasks.model';\n\n@Component({\n  selector: 'numo-tasks-widget',\n  standalone: true,\n  imports: [CardModule, CommonModule, TableModule, ButtonModule, RippleModule],\n  templateUrl: './tasks.template.html',\n})\nexport class TasksWidget {\n  tasks = [...Tasks];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p-card>\n  <div class=\"font-semibold text-xl mb-4\">Uzdevumi</div>\n  <p-table [value]=\"tasks\" [paginator]=\"true\" [rows]=\"5\" responsiveLayout=\"scroll\">\n    <ng-template pTemplate=\"header\">\n      <tr>\n\n        <th pSortableColumn=\"title\">Nosaukums <p-sortIcon field=\"title\"></p-sortIcon></th>\n        <th pSortableColumn=\"date\">Datums <p-sortIcon field=\"date\"></p-sortIcon></th>\n        <th pSortableColumn=\"status\">Statuss <p-sortIcon field=\"statuss\"></p-sortIcon></th>\n\n      </tr>\n    </ng-template>\n    <ng-template pTemplate=\"body\" let-task>\n      <tr>\n\n        <td><a href=\"#\" class=\"underline text-primary\">{{ task.title }}</a></td>\n        <td>{{ task.date }}</td>\n        <td>{{ task.status }}</td>\n\n      </tr>\n    </ng-template>\n  </p-table>\n</p-card>\n"
         },
         {
             "name": "TimePickerComponent",
@@ -2759,6 +2802,16 @@
                 "defaultValue": "[\n  {\n    amats: 'Biroja administrators',\n    kompetence: 'Māk rakstīt | Sertificēts revidents',\n    kompetencuSkaits: '2',\n    darbniekuSkaits: 'min: 1 / max: 1 / opt: 1',\n  },\n]"
             },
             {
+                "name": "Tasks",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/widgets/tasks/tasks.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TaskItem[]",
+                "defaultValue": "[\r\n  {\r\n    title: 'Darba rīki',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Rēķini',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Esmu iepazinies',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Darbinieki',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Materiālie resursi',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Krājumu norakstīšana',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n\r\n  {\r\n    title: 'Iziet',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n]"
+            },
+            {
                 "name": "TimePlanning",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2786,7 +2839,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
-                "defaultValue": "[\n  {\n    label: 'Profils',\n    // expanded: true,\n    items: [\n      {\n        label: 'Iestatījumi',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-cog',\n        route: '',\n      },\n      {\n        label: 'Paroles maiņa',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-password',\n        route: '',\n      },\n      {\n        label: 'Iziet',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-sign-out',\n        route: '',\n      },\n    ],\n  },\n]"
+                "defaultValue": "[\n  {\n    label: 'Profils',\n    // expanded: true,\n    items: [\n      {\n        label: 'Iestatījumi',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-cog',\n        route: '',\n      },\n      {\n        label: 'Paroles maiņa',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-key',\n        route: '',\n      },\n      {\n        label: 'Iziet',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-sign-out',\n        route: '',\n      },\n    ],\n  },\n]"
             },
             {
                 "name": "UserMenuItems",
@@ -3065,6 +3118,18 @@
                     "defaultValue": "[\r\n  {\r\n    path: '**',\r\n    renderMode: RenderMode.Prerender\r\n  }\r\n]"
                 }
             ],
+            "src/stories/widgets/tasks/tasks.model.ts": [
+                {
+                    "name": "Tasks",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/widgets/tasks/tasks.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TaskItem[]",
+                    "defaultValue": "[\r\n  {\r\n    title: 'Darba rīki',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Rēķini',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Esmu iepazinies',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Darbinieki',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Materiālie resursi',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n  {\r\n    title: 'Krājumu norakstīšana',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n\r\n  {\r\n    title: 'Iziet',\r\n    date: '2021-09-01',\r\n    status: 'In Progress',\r\n  },\r\n]"
+                }
+            ],
             "src/stories/components/header/user-menu.model.ts": [
                 {
                     "name": "UserMenuItems",
@@ -3074,7 +3139,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "[]",
-                    "defaultValue": "[\n  {\n    label: 'Profils',\n    // expanded: true,\n    items: [\n      {\n        label: 'Iestatījumi',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-cog',\n        route: '',\n      },\n      {\n        label: 'Paroles maiņa',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-password',\n        route: '',\n      },\n      {\n        label: 'Iziet',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-sign-out',\n        route: '',\n      },\n    ],\n  },\n]"
+                    "defaultValue": "[\n  {\n    label: 'Profils',\n    // expanded: true,\n    items: [\n      {\n        label: 'Iestatījumi',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-cog',\n        route: '',\n      },\n      {\n        label: 'Paroles maiņa',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-key',\n        route: '',\n      },\n      {\n        label: 'Iziet',\n        items: [],\n        type: 'material-symbols',\n        icon: 'pi pi-sign-out',\n        route: '',\n      },\n    ],\n  },\n]"
                 }
             ]
         },
@@ -3220,7 +3285,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/14",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -3410,7 +3475,7 @@
                 "linktype": "component",
                 "name": "DashboardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3419,7 +3484,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3428,7 +3493,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/22",
+                "coverageCount": "0/33",
                 "status": "low"
             },
             {
@@ -3488,6 +3553,34 @@
                 "name": "User",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/widgets/tasks/tasks.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TasksWidget",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/widgets/tasks/tasks.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "TaskItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/widgets/tasks/tasks.model.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tasks",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             }
         ]

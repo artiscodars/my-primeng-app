@@ -14,7 +14,7 @@ export const UserMenuItems = [
         label: 'Paroles maiņa',
         items: [],
         type: 'material-symbols',
-        icon: 'pi pi-password',
+        icon: 'pi pi-key',
         route: '',
       },
       {

@@ -7,7 +7,7 @@ import { RippleModule } from 'primeng/ripple';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 
-import { TaskItem, Tasks } from './tasks.model';
+import { Tasks } from './tasks.model';
 
 @Component({
   selector: 'numo-tasks-widget',
@@ -16,5 +16,5 @@ import { TaskItem, Tasks } from './tasks.model';
   templateUrl: './tasks.template.html',
 })
 export class TasksWidget {
-  tasks: TaskItem[] = [...Tasks];
+  tasks = [...Tasks];
 }

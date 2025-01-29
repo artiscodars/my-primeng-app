@@ -2,12 +2,11 @@ import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import description from './left-menu.description.md';
 import { LeftMenuComponent } from './left-menu.component';
 import { Menu } from '../left-menu/menu.model';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const meta: Meta = {
-  title: 'Components/LeftMenu',
+  title: 'Design blocks/LeftMenu',
   decorators: [
     moduleMetadata({
-      imports: [LeftMenuComponent, BrowserAnimationsModule],
+      imports: [LeftMenuComponent],
     }),
   ],
   excludeStories: /.*Data$/,

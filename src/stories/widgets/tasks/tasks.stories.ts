@@ -26,7 +26,7 @@ export const Basic: Story = {
       props: {
         ...args,
       },
-      template: `<numo-tasks-widget [tasks]="tasks"></numo-tasks-widget>`,
+      template: `<numo-tasks-widget></numo-tasks-widget>`,
     };
   },
 };

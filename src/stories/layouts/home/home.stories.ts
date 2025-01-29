@@ -1,5 +1,4 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import description from './home.description.md';
 
@@ -13,7 +12,7 @@ export default {
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({
-      imports: [HeaderComponent, TasksWidget, BrowserAnimationsModule],
+      imports: [HeaderComponent, TasksWidget],
     }),
   ],
   parameters: {
