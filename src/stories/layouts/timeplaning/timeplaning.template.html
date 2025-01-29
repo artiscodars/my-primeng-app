@@ -239,7 +239,7 @@
     </div>
     <div class="w-full md:w-[300px]">
       <label for="selectOption" class="block font-semibold pb-1">Grupa</label>
-      <p-select id="selectOption" [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"
+      <p-select id="selectOption" [options]="groupOptions" [(ngModel)]="newData.option" placeholder="Izvēlies"
         styleClass="w-full"></p-select>
     </div>
   </div>
@@ -295,7 +295,7 @@
       </div>
       <div class="">
         <label for="breakTime" class="block font-semibold pb-1">Darba vieta</label>
-        <p-select [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"></p-select>
+        <p-select [options]="placeOptions" [(ngModel)]="newData.option" placeholder="Izvēlies"></p-select>
       </div>
     </div>
 
@@ -350,12 +350,12 @@
     <div class="flex flex-col md:flex-row gap-3">
       <div class="flex-1">
         <label for="breakTime" class="block font-semibold pb-1">Amats</label>
-        <p-select id="selectOption" [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"
+        <p-select id="selectOption" [options]="amatsOptions" [(ngModel)]="newData.option" placeholder="Izvēlies"
           styleClass="w-full"></p-select>
       </div>
       <div class="flex-1">
         <label for="breakTime" class="block font-semibold pb-1">Kompetences</label>
-        <p-select id="selectOption" [options]="options" [(ngModel)]="newData.option" placeholder="Izvēlies"
+        <p-select id="selectOption" [options]="kompetencesOptions" [(ngModel)]="newData.option" placeholder="Izvēlies"
           styleClass="w-full"></p-select>
       </div>
       <div class="flex-1">

@@ -1,22 +1,16 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+
 import { InputTextModule } from 'primeng/inputtext';
 import { MenuModule } from 'primeng/menu';
-import { Menu, MenuItem } from '../left-menu/menu.model';
-import { UserMenuItems } from './user-menu.model';
-import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { LeftMenuComponent } from '../left-menu/left-menu.component';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { ButtonModule } from 'primeng/button';
+
+import { LeftMenuComponent } from '../left-menu/left-menu.component';
+
+import { Menu, MenuItem } from '../left-menu/menu.model';
+import { UserMenuItems } from './user-menu.model';
 
 @Component({
   selector: 'numo-header',
@@ -26,27 +20,19 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     InputTextModule,
     MenuModule,
-    OverlayPanelModule,
     LeftMenuComponent,
     IconFieldModule,
     InputIconModule,
-    ButtonModule,
   ],
   templateUrl: './header.template.html',
-  styles: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderComponent {
   isMenuVisible = false;
-  @Input() isStoryBook = false;
+
   @ViewChild('leftMenu') leftMenu: any;
-  @ViewChild('storyMenu') storyMenu: any;
   @ViewChild('userMenu') userMenu: any; // Reference to user menu
-  @Output() menuClicked = new EventEmitter<boolean>(); // Emit boolean state
-  @Output() userMenuItemSelected = new EventEmitter<string>(); // New event
   items: MenuItem[] = [...Menu];
   userMenuItems = [...UserMenuItems]; // Use the imported user menu items
-  BreakPoint = 1024;
 
   toggleMenu(event: Event) {
     this.isMenuVisible = !this.isMenuVisible;
@@ -58,22 +44,16 @@ export class HeaderComponent {
       // Toggle the class on the element with ID "left-menu"
       if (this.isMenuVisible) {
         leftMenu.classList.add('left-[15px]');
-        //document.body.classList.add('md:pl-[300px]');
         document
           .getElementById('content_holder')
           ?.classList.add('lg:pl-[285px]');
       } else {
         leftMenu.classList.remove('left-[15px]');
-        //document.body.classList.remove('md:pl-[300px]');
         document
           .getElementById('content_holder')
           ?.classList.remove('lg:pl-[285px]');
       }
     }
-  }
-
-  onUserMenuItemClick(menuItem: string) {
-    this.userMenuItemSelected.emit(menuItem); // Emit the selected menu item
   }
 
   showUserMenu(event: Event) {

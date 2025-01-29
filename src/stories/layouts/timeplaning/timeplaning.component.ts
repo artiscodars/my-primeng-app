@@ -1,13 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from '../../components/header/header.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { Menu } from '../../components/left-menu/menu.model';
-import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
-import { LeftMenuComponent } from '../../components/left-menu/left-menu.component';
+import { FormsModule } from '@angular/forms';
+
+import { CardModule } from 'primeng/card';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { IconComponent } from '../../components/icon/icon.component';
 import { Select } from 'primeng/select';
 import { CalendarModule } from 'primeng/calendar';
 import { TabViewModule } from 'primeng/tabview';
@@ -15,6 +12,13 @@ import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { BadgeModule } from 'primeng/badge';
 import { CheckboxModule } from 'primeng/checkbox';
+import { TableModule } from 'primeng/table';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { ChipModule } from 'primeng/chip';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+
 import {
   MenuItem,
   TableData,
@@ -22,19 +26,11 @@ import {
   Products,
   TimePlanning,
 } from './timeplanning.data';
-import { TableModule } from 'primeng/table';
-import { InputGroupModule } from 'primeng/inputgroup';
-import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
-import { ChipModule } from 'primeng/chip';
 
-import { DialogModule } from 'primeng/dialog';
-import { FormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
-
+import { HeaderComponent } from '../../components/header/header.component';
 import { TimePickerComponent } from '../../components/time-picker/time-picker.component';
 
 @Component({
-  // selector: "numo-timeplaning",
   standalone: true,
   imports: [
     RouterModule,
@@ -59,14 +55,11 @@ import { TimePickerComponent } from '../../components/time-picker/time-picker.co
     TimePickerComponent,
   ],
   templateUrl: './timeplaning.template.html',
-
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {
   isMenuVisible = false;
   title = 'angular-latest';
   expandedRows: any[] = [];
-  items = [{ label: 'UZDEVUMI', menu: [...Menu] }];
   home = { icon: 'pi pi-home', route: '/' };
   date: Date[] | undefined;
   tableData = TableData;
@@ -74,6 +67,22 @@ export class AppComponent {
   Products = Products;
   menuItems = MenuItem;
   timePlanning = TimePlanning;
+
+  @Input() disabled: boolean = false;
+  @Input() required: boolean = false;
+  @Input() min: string = '';
+  @Input() max: string = '';
+  @Input() step: string = '';
+
+  @Input() class: string = '';
+
+  @Input() value: string = '';
+
+  breakOptions = ['15 min', '30 min', '45 min', '1 h', '1.5 h', '2 h'];
+  placeOptions = ['Barona ielas veikals', 'Dzelzavas ielas veikals'];
+  groupOptions = ['Grupa 1', 'Grupa 2', 'Grupa 3'];
+  amatsOptions = ['Konsultants', 'Vadītājs', 'Kases darbinieks'];
+  kompetencesOptions = ['Kases darbs', 'Preču uzpakošana', 'Preču izkraušana'];
 
   // Sum of planning hours for all employees
   get totalPlanningHours(): number {

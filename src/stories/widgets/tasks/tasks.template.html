@@ -1,0 +1,23 @@
+<p-card>
+  <div class="font-semibold text-xl mb-4">Uzdevumi</div>
+  <p-table [value]="tasks" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+
+        <th pSortableColumn="title">Nosaukums <p-sortIcon field="title"></p-sortIcon></th>
+        <th pSortableColumn="date">Datums <p-sortIcon field="date"></p-sortIcon></th>
+        <th pSortableColumn="status">Statuss <p-sortIcon field="statuss"></p-sortIcon></th>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-task>
+      <tr>
+
+        <td><a href="#" class="underline text-primary">{{ task.title }}</a></td>
+        <td>{{ task.date }}</td>
+        <td>{{ task.status }}</td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
