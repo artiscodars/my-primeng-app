@@ -6,6 +6,7 @@ import { MessageModule } from 'primeng/message';
 
 import { HeaderComponent } from '../../components/header/header.component';
 import { TasksWidget } from '../../widgets/tasks/tasks.component';
+import { InfoCardWidget } from '../../widgets/info-card/info-card.component';
 
 @Component({
   standalone: true,
@@ -15,6 +16,7 @@ import { TasksWidget } from '../../widgets/tasks/tasks.component';
     CardModule,
     CommonModule,
     MessageModule,
+    InfoCardWidget,
   ],
   templateUrl: './home.template.html',
 })

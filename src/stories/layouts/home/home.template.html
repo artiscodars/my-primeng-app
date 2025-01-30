@@ -35,20 +35,13 @@
 
   <div class="grid grid-cols-6 mb-5 gap-5">
 
-    <p-card>
-      <ng-template #title>
-        <div class="flex justify-between">
-          <div><span class="block text-muted-color font-medium mb-2">Projekti</span>
-            <div class="text-surface-900 dark:text-surface-0 font-bold text-3xl">152</div>
-          </div>
-          <div><i class="pi pi-file text-blue-500 !text-xl"></i></div>
-        </div>
-      </ng-template>
-    </p-card>
-    <p-card header="Darbinieku skaits"></p-card>
-    <p-card header="Aktīvie procesi"></p-card>
-    <p-card header="Peļna"></p-card>
-    <p-card header="Uzdevumi"></p-card>
+    <numo-info-card-widget title="Projekti" icon="pi pi-file" value="12"></numo-info-card-widget>
+    <numo-info-card-widget title="Darbinieku skaits" icon="pi pi-user" value="6417"></numo-info-card-widget>
+    <numo-info-card-widget title="Aktīvie procesi" icon="pi pi-arrow-right-arrow-left"
+      value="1"></numo-info-card-widget>
+    <numo-info-card-widget title="Peļņa" icon="pi pi-euro" value="76546"></numo-info-card-widget>
+    <numo-info-card-widget title="Uzdevumi" icon="pi pi-list-check" value="14"></numo-info-card-widget>
+
 
 
   </div>

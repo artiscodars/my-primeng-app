@@ -5,6 +5,7 @@ import description from './home.description.md';
 import { AppComponent } from './home.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { TasksWidget } from '../../widgets/tasks/tasks.component';
+import { InfoCardWidget } from '../../widgets/info-card/info-card.component';
 
 export default {
   title: 'Layouts/Home',
@@ -12,7 +13,7 @@ export default {
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({
-      imports: [HeaderComponent, TasksWidget],
+      imports: [HeaderComponent, TasksWidget, InfoCardWidget],
     }),
   ],
   parameters: {
