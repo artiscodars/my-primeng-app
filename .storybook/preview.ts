@@ -26,6 +26,8 @@ const preview: Preview = {
     (Story) => {
       // Define CSS variables
       const cssVariables = {
+        'bg-success': '#b7f1ae',
+
         '--p-badge-info-background': '#c9e6ff',
         '--p-badge-info-color': '#000',
 

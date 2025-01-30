@@ -1,10 +1,69 @@
 <numo-header></numo-header>
 
 <div class="w-full transition-all duration-300 ease-in-out" id="content_holder">
-  <div class="grid grid-cols-12 gap-8">
+
+
+
+
+  <p-card styleClass="mb-5 bg-[#d1e4ff]">
+    <ng-template #title>
+      <div class="flex">
+        <i class="pi pi-check-circle text-2xl mr-3"></i>
+        <div class="font-medium text-xl mb-2 line-height-1">Paziņojums</div>
+        <div class="ml-auto">
+          <span class=" no-underline cursor-pointer transition-colors transition-duration-150">
+            <i class="pi pi-times"></i>
+          </span>
+        </div>
+      </div>
+    </ng-template>
+    <p class="font-semibold">
+      Esam atjauninājuši mūsu Privātuma politiku, lai nodrošinātu lielāku caurspīdīgumu un atbilstību jaunākajiem datu
+      aizsardzības standartiem.
+    </p>
+    <p>
+      Aicinām jūs iepazīties ar izmaiņām, lai uzzinātu, kā mēs apstrādājam jūsu personas datus un aizsargājam jūsu
+      privātumu.
+    </p>
+    <p>
+      Jaunā privātuma politika stājas spēkā no <b>20.01.2025</b>.
+    </p>
+
+  </p-card>
+
+
+
+  <div class="grid grid-cols-6 mb-5 gap-5">
+
+    <p-card>
+      <ng-template #title>
+        <div class="flex justify-between">
+          <div><span class="block text-muted-color font-medium mb-2">Projekti</span>
+            <div class="text-surface-900 dark:text-surface-0 font-bold text-3xl">152</div>
+          </div>
+          <div><i class="pi pi-file text-blue-500 !text-xl"></i></div>
+        </div>
+      </ng-template>
+    </p-card>
+    <p-card header="Darbinieku skaits"></p-card>
+    <p-card header="Aktīvie procesi"></p-card>
+    <p-card header="Peļna"></p-card>
+    <p-card header="Uzdevumi"></p-card>
+
+
+  </div>
+
+
+
+  <numo-tasks-widget />
+
+
+  <div class="grid grid-cols-12 gap-5">
+
     <div class="col-span-12 xl:col-span-6">
+
       <numo-tasks-widget />
     </div>
-    <div class="col-span-12 xl:col-span-6">...</div>
+    <div class="col-span-12 xl:col-span-6"><numo-tasks-widget /></div>
   </div>
 </div>

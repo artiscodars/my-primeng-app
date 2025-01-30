@@ -365,7 +365,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "AppComponent-1",
-            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n\n  <div class=\"grid grid-cols-12 gap-8\">\n    <div class=\"col-span-12 xl:col-span-6\">\n      <numo-tasks-widget />\n    </div>\n    <div class=\"col-span-12 xl:col-span-6\">...</div>\n  </div>\n\n\n</div>\n"
+            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n  <div class=\"grid grid-cols-12 gap-8\">\n    <div class=\"col-span-12 xl:col-span-6\">\n      <numo-tasks-widget />\n    </div>\n    <div class=\"col-span-12 xl:col-span-6\">...</div>\n  </div>\n</div>\n"
         },
         {
             "name": "AppComponent",
