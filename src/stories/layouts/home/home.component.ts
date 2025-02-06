@@ -7,6 +7,8 @@ import { MessageModule } from 'primeng/message';
 import { HeaderComponent } from '../../components/header/header.component';
 import { TasksWidget } from '../../widgets/tasks/tasks.component';
 import { InfoCardWidget } from '../../widgets/info-card/info-card.component';
+import { ShortcutWidget } from '../../widgets/shortcut/shortcut.component';
+import { NumoAlert } from '../../components/alert/alert.component';
 
 @Component({
   standalone: true,
@@ -17,6 +19,8 @@ import { InfoCardWidget } from '../../widgets/info-card/info-card.component';
     CommonModule,
     MessageModule,
     InfoCardWidget,
+    ShortcutWidget,
+    NumoAlert,
   ],
   templateUrl: './home.template.html',
 })

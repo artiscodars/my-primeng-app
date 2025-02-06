@@ -4,43 +4,17 @@
 
 
 
-
-  <p-card styleClass="mb-5 bg-[#d1e4ff]">
-    <ng-template #title>
-      <div class="flex">
-        <i class="pi pi-check-circle text-2xl mr-3"></i>
-        <div class="font-medium text-xl mb-2 line-height-1">Paziņojums</div>
-        <div class="ml-auto">
-          <span class=" no-underline cursor-pointer transition-colors transition-duration-150">
-            <i class="pi pi-times"></i>
-          </span>
-        </div>
-      </div>
-    </ng-template>
-    <p class="font-semibold">
-      Esam atjauninājuši mūsu Privātuma politiku, lai nodrošinātu lielāku caurspīdīgumu un atbilstību jaunākajiem datu
-      aizsardzības standartiem.
-    </p>
-    <p>
-      Aicinām jūs iepazīties ar izmaiņām, lai uzzinātu, kā mēs apstrādājam jūsu personas datus un aizsargājam jūsu
-      privātumu.
-    </p>
-    <p>
-      Jaunā privātuma politika stājas spēkā no <b>20.01.2025</b>.
-    </p>
-
-  </p-card>
+  <numo-alert title="Some alert" severity="info" [showCloseButton]="false"></numo-alert>
 
 
 
-  <div class="grid grid-cols-6 mb-5 gap-5">
+  <div class="flex flex-row  mb-5 gap-5">
 
-    <numo-info-card-widget title="Projekti" icon="pi pi-file" value="12"></numo-info-card-widget>
-    <numo-info-card-widget title="Darbinieku skaits" icon="pi pi-user" value="6417"></numo-info-card-widget>
-    <numo-info-card-widget title="Aktīvie procesi" icon="pi pi-arrow-right-arrow-left"
-      value="1"></numo-info-card-widget>
-    <numo-info-card-widget title="Peļņa" icon="pi pi-euro" value="76546"></numo-info-card-widget>
-    <numo-info-card-widget title="Uzdevumi" icon="pi pi-list-check" value="14"></numo-info-card-widget>
+    <numo-shortcut-widget title="Projekti" link="https://visma.com" icon="pi pi-file"
+      target="_self"></numo-shortcut-widget>
+
+    <numo-info-card-widget title="Uzdevumi" icon="pi pi-file" value="12"></numo-info-card-widget>
+
 
 
 

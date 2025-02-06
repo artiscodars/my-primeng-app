@@ -1,0 +1,15 @@
+<p-card [ngClass]="[alertClass, 'mb-5 p-4 rounded-lg']" *ngIf="isVisible">
+  <ng-template pTemplate="title">
+    <div class="flex items-center">
+      <!-- Use interpolation for `icon` -->
+      <i class="{{ icon }}" class="text-xl mr-2"></i>
+      <div class="font-medium text-lg">{{ title }}</div>
+      <div class="ml-auto" *ngIf="showCloseButton">
+        <span (click)="closeAlert()" class="cursor-pointer transition-opacity duration-150 hover:opacity-70">
+          <i class="pi pi-times"></i>
+        </span>
+      </div>
+    </div>
+  </ng-template>
+  <div class="mt-2">{{ text }}</div>
+</p-card>

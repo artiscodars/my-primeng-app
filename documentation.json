@@ -184,51 +184,6 @@
         {
             "name": "TaskItem",
             "id": "interface-TaskItem-f959cd21a2074cb0608e0a34c656b6a983ca9d24c5cd1853272c6e4851c2fe00b2a8a15ee6306ef7b343a12a015e3a3fce98801bd22a6cc52238a64ce27c44e7",
-            "file": "src/stories/widgets/info-card/info-card.model.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "export interface TaskItem {\r\n  title: string; // The label of the menu item\r\n  date?: string; // Optional: For expandable/collapsible menus\r\n  status?: string; // Optional: Nested menu items\r\n}\r\n\r\nexport const Tasks: TaskItem[] = [\r\n  {\r\n    title: 'Darba rīku izveide',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Rēķinu sagatavošana',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Izveidot atvaļinājumu grafiku',\r\n    date: '10.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Darbinieku intervijas',\r\n    date: '15.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Materiālo resursu inventūra',\r\n    date: '17.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n];\r\n",
-            "properties": [
-                {
-                    "name": "date",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": true,
-                    "description": "",
-                    "line": 3
-                },
-                {
-                    "name": "status",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": true,
-                    "description": "",
-                    "line": 4
-                },
-                {
-                    "name": "title",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 2
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 171,
-            "methods": [],
-            "extends": []
-        },
-        {
-            "name": "TaskItem",
-            "id": "interface-TaskItem-f959cd21a2074cb0608e0a34c656b6a983ca9d24c5cd1853272c6e4851c2fe00b2a8a15ee6306ef7b343a12a015e3a3fce98801bd22a6cc52238a64ce27c44e7-1",
             "file": "src/stories/widgets/tasks/tasks.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
@@ -269,10 +224,7 @@
             "indexSignatures": [],
             "kind": 171,
             "methods": [],
-            "extends": [],
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "TaskItem-1"
+            "extends": []
         },
         {
             "name": "User",
@@ -362,7 +314,7 @@
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-5f2727110b8696fadb328579668b8956065dea04297c771ae636f0214d3479e4a0384b8fb8aacf17fbfc424e8e53ce010e931e9265842715b8cb8d60a30effe5-1",
+            "id": "component-AppComponent-5ec3e1d066f644d34d2ae22553c2855ee4fde2bc5ca1dbf1a2fa45e5e3218816f9bf411f1a83e877b53789b4e69fc9cf1713c5530f3c4bc013f2900666a29e8c-1",
             "file": "src/stories/layouts/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -404,12 +356,21 @@
                 {
                     "name": "MessageModule",
                     "type": "module"
+                },
+                {
+                    "name": "InfoCardWidget"
+                },
+                {
+                    "name": "ShortcutWidget"
+                },
+                {
+                    "name": "NumoAlert"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { MessageModule } from 'primeng/message';\n\nimport { HeaderComponent } from '../../components/header/header.component';\nimport { TasksWidget } from '../../widgets/tasks/tasks.component';\n\n@Component({\n  standalone: true,\n  imports: [\n    HeaderComponent,\n    TasksWidget,\n    CardModule,\n    CommonModule,\n    MessageModule,\n  ],\n  templateUrl: './home.template.html',\n})\nexport class AppComponent {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { MessageModule } from 'primeng/message';\n\nimport { HeaderComponent } from '../../components/header/header.component';\nimport { TasksWidget } from '../../widgets/tasks/tasks.component';\nimport { InfoCardWidget } from '../../widgets/info-card/info-card.component';\nimport { ShortcutWidget } from '../../widgets/shortcut/shortcut.component';\nimport { NumoAlert } from '../../components/alert/alert.component';\n\n@Component({\n  standalone: true,\n  imports: [\n    HeaderComponent,\n    TasksWidget,\n    CardModule,\n    CommonModule,\n    MessageModule,\n    InfoCardWidget,\n    ShortcutWidget,\n    NumoAlert,\n  ],\n  templateUrl: './home.template.html',\n})\nexport class AppComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -417,7 +378,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "AppComponent-1",
-            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n\n\n\n\n  <p-card styleClass=\"mb-5 bg-[#d1e4ff]\">\n    <ng-template #title>\n      <div class=\"flex\">\n        <i class=\"pi pi-check-circle text-2xl mr-3\"></i>\n        <div class=\"font-medium text-xl mb-2 line-height-1\">Paziņojums</div>\n        <div class=\"ml-auto\">\n          <span class=\" no-underline cursor-pointer transition-colors transition-duration-150\">\n            <i class=\"pi pi-times\"></i>\n          </span>\n        </div>\n      </div>\n    </ng-template>\n    <p class=\"font-semibold\">\n      Esam atjauninājuši mūsu Privātuma politiku, lai nodrošinātu lielāku caurspīdīgumu un atbilstību jaunākajiem datu\n      aizsardzības standartiem.\n    </p>\n    <p>\n      Aicinām jūs iepazīties ar izmaiņām, lai uzzinātu, kā mēs apstrādājam jūsu personas datus un aizsargājam jūsu\n      privātumu.\n    </p>\n    <p>\n      Jaunā privātuma politika stājas spēkā no <b>20.01.2025</b>.\n    </p>\n\n  </p-card>\n\n\n\n  <div class=\"grid grid-cols-6 mb-5 gap-5\">\n\n    <p-card>\n      <ng-template #title>\n        <div class=\"flex justify-between\">\n          <div><span class=\"block text-muted-color font-medium mb-2\">Projekti</span>\n            <div class=\"text-surface-900 dark:text-surface-0 font-bold text-3xl\">152</div>\n          </div>\n          <div><i class=\"pi pi-file text-blue-500 !text-xl\"></i></div>\n        </div>\n      </ng-template>\n    </p-card>\n    <p-card header=\"Darbinieku skaits\"></p-card>\n    <p-card header=\"Aktīvie procesi\"></p-card>\n    <p-card header=\"Peļna\"></p-card>\n    <p-card header=\"Uzdevumi\"></p-card>\n\n\n  </div>\n\n\n\n  <numo-tasks-widget />\n\n\n  <div class=\"grid grid-cols-12 gap-5\">\n\n    <div class=\"col-span-12 xl:col-span-6\">\n\n      <numo-tasks-widget />\n    </div>\n    <div class=\"col-span-12 xl:col-span-6\"><numo-tasks-widget /></div>\n  </div>\n</div>\n"
+            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n\n\n\n  <numo-alert title=\"Some alert\" severity=\"info\" [showCloseButton]=\"false\"></numo-alert>\n\n\n\n  <div class=\"flex flex-row  mb-5 gap-5\">\n\n    <numo-shortcut-widget title=\"Projekti\" link=\"https://visma.com\" icon=\"pi pi-file\"\n      target=\"_self\"></numo-shortcut-widget>\n\n    <numo-info-card-widget title=\"Uzdevumi\" icon=\"pi pi-file\" value=\"12\"></numo-info-card-widget>\n\n\n\n\n  </div>\n\n\n\n  <numo-tasks-widget />\n\n\n  <div class=\"grid grid-cols-12 gap-5\">\n\n    <div class=\"col-span-12 xl:col-span-6\">\n\n      <numo-tasks-widget />\n    </div>\n    <div class=\"col-span-12 xl:col-span-6\"><numo-tasks-widget /></div>\n  </div>\n</div>"
         },
         {
             "name": "AppComponent",
@@ -1851,7 +1812,7 @@
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<p-card>\n  <ng-template #content>\n    <div class=\"flex justify-between\">\n      <div>\n        <span class=\"block text-muted-color font-medium mb-2\">{{ title }}</span>\n        <div class=\"text-surface-900 dark:text-surface-0 font-bold text-3xl\">{{ value }}</div>\n      </div>\n      <div><i [class]=\"icon\" class=\"!text-xl\"></i></div>\n    </div>\n  </ng-template>\n</p-card>\n"
+            "templateData": "<p-card>\n  <ng-template #content>\n    <div class=\"flex justify-between gap-5\">\n      <div>\n        <span class=\"block text-muted-color font-medium mb-2\">{{ title }}</span>\n        <div class=\"text-surface-900 dark:text-surface-0 font-bold text-3xl\">{{ value }}</div>\n      </div>\n      <div><i [class]=\"icon\" class=\"!text-xl\"></i></div>\n    </div>\n  </ng-template>\n</p-card>"
         },
         {
             "name": "LeftMenuComponent",
@@ -1904,6 +1865,102 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<p-panelmenu [model]=\"items\" class=\"w-full\">\r\n  <ng-template #item let-item>\r\n\r\n\r\n    <a *ngIf=\"items.includes(item)\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group font-bold\">\r\n      <i class=\"pi pi-chevron-down text-primary mr-2\"></i>\r\n      <span>{{ item.label }}</span>\r\n    </a>\r\n\r\n\r\n    <!-- First-level separator -->\r\n    <div *ngIf=\"item.seperator\" class=\"font-semibold py-2 cursor-text hover:bg-white\">\r\n      {{ item.label }}\r\n    </div>\r\n\r\n    <!-- First-level non-separator item -->\r\n    <a *ngIf=\"!item.seperator && item.route\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\"></p-badge>\r\n      <span *ngIf=\"item.shortcut\"\r\n        class=\"ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n\r\n    <!-- Nested levels -->\r\n    <div *ngIf=\"item.seperator && item.parent\" class=\"font-semibold py-2 cursor-text hover:bg-white\">\r\n      {{ item.label }}\r\n    </div>\r\n    <a *ngIf=\"!item.seperator && item.parent\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}.\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\"></p-badge>\r\n      <span *ngIf=\"item.shortcut\"\r\n        class=\"ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n  </ng-template>\r\n</p-panelmenu>"
+        },
+        {
+            "name": "NumoAlert",
+            "id": "component-NumoAlert-46dcb23c81d3dcdf294814a5a5c59300f827dfdbf487b61550fb3fd9bb898baa41870bcac3bf44f8636815f3a2c622cf8f69079a697fa1a589c2dbd64d071ea6",
+            "file": "src/stories/components/alert/alert.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "numo-alert",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./alert.template.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "icon",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "severity",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "showCloseButton",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "text",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CardModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { ButtonModule } from 'primeng/button';\n\n@Component({\n  selector: 'numo-alert',\n  standalone: true,\n  imports: [CardModule, CommonModule, ButtonModule],\n  templateUrl: './alert.template.html',\n})\nexport class NumoAlert {\n  @Input() title: string = '';\n  @Input() icon: string = '';\n  @Input() text: string = '';\n  @Input() showCloseButton: boolean = false;\n  @Input() severity: string = '';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p-card styleClass=\"mb-5 bg-[#d1e4ff]\">\n  <ng-template #title>\n    <div class=\"flex\">\n      <i [class]=\"icon\"></i>\n      <div class=\"font-medium text-xl mb-2 line-height-1\">{{ title }}</div>\n      <div class=\"ml-auto\" ngif=\"showCloseButton === true\">\n        <span class=\" no-underline cursor-pointer transition-colors transition-duration-150\">\n          <i class=\"pi pi-times\"></i>\n        </span>\n      </div>\n    </div>\n  </ng-template>\n  {{ text }}\n\n</p-card>"
         },
         {
             "name": "NumoTreeBasic",
@@ -2056,6 +2113,93 @@
                 "OnInit"
             ],
             "templateData": "<p-tree [value]=\"files\" selectionMode=\"checkbox\" [(selection)]=\"selectedFiles\" />\n"
+        },
+        {
+            "name": "ShortcutWidget",
+            "id": "component-ShortcutWidget-bf37c863e3ef5ee4e7307e29cbe9a8173245fbc392231e1278716410261512f7dba19011e71e1753031ac275c40f26af9cbfffe3cc4036001ac688a2a8056bf3",
+            "file": "src/stories/widgets/shortcut/shortcut.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "numo-shortcut-widget",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./shortcut.template.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "icon",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "link",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "target",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CardModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { ButtonModule } from 'primeng/button';\n\n@Component({\n  selector: 'numo-shortcut-widget',\n  standalone: true,\n  imports: [CardModule, CommonModule, ButtonModule],\n  templateUrl: './shortcut.template.html',\n})\nexport class ShortcutWidget {\n  @Input() title: string = '';\n  @Input() icon: string = '';\n  @Input() link: string = '';\n  @Input() target: string = '';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<a [href]=\"link\" [target]=\"target\" class=\"!no-underline\">\n  <p-card>\n    <ng-template #content>\n      <div class=\"flex flex-col items-center\">\n        <div><i [class]=\"icon\" class=\"!text-4xl\"></i></div>\n        <div>\n          <span class=\"block text-muted-color font-medium \">{{ title }}</span>\n        </div>\n      </div>\n    </ng-template>\n  </p-card>\n</a>"
         },
         {
             "name": "TasksWidget",
@@ -2896,16 +3040,6 @@
                 "name": "Tasks",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/widgets/info-card/info-card.model.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "TaskItem[]",
-                "defaultValue": "[\r\n  {\r\n    title: 'Darba rīku izveide',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Rēķinu sagatavošana',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Izveidot atvaļinājumu grafiku',\r\n    date: '10.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Darbinieku intervijas',\r\n    date: '15.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Materiālo resursu inventūra',\r\n    date: '17.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n]"
-            },
-            {
-                "name": "Tasks",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/widgets/tasks/tasks.model.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3219,18 +3353,6 @@
                     "defaultValue": "[\r\n  {\r\n    path: '**',\r\n    renderMode: RenderMode.Prerender\r\n  }\r\n]"
                 }
             ],
-            "src/stories/widgets/info-card/info-card.model.ts": [
-                {
-                    "name": "Tasks",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/widgets/info-card/info-card.model.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "TaskItem[]",
-                    "defaultValue": "[\r\n  {\r\n    title: 'Darba rīku izveide',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Rēķinu sagatavošana',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Izveidot atvaļinājumu grafiku',\r\n    date: '10.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Darbinieku intervijas',\r\n    date: '15.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Materiālo resursu inventūra',\r\n    date: '17.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n]"
-                }
-            ],
             "src/stories/widgets/tasks/tasks.model.ts": [
                 {
                     "name": "Tasks",
@@ -3372,6 +3494,15 @@
                 "name": "serverDistFolder",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/alert/alert.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NumoAlert",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -3669,22 +3800,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/widgets/info-card/info-card.model.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "TaskItem",
+                "filePath": "src/stories/widgets/shortcut/shortcut.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ShortcutWidget",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/widgets/info-card/info-card.model.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Tasks",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

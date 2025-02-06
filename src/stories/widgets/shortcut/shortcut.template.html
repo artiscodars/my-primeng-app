@@ -1,0 +1,12 @@
+<a [href]="link" [target]="target" class="!no-underline">
+  <p-card>
+    <ng-template #content>
+      <div class="flex flex-col items-center">
+        <div><i [class]="icon" class="!text-4xl"></i></div>
+        <div>
+          <span class="block text-muted-color font-medium ">{{ title }}</span>
+        </div>
+      </div>
+    </ng-template>
+  </p-card>
+</a>
