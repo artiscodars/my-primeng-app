@@ -4,7 +4,7 @@ import description from './home.description.md';
 
 import { AppComponent } from './home.component';
 import { HeaderComponent } from '../../components/header/header.component';
-import { TasksWidget } from '../../widgets/tasks/tasks.component';
+import { TableWidget } from '../../widgets/table/table.component';
 import { InfoCardWidget } from '../../widgets/info-card/info-card.component';
 import { NumoAlert } from '../../components/alert/alert.component';
 
@@ -14,7 +14,7 @@ export default {
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({
-      imports: [HeaderComponent, TasksWidget, InfoCardWidget, NumoAlert],
+      imports: [HeaderComponent, TableWidget, InfoCardWidget, NumoAlert],
     }),
   ],
   parameters: {

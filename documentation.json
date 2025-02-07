@@ -184,7 +184,7 @@
         {
             "name": "TaskItem",
             "id": "interface-TaskItem-f959cd21a2074cb0608e0a34c656b6a983ca9d24c5cd1853272c6e4851c2fe00b2a8a15ee6306ef7b343a12a015e3a3fce98801bd22a6cc52238a64ce27c44e7",
-            "file": "src/stories/widgets/tasks/tasks.model.ts",
+            "file": "src/stories/widgets/list/list.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
@@ -225,6 +225,54 @@
             "kind": 171,
             "methods": [],
             "extends": []
+        },
+        {
+            "name": "TaskItem",
+            "id": "interface-TaskItem-f959cd21a2074cb0608e0a34c656b6a983ca9d24c5cd1853272c6e4851c2fe00b2a8a15ee6306ef7b343a12a015e3a3fce98801bd22a6cc52238a64ce27c44e7-1",
+            "file": "src/stories/widgets/table/table.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface TaskItem {\r\n  title: string; // The label of the menu item\r\n  date?: string; // Optional: For expandable/collapsible menus\r\n  status?: string; // Optional: Nested menu items\r\n}\r\n\r\nexport const Tasks: TaskItem[] = [\r\n  {\r\n    title: 'Darba rīku izveide',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Rēķinu sagatavošana',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Izveidot atvaļinājumu grafiku',\r\n    date: '10.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Darbinieku intervijas',\r\n    date: '15.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Materiālo resursu inventūra',\r\n    date: '17.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n];\r\n",
+            "properties": [
+                {
+                    "name": "date",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "TaskItem-1"
         },
         {
             "name": "User",
@@ -314,7 +362,7 @@
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-5ec3e1d066f644d34d2ae22553c2855ee4fde2bc5ca1dbf1a2fa45e5e3218816f9bf411f1a83e877b53789b4e69fc9cf1713c5530f3c4bc013f2900666a29e8c-1",
+            "id": "component-AppComponent-af26a27bcbb913bad7c9a745d4bb7fa179d425c1fd94b04b8a7b681b7b5b4f4faa4500ae8cfd70799979db3cc579d7d7913cb34d929633741e65a22a84fc3d13-1",
             "file": "src/stories/layouts/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -343,7 +391,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TasksWidget"
+                    "name": "TableWidget"
                 },
                 {
                     "name": "CardModule",
@@ -370,7 +418,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { MessageModule } from 'primeng/message';\n\nimport { HeaderComponent } from '../../components/header/header.component';\nimport { TasksWidget } from '../../widgets/tasks/tasks.component';\nimport { InfoCardWidget } from '../../widgets/info-card/info-card.component';\nimport { ShortcutWidget } from '../../widgets/shortcut/shortcut.component';\nimport { NumoAlert } from '../../components/alert/alert.component';\n\n@Component({\n  standalone: true,\n  imports: [\n    HeaderComponent,\n    TasksWidget,\n    CardModule,\n    CommonModule,\n    MessageModule,\n    InfoCardWidget,\n    ShortcutWidget,\n    NumoAlert,\n  ],\n  templateUrl: './home.template.html',\n})\nexport class AppComponent {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { MessageModule } from 'primeng/message';\n\nimport { HeaderComponent } from '../../components/header/header.component';\nimport { TableWidget } from '../../widgets/table/table.component';\nimport { InfoCardWidget } from '../../widgets/info-card/info-card.component';\nimport { ShortcutWidget } from '../../widgets/shortcut/shortcut.component';\nimport { NumoAlert } from '../../components/alert/alert.component';\n\n@Component({\n  standalone: true,\n  imports: [\n    HeaderComponent,\n    TableWidget,\n    CardModule,\n    CommonModule,\n    MessageModule,\n    InfoCardWidget,\n    ShortcutWidget,\n    NumoAlert,\n  ],\n  templateUrl: './home.template.html',\n})\nexport class AppComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -378,7 +426,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "AppComponent-1",
-            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n\n\n\n  <numo-alert title=\"Some alert\" severity=\"info\" [showCloseButton]=\"false\"></numo-alert>\n\n\n\n  <div class=\"flex flex-row  mb-5 gap-5\">\n\n    <numo-shortcut-widget title=\"Projekti\" link=\"https://visma.com\" icon=\"pi pi-file\"\n      target=\"_self\"></numo-shortcut-widget>\n\n    <numo-info-card-widget title=\"Uzdevumi\" icon=\"pi pi-file\" value=\"12\"></numo-info-card-widget>\n\n\n\n\n  </div>\n\n\n\n  <numo-tasks-widget />\n\n\n  <div class=\"grid grid-cols-12 gap-5\">\n\n    <div class=\"col-span-12 xl:col-span-6\">\n\n      <numo-tasks-widget />\n    </div>\n    <div class=\"col-span-12 xl:col-span-6\"><numo-tasks-widget /></div>\n  </div>\n</div>"
+            "templateData": "<numo-header></numo-header>\n\n<div class=\"w-full transition-all duration-300 ease-in-out\" id=\"content_holder\">\n  <numo-alert title=\"Missing Context/Providers\" icon=\"pi pi-info-circle\" severity=\"info\" [showCloseButton]=\"true\"\n    text=\"<b>Missing Context/Providers:</b> You can use decorators to supply specific contexts or providers, which are sometimes necessary for components to render correctly. For detailed instructions on using decorators, please visit the Decorators documentation.\"></numo-alert>\n\n  <div class=\"flex flex-row mb-5 gap-5\">\n    <numo-shortcut-widget title=\"Projekti\" link=\"https://visma.com\" icon=\"pi pi-file\"\n      target=\"_self\"></numo-shortcut-widget>\n\n    <numo-info-card-widget title=\"Uzdevumi\" icon=\"pi pi-file\" value=\"12\"></numo-info-card-widget>\n  </div>\n\n  <div class=\"grid grid-cols-12 gap-5\">\n    <div class=\"col-span-12 xl:col-span-6\">\n      <numo-table-widget title=\"Kaut kāda tabula\" />\n    </div>\n    <div class=\"col-span-12 xl:col-span-6\">\n      ...\n    </div>\n  </div>\n</div>"
         },
         {
             "name": "AppComponent",
@@ -1456,7 +1504,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-2ec01a45b371f29ea551c9ae1be01c3c0816304d6153656f0e43942e6ad9b8dfdd48c64c02fddbb71496bd4404c141c99cb8a70518aa0451b9636c5b0879cf49",
+            "id": "component-HeaderComponent-6ebc6958217135e2a6fce5c502475befbc7c171680771542814c35f123f758f05883369a074919c016bd10dc759d6a7cf1fbd873b0d65d96d939b10d5464c7e0",
             "file": "src/stories/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1475,17 +1523,6 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "isMenuVisible",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 30
-                },
-                {
                     "name": "items",
                     "defaultValue": "[...Menu]",
                     "deprecated": false,
@@ -1494,7 +1531,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 34
+                    "line": 39
                 },
                 {
                     "name": "leftMenu",
@@ -1504,7 +1541,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 32,
+                    "line": 37,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -1523,7 +1560,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33,
+                    "line": 38,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -1543,10 +1580,20 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 35
+                    "line": 40
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "showUserMenu",
                     "args": [
@@ -1560,7 +1607,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 60,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1577,31 +1624,23 @@
                 },
                 {
                     "name": "toggleMenu",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "Event",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
+                    "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 42,
                     "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "Event",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "toggleSearch",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 64,
+                    "deprecated": false,
+                    "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
@@ -1642,12 +1681,15 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\nimport { Component, ViewChild } from '@angular/core';\n\nimport { InputTextModule } from 'primeng/inputtext';\nimport { MenuModule } from 'primeng/menu';\nimport { IconFieldModule } from 'primeng/iconfield';\nimport { InputIconModule } from 'primeng/inputicon';\n\nimport { LeftMenuComponent } from '../left-menu/left-menu.component';\n\nimport { Menu, MenuItem } from '../left-menu/menu.model';\nimport { UserMenuItems } from './user-menu.model';\n\n@Component({\n  selector: 'numo-header',\n  standalone: true,\n  imports: [\n    FormsModule,\n    CommonModule,\n    InputTextModule,\n    MenuModule,\n    LeftMenuComponent,\n    IconFieldModule,\n    InputIconModule,\n  ],\n  templateUrl: './header.template.html',\n})\nexport class HeaderComponent {\n  isMenuVisible = false;\n\n  @ViewChild('leftMenu') leftMenu: any;\n  @ViewChild('userMenu') userMenu: any; // Reference to user menu\n  items: MenuItem[] = [...Menu];\n  userMenuItems = [...UserMenuItems]; // Use the imported user menu items\n\n  toggleMenu(event: Event) {\n    this.isMenuVisible = !this.isMenuVisible;\n\n    // Get the element by ID\n    const leftMenu = document.getElementById('left-menu');\n\n    if (leftMenu) {\n      // Toggle the class on the element with ID \"left-menu\"\n      if (this.isMenuVisible) {\n        leftMenu.classList.add('left-[15px]');\n        document\n          .getElementById('content_holder')\n          ?.classList.add('lg:pl-[285px]');\n      } else {\n        leftMenu.classList.remove('left-[15px]');\n        document\n          .getElementById('content_holder')\n          ?.classList.remove('lg:pl-[285px]');\n      }\n    }\n  }\n\n  showUserMenu(event: Event) {\n    this.userMenu.toggle(event); // Show the user menu\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\nimport { Component, ViewChild, AfterViewInit } from '@angular/core';\n\nimport { InputTextModule } from 'primeng/inputtext';\nimport { MenuModule } from 'primeng/menu';\nimport { IconFieldModule } from 'primeng/iconfield';\nimport { InputIconModule } from 'primeng/inputicon';\n\nimport { LeftMenuComponent } from '../left-menu/left-menu.component';\n\nimport { Menu, MenuItem } from '../left-menu/menu.model';\nimport { UserMenuItems } from './user-menu.model';\n\n@Component({\n  selector: 'numo-header',\n  standalone: true,\n  imports: [\n    FormsModule,\n    CommonModule,\n    InputTextModule,\n    MenuModule,\n    LeftMenuComponent,\n    IconFieldModule,\n    InputIconModule,\n  ],\n  templateUrl: './header.template.html',\n})\nexport class HeaderComponent implements AfterViewInit {\n  ngAfterViewInit() {\n    // Ensure content_holder gets the default class when component loads\n    document.getElementById('content_holder')?.classList.add('lg:pl-[285px]');\n    document.getElementById('left-menu')?.classList.add('-left-[350px]');\n    document.getElementById('left-menu')?.classList.add('lg:left-[15px]');\n  }\n\n  @ViewChild('leftMenu') leftMenu: any;\n  @ViewChild('userMenu') userMenu: any; // Reference to user menu\n  items: MenuItem[] = [...Menu];\n  userMenuItems = [...UserMenuItems]; // Use the imported user menu items\n\n  toggleMenu() {\n    const leftMenu = document.getElementById('left-menu');\n    const contentHolder = document.getElementById('content_holder');\n    const screenWidth = window.innerWidth;\n\n    if (leftMenu) {\n      if (screenWidth < 1024) {\n        leftMenu.classList.toggle('-left-[350px]');\n      } else {\n        leftMenu.classList.toggle('lg:left-[15px]');\n      }\n    }\n\n    if (contentHolder) {\n      contentHolder.classList.toggle('lg:pl-[285px]');\n    }\n  }\n\n  showUserMenu(event: Event) {\n    this.userMenu.toggle(event); // Show the user menu\n  }\n\n  toggleSearch() {\n    console.log('Search toggled');\n    const search = document.getElementById('search');\n    const screenWidth = window.innerWidth;\n\n    if (search) {\n      // if (screenWidth < 1024) {\n      search.classList.toggle('-top-52');\n      search.classList.toggle('w-full');\n      //  search.classList.toggle('left-0');\n      //   search.classList.toggle('right-0');\n      search.classList.toggle('top-0');\n      //  search.classList.toggle('p-4');\n      //   search.classList.toggle('bg-white');\n      //  search.classList.toggle('z-50');\n      //   } else {\n      //    search.classList.toggle('lg:left-[15px]');\n      //  }\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"header flex items-center justify-between gap-3 w-full  p-3 -mt-[15px]\">\n  <div class=\"flex items-center  h-10\">\n    <span #menuButton (click)=\"toggleMenu($event)\" class=\"icon text-gray-800 cursor-pointer pi pi-bars\">\n    </span>\n\n    <img class=\"ml-3 h-[40px]\" src=\"logo.png\" alt=\"logo\" />\n  </div>\n  <div class=\"flex-1 flex justify-center relative max-w-[400px]\">\n    <p-iconfield class=\"w-full\">\n      <p-inputicon styleClass=\"pi pi-search\" />\n      <input type=\"text\" pInputText placeholder=\"Meklēt\" class=\"w-full\" />\n    </p-iconfield>\n  </div>\n\n  <div class=\"flex justify-content-end\">\n    <p-menu #userMenu [model]=\"userMenuItems\" [popup]=\"true\" />\n\n    <div (click)=\"showUserMenu($event)\" class=\"cursor-pointer py-1 text-slate-950 max-w-[250px] pr-6 relative\">\n      <span class=\"hidden sm:block\">Jānis Bērziņš</span>\n      <span\n        class=\" sm:hidden  flex items-center justify-center bg-blue-200  rounded-full aspect-square w-[42px] h-[42px] font-semibold\">JB</span>\n      <span class=\"material-symbols-rounded absolute right-0 top-0 translate-y-1/2\">\n        keyboard_arrow_down\n      </span>\n      <div class=\" text-xs hidden sm:block text-ellipsis whitespace-nowrap overflow-hidden\">\n        Liepājas valstspilsētas pašvaldības aģentūra \"Liepājas\n        Sabiedriskais transports\"\n      </div>\n    </div>\n  </div>\n</div>\n<div\n  class=\"-left-[350px] absolute top-[73px] bottom-[15px] w-[270px] bg-white p-3 shadow-lg lg:shadow-none z-50 border border-gray-200 rounded-lg transition-all duration-300 ease-in-out\"\n  id=\"left-menu\">\n  <numo-left-menu [items]=\"items\"></numo-left-menu>\n</div>"
+            "implements": [
+                "AfterViewInit"
+            ],
+            "templateData": "<div class=\"header flex items-center justify-between gap-3 w-full  p-3 -mt-[15px] relative\">\n  <div class=\"flex items-center  h-10\">\n    <span #menuButton (click)=\"toggleMenu()\" class=\"icon text-gray-800 cursor-pointer pi pi-bars\">\n    </span>\n\n    <img class=\"ml-3 h-[40px]\" src=\"logo.png\" alt=\"logo\" />\n  </div>\n  <div class=\"flex-1 flex justify-end md:justify-center max-w-[400px]\">\n    <div id=\"search\"\n      class=\"flex fixed md:relative left-0 right-0 -top-52 md:top-auto md:mt-auto w-full transition-all duration-300 ease-in-out p-3 md:p-0 bg-white md:bg-transparent z-50 md:z-auto\">\n      <p-iconfield class=\"w-full\">\n        <p-inputicon styleClass=\"pi pi-search\" />\n        <input type=\"text\" pInputText placeholder=\"Meklēt\" class=\"w-full\" />\n      </p-iconfield>\n      <div (click)=\"toggleSearch()\" class=\"md:hidden px-3 py-2\">\n        <span class=\"icon text-gray-800 cursor-pointer pi pi-times \"></span>\n      </div>\n    </div>\n\n    <div (click)=\"toggleSearch()\" class=\"md:hidden mr-4\">\n      <span class=\"icon text-gray-800 cursor-pointer pi pi-search \"></span>\n    </div>\n\n\n  </div>\n\n  <div class=\"flex justify-content-end\">\n    <p-menu #userMenu [model]=\"userMenuItems\" [popup]=\"true\" />\n\n    <div (click)=\"showUserMenu($event)\" class=\"cursor-pointer py-1 text-slate-950 max-w-[250px] pr-6 relative\">\n      <span class=\"hidden sm:block\">Jānis Bērziņš</span>\n      <span\n        class=\" sm:hidden  flex items-center justify-center bg-blue-200  rounded-full aspect-square w-[42px] h-[42px] font-semibold\">JB</span>\n      <span class=\"material-symbols-rounded absolute right-0 top-0 translate-y-1/2\">\n        keyboard_arrow_down\n      </span>\n      <div class=\" text-xs hidden sm:block text-ellipsis whitespace-nowrap overflow-hidden\">\n        Liepājas valstspilsētas pašvaldības aģentūra \"Liepājas\n        Sabiedriskais transports\"\n      </div>\n    </div>\n  </div>\n</div>\n<div\n  class=\"absolute top-[73px] bottom-[15px] w-[270px] bg-white p-1 shadow-lg lg:shadow-none z-50 border border-gray-200 rounded-lg transition-all duration-300 ease-in-out\"\n  id=\"left-menu\">\n  <numo-left-menu [items]=\"items\"></numo-left-menu>\n</div>"
         },
         {
             "name": "IconComponent",
@@ -1864,11 +1906,87 @@
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<p-panelmenu [model]=\"items\" class=\"w-full\">\r\n  <ng-template #item let-item>\r\n\r\n\r\n    <a *ngIf=\"items.includes(item)\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group font-bold\">\r\n      <i class=\"pi pi-chevron-down text-primary mr-2\"></i>\r\n      <span>{{ item.label }}</span>\r\n    </a>\r\n\r\n\r\n    <!-- First-level separator -->\r\n    <div *ngIf=\"item.seperator\" class=\"font-semibold py-2 cursor-text hover:bg-white\">\r\n      {{ item.label }}\r\n    </div>\r\n\r\n    <!-- First-level non-separator item -->\r\n    <a *ngIf=\"!item.seperator && item.route\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\"></p-badge>\r\n      <span *ngIf=\"item.shortcut\"\r\n        class=\"ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n\r\n    <!-- Nested levels -->\r\n    <div *ngIf=\"item.seperator && item.parent\" class=\"font-semibold py-2 cursor-text hover:bg-white\">\r\n      {{ item.label }}\r\n    </div>\r\n    <a *ngIf=\"!item.seperator && item.parent\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}.\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\"></p-badge>\r\n      <span *ngIf=\"item.shortcut\"\r\n        class=\"ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n  </ng-template>\r\n</p-panelmenu>"
+            "templateData": "<p-panelmenu [model]=\"items\" class=\"w-full\">\r\n  <ng-template #item let-item class=\"border-0\">\r\n\r\n\r\n    <a *ngIf=\"items.includes(item)\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group font-bold\">\r\n      <i class=\"pi pi-chevron-down text-primary mr-2\"></i>\r\n      <span>{{ item.label }}</span>\r\n    </a>\r\n\r\n\r\n    <!-- First-level separator -->\r\n    <div *ngIf=\"item.seperator\" class=\"font-semibold py-2 cursor-text hover:bg-white\">\r\n      {{ item.label }}\r\n    </div>\r\n\r\n    <!-- First-level non-separator item -->\r\n    <a *ngIf=\"!item.seperator && item.route\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\"></p-badge>\r\n      <span *ngIf=\"item.shortcut\"\r\n        class=\"ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n\r\n    <!-- Nested levels -->\r\n    <div *ngIf=\"item.seperator && item.parent\" class=\"font-semibold py-2 cursor-text hover:bg-white\">\r\n      {{ item.label }}\r\n    </div>\r\n    <a *ngIf=\"!item.seperator && item.parent\" pRipple class=\"flex items-center px-2 py-2 cursor-pointer group\">\r\n      <i [class]=\"item.icon + ' text-primary group-hover:text-inherit'\"></i>\r\n      <span class=\"ml-2\">\r\n        {{ item.label }}.\r\n      </span>\r\n      <p-badge *ngIf=\"item.badge\" class=\"ml-auto\" [value]=\"item.badge\"></p-badge>\r\n      <span *ngIf=\"item.shortcut\"\r\n        class=\"ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1\">\r\n        {{ item.shortcut }}\r\n      </span>\r\n    </a>\r\n  </ng-template>\r\n</p-panelmenu>"
+        },
+        {
+            "name": "ListWidget",
+            "id": "component-ListWidget-74d2676e1ec99fb50da40f5b2e3f2c1a9c19fa6480cfb163e5f64ecd4fc73579d598ea2dcf0c474e637155ff08a399c72ad5f7ff8070e9c0f246fc6d6f85a486",
+            "file": "src/stories/widgets/list/list.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "numo-list-widget",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./list.template.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "tasks",
+                    "defaultValue": "[...Tasks]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CardModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "RippleModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { RippleModule } from 'primeng/ripple';\nimport { ButtonModule } from 'primeng/button';\n\nimport { Tasks } from './list.model';\n\n@Component({\n  selector: 'numo-list-widget',\n  standalone: true,\n  imports: [CardModule, CommonModule, ButtonModule, RippleModule],\n  templateUrl: './list.template.html',\n})\nexport class ListWidget {\n  @Input() title: string = '';\n\n  tasks = [...Tasks];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p-card styleClass=\"mb-5\">\n  <div class=\"font-semibold text-xl mb-4\">{{ title }}</div>\n  <div>\n\n    <ng-template pTemplate=\"body\" let-task>\n      <div>\n\n        <div><a href=\"#\" class=\"underline text-primary\">{{ task.title }}</a></div>\n        <div>{{ task.date }}</div>\n        <div>{{ task.status }}</div>\n\n      </div>\n    </ng-template>\n  </div>\n</p-card>"
         },
         {
             "name": "NumoAlert",
-            "id": "component-NumoAlert-46dcb23c81d3dcdf294814a5a5c59300f827dfdbf487b61550fb3fd9bb898baa41870bcac3bf44f8636815f3a2c622cf8f69079a697fa1a589c2dbd64d071ea6",
+            "id": "component-NumoAlert-80a0eb91f26bd63a12da9a368150893b4741f131f43eb4605ff3165479ca4013ef675e98228c77b0079258110d99bbbaf78b266bbbd82d9e53e8a48a0170c3bb",
             "file": "src/stories/components/alert/alert.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1889,17 +2007,17 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 15,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "severity",
-                    "defaultValue": "''",
+                    "defaultValue": "'info'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
-                    "type": "string",
+                    "line": 18,
+                    "type": "\"info\" | \"success\" | \"warning\" | \"error\"",
                     "decorators": []
                 },
                 {
@@ -1907,7 +2025,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 17,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1916,7 +2034,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 16,
                     "type": "string",
                     "decorators": []
                 },
@@ -1925,24 +2043,74 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 14,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "alertClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "isVisible",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "closeAlert",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "setAlertClass",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
             "imports": [
-                {
-                    "name": "CardModule",
-                    "type": "module"
-                },
                 {
                     "name": "CommonModule",
                     "type": "module"
@@ -1955,12 +2123,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { ButtonModule } from 'primeng/button';\n\n@Component({\n  selector: 'numo-alert',\n  standalone: true,\n  imports: [CardModule, CommonModule, ButtonModule],\n  templateUrl: './alert.template.html',\n})\nexport class NumoAlert {\n  @Input() title: string = '';\n  @Input() icon: string = '';\n  @Input() text: string = '';\n  @Input() showCloseButton: boolean = false;\n  @Input() severity: string = '';\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { ButtonModule } from 'primeng/button';\n\n@Component({\n  selector: 'numo-alert',\n  standalone: true,\n  imports: [CommonModule, ButtonModule],\n  templateUrl: './alert.template.html',\n})\nexport class NumoAlert {\n  @Input() title: string = '';\n  @Input() icon: string = '';\n  @Input() text: string = '';\n  @Input() showCloseButton: boolean = false;\n  @Input() severity: 'info' | 'success' | 'warning' | 'error' = 'info';\n\n  isVisible = true;\n  alertClass = '';\n\n  ngOnInit() {\n    this.setAlertClass();\n  }\n\n  setAlertClass() {\n    const severityClasses: Record<string, string> = {\n      info: 'bg-[#d1e4ff] border-blue-500',\n      success: 'bg-[#d4edda] border-green-500',\n      warning: 'bg-[#fff3cd] border-yellow-500',\n      error: 'bg-[#f8d7da] border-red-500',\n    };\n    this.alertClass = severityClasses[this.severity] || severityClasses['info'];\n  }\n\n  closeAlert() {\n    this.isVisible = false; // Hide the entire alert\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<p-card styleClass=\"mb-5 bg-[#d1e4ff]\">\n  <ng-template #title>\n    <div class=\"flex\">\n      <i [class]=\"icon\"></i>\n      <div class=\"font-medium text-xl mb-2 line-height-1\">{{ title }}</div>\n      <div class=\"ml-auto\" ngif=\"showCloseButton === true\">\n        <span class=\" no-underline cursor-pointer transition-colors transition-duration-150\">\n          <i class=\"pi pi-times\"></i>\n        </span>\n      </div>\n    </div>\n  </ng-template>\n  {{ text }}\n\n</p-card>"
+            "templateData": "<div [ngClass]=\"[alertClass, 'mb-5 p-4 rounded-lg']\" *ngIf=\"isVisible\">\n  <div>\n    <div class=\"flex items-center\">\n      <!-- Use interpolation for `icon` -->\n      <i class=\"{{ icon }}\" class=\"text-xl mr-2\"></i>\n      <div class=\"font-bold text-lg\">{{ title }}</div>\n      <div class=\"ml-auto\" *ngIf=\"showCloseButton\">\n        <span (click)=\"closeAlert()\" class=\"cursor-pointer transition-opacity duration-150 hover:opacity-70\">\n          <i class=\"pi pi-times\"></i>\n        </span>\n      </div>\n    </div>\n  </div>\n  <div class=\"mt-2\" [innerHTML]=\"text\"></div>\n</div>"
         },
         {
             "name": "NumoTreeBasic",
@@ -2202,23 +2370,33 @@
             "templateData": "<a [href]=\"link\" [target]=\"target\" class=\"!no-underline\">\n  <p-card>\n    <ng-template #content>\n      <div class=\"flex flex-col items-center\">\n        <div><i [class]=\"icon\" class=\"!text-4xl\"></i></div>\n        <div>\n          <span class=\"block text-muted-color font-medium \">{{ title }}</span>\n        </div>\n      </div>\n    </ng-template>\n  </p-card>\n</a>"
         },
         {
-            "name": "TasksWidget",
-            "id": "component-TasksWidget-418ebc78e6f0922f1cb0e887fb1e1f1fd2dbeb32a3ad24d6a9dc551294d844a3e6ebe99b184bf4272b986c7ea8026f5bde3bdbdfdaf4c074623f154a83710941",
-            "file": "src/stories/widgets/tasks/tasks.component.ts",
+            "name": "TableWidget",
+            "id": "component-TableWidget-62c26ea6cd6d7a8c6e6098f7390e2667799a59795cd906a11b0906873ba112496927b0aa2a402aa95cb66f88f1292aeadacda0c81d88652787baa4d3d3210226",
+            "file": "src/stories/widgets/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "numo-tasks-widget",
+            "selector": "numo-table-widget",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./tasks.template.html"
+                "./table.template.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [
                 {
@@ -2230,7 +2408,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 21
                 }
             ],
             "methodsClass": [],
@@ -2264,12 +2442,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { RippleModule } from 'primeng/ripple';\nimport { TableModule } from 'primeng/table';\nimport { ButtonModule } from 'primeng/button';\n\nimport { Tasks } from './tasks.model';\n\n@Component({\n  selector: 'numo-tasks-widget',\n  standalone: true,\n  imports: [CardModule, CommonModule, TableModule, ButtonModule, RippleModule],\n  templateUrl: './tasks.template.html',\n})\nexport class TasksWidget {\n  tasks = [...Tasks];\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { CardModule } from 'primeng/card';\nimport { RippleModule } from 'primeng/ripple';\nimport { TableModule } from 'primeng/table';\nimport { ButtonModule } from 'primeng/button';\n\nimport { Tasks } from './table.model';\n\n@Component({\n  selector: 'numo-table-widget',\n  standalone: true,\n  imports: [CardModule, CommonModule, TableModule, ButtonModule, RippleModule],\n  templateUrl: './table.template.html',\n})\nexport class TableWidget {\n  @Input() title: string = '';\n\n  tasks = [...Tasks];\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<p-card styleClass=\"mb-5\">\n  <div class=\"font-semibold text-xl mb-4\">Uzdevumi</div>\n  <p-table [value]=\"tasks\" [paginator]=\"false\" [rows]=\"5\" responsiveLayout=\"scroll\">\n    <ng-template pTemplate=\"header\">\n      <tr>\n\n        <th pSortableColumn=\"title\">Nosaukums <p-sortIcon field=\"title\"></p-sortIcon></th>\n        <th pSortableColumn=\"date\">Datums <p-sortIcon field=\"date\"></p-sortIcon></th>\n        <th pSortableColumn=\"status\">Statuss <p-sortIcon field=\"statuss\"></p-sortIcon></th>\n\n      </tr>\n    </ng-template>\n    <ng-template pTemplate=\"body\" let-task>\n      <tr>\n\n        <td><a href=\"#\" class=\"underline text-primary\">{{ task.title }}</a></td>\n        <td>{{ task.date }}</td>\n        <td>{{ task.status }}</td>\n\n      </tr>\n    </ng-template>\n  </p-table>\n</p-card>\n"
+            "templateData": "<p-card styleClass=\"mb-5\">\n  <div class=\"font-semibold text-xl mb-4\">{{ title }}</div>\n  <p-table [value]=\"tasks\" [paginator]=\"false\" [rows]=\"5\" responsiveLayout=\"scroll\">\n    <ng-template pTemplate=\"header\">\n      <tr>\n\n        <th pSortableColumn=\"title\">Nosaukums <p-sortIcon field=\"title\"></p-sortIcon></th>\n        <th pSortableColumn=\"date\">Datums <p-sortIcon field=\"date\"></p-sortIcon></th>\n        <th pSortableColumn=\"status\">Statuss <p-sortIcon field=\"statuss\"></p-sortIcon></th>\n\n      </tr>\n    </ng-template>\n    <ng-template pTemplate=\"body\" let-task>\n      <tr>\n\n        <td><a href=\"#\" class=\"underline text-primary\">{{ task.title }}</a></td>\n        <td>{{ task.date }}</td>\n        <td>{{ task.status }}</td>\n\n      </tr>\n    </ng-template>\n  </p-table>\n</p-card>"
         },
         {
             "name": "TimePickerComponent",
@@ -3040,7 +3218,17 @@
                 "name": "Tasks",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/widgets/tasks/tasks.model.ts",
+                "file": "src/stories/widgets/list/list.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TaskItem[]",
+                "defaultValue": "[\r\n  {\r\n    title: 'Darba rīku izveide',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Rēķinu sagatavošana',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Izveidot atvaļinājumu grafiku',\r\n    date: '10.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Darbinieku intervijas',\r\n    date: '15.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Materiālo resursu inventūra',\r\n    date: '17.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n]"
+            },
+            {
+                "name": "Tasks",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/widgets/table/table.model.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "TaskItem[]",
@@ -3353,12 +3541,24 @@
                     "defaultValue": "[\r\n  {\r\n    path: '**',\r\n    renderMode: RenderMode.Prerender\r\n  }\r\n]"
                 }
             ],
-            "src/stories/widgets/tasks/tasks.model.ts": [
+            "src/stories/widgets/list/list.model.ts": [
                 {
                     "name": "Tasks",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/widgets/tasks/tasks.model.ts",
+                    "file": "src/stories/widgets/list/list.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TaskItem[]",
+                    "defaultValue": "[\r\n  {\r\n    title: 'Darba rīku izveide',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Rēķinu sagatavošana',\r\n    date: '30.01.2025',\r\n    status: 'Notiek',\r\n  },\r\n  {\r\n    title: 'Izveidot atvaļinājumu grafiku',\r\n    date: '10.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Darbinieku intervijas',\r\n    date: '15.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n  {\r\n    title: 'Materiālo resursu inventūra',\r\n    date: '17.02.2025',\r\n    status: 'Gaida',\r\n  },\r\n]"
+                }
+            ],
+            "src/stories/widgets/table/table.model.ts": [
+                {
+                    "name": "Tasks",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/widgets/table/table.model.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "TaskItem[]",
@@ -3502,7 +3702,7 @@
                 "linktype": "component",
                 "name": "NumoAlert",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -3529,7 +3729,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -3800,6 +4000,34 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/widgets/list/list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ListWidget",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/widgets/list/list.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "TaskItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/widgets/list/list.model.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tasks",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/widgets/shortcut/shortcut.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -3809,16 +4037,16 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/widgets/tasks/tasks.component.ts",
+                "filePath": "src/stories/widgets/table/table.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "TasksWidget",
+                "name": "TableWidget",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
-                "filePath": "src/stories/widgets/tasks/tasks.model.ts",
+                "filePath": "src/stories/widgets/table/table.model.ts",
                 "type": "interface",
                 "linktype": "interface",
                 "name": "TaskItem",
@@ -3827,7 +4055,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/widgets/tasks/tasks.model.ts",
+                "filePath": "src/stories/widgets/table/table.model.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

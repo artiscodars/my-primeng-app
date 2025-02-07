@@ -1,14 +1,14 @@
 // tasks.stories.ts
 
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { TasksWidget } from './tasks.component';
-import { Tasks } from './tasks.model';
+import { TableWidget } from './table.component';
+import { Tasks } from './table.model';
 
 const meta: Meta = {
-  title: 'Widgets/Tasks',
+  title: 'Widgets/Table',
   decorators: [
     moduleMetadata({
-      imports: [TasksWidget],
+      imports: [TableWidget],
     }),
   ],
   tags: ['autodocs'],
@@ -20,13 +20,14 @@ type Story = StoryObj;
 export const Basic: Story = {
   args: {
     tasks: [...Tasks],
+    title: 'Tasks',
   },
   render: (args) => {
     return {
       props: {
         ...args,
       },
-      template: `<numo-tasks-widget></numo-tasks-widget>`,
+      template: `<numo-table-widget [title]="title"></numo-table-widget>`,
     };
   },
 };

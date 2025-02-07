@@ -1,5 +1,5 @@
 // task.component.ts
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CardModule } from 'primeng/card';
@@ -7,14 +7,16 @@ import { RippleModule } from 'primeng/ripple';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 
-import { Tasks } from './tasks.model';
+import { Tasks } from './table.model';
 
 @Component({
-  selector: 'numo-tasks-widget',
+  selector: 'numo-table-widget',
   standalone: true,
   imports: [CardModule, CommonModule, TableModule, ButtonModule, RippleModule],
-  templateUrl: './tasks.template.html',
+  templateUrl: './table.template.html',
 })
-export class TasksWidget {
+export class TableWidget {
+  @Input() title: string = '';
+
   tasks = [...Tasks];
 }

@@ -5,22 +5,24 @@ import { CardModule } from 'primeng/card';
 import { MessageModule } from 'primeng/message';
 
 import { HeaderComponent } from '../../components/header/header.component';
-import { TasksWidget } from '../../widgets/tasks/tasks.component';
+import { TableWidget } from '../../widgets/table/table.component';
 import { InfoCardWidget } from '../../widgets/info-card/info-card.component';
 import { ShortcutWidget } from '../../widgets/shortcut/shortcut.component';
 import { NumoAlert } from '../../components/alert/alert.component';
+import { ListWidget } from '../../widgets/list/list.component';
 
 @Component({
   standalone: true,
   imports: [
     HeaderComponent,
-    TasksWidget,
+    TableWidget,
     CardModule,
     CommonModule,
     MessageModule,
     InfoCardWidget,
     ShortcutWidget,
     NumoAlert,
+    ListWidget,
   ],
   templateUrl: './home.template.html',
 })
