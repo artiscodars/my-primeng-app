@@ -1,15 +1,27 @@
-<div class="header flex items-center justify-between gap-3 w-full  p-3 -mt-[15px]">
+<div class="header flex items-center justify-between gap-3 w-full  p-3 -mt-[15px] relative">
   <div class="flex items-center  h-10">
-    <span #menuButton (click)="toggleMenu($event)" class="icon text-gray-800 cursor-pointer pi pi-bars">
+    <span #menuButton (click)="toggleMenu()" class="icon text-gray-800 cursor-pointer pi pi-bars">
     </span>
 
     <img class="ml-3 h-[40px]" src="logo.png" alt="logo" />
   </div>
-  <div class="flex-1 flex justify-center relative max-w-[400px]">
-    <p-iconfield class="w-full">
-      <p-inputicon styleClass="pi pi-search" />
-      <input type="text" pInputText placeholder="Meklēt" class="w-full" />
-    </p-iconfield>
+  <div class="flex-1 flex justify-end md:justify-center max-w-[400px]">
+    <div id="search"
+      class="flex fixed md:relative left-0 right-0 -top-52 md:top-auto md:mt-auto w-full transition-all duration-300 ease-in-out p-3 md:p-0 bg-white md:bg-transparent z-50 md:z-auto">
+      <p-iconfield class="w-full">
+        <p-inputicon styleClass="pi pi-search" />
+        <input type="text" pInputText placeholder="Meklēt" class="w-full" />
+      </p-iconfield>
+      <div (click)="toggleSearch()" class="md:hidden px-3 py-2">
+        <span class="icon text-gray-800 cursor-pointer pi pi-times "></span>
+      </div>
+    </div>
+
+    <div (click)="toggleSearch()" class="md:hidden mr-4">
+      <span class="icon text-gray-800 cursor-pointer pi pi-search "></span>
+    </div>
+
+
   </div>
 
   <div class="flex justify-content-end">
@@ -30,7 +42,7 @@
   </div>
 </div>
 <div
-  class="-left-[350px] absolute top-[73px] bottom-[15px] w-[270px] bg-white p-3 shadow-lg lg:shadow-none z-50 border border-gray-200 rounded-lg transition-all duration-300 ease-in-out"
+  class="absolute top-[73px] bottom-[15px] w-[270px] bg-white p-1 shadow-lg lg:shadow-none z-50 border border-gray-200 rounded-lg transition-all duration-300 ease-in-out"
   id="left-menu">
   <numo-left-menu [items]="items"></numo-left-menu>
 </div>

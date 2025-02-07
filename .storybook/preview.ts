@@ -161,6 +161,11 @@ const preview: Preview = {
         '--p-tabs-tab-active-color': '#000',
 
         '--p-scrollpanel-bar-background': '#c9e6ff',
+
+        '--p-panelmenu-panel-border-width': '0px',
+        '--p-panelmenu-panel-first-border-width': '0px',
+        '--p-panelmenu-panel-last-border-width': '0px',
+        '--p-panelmenu-gap': '0px',
       };
 
       // Apply CSS Variables Dynamically

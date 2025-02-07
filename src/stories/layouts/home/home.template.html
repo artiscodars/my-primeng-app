@@ -1,36 +1,22 @@
 <numo-header></numo-header>
 
 <div class="w-full transition-all duration-300 ease-in-out" id="content_holder">
+  <numo-alert title="Missing Context/Providers" icon="pi pi-info-circle" severity="info" [showCloseButton]="true"
+    text="<b>Missing Context/Providers:</b> You can use decorators to supply specific contexts or providers, which are sometimes necessary for components to render correctly. For detailed instructions on using decorators, please visit the Decorators documentation."></numo-alert>
 
-
-
-  <numo-alert title="Some alert" severity="info" [showCloseButton]="false"></numo-alert>
-
-
-
-  <div class="flex flex-row  mb-5 gap-5">
-
+  <div class="flex flex-row mb-5 gap-5">
     <numo-shortcut-widget title="Projekti" link="https://visma.com" icon="pi pi-file"
       target="_self"></numo-shortcut-widget>
 
     <numo-info-card-widget title="Uzdevumi" icon="pi pi-file" value="12"></numo-info-card-widget>
-
-
-
-
   </div>
 
-
-
-  <numo-tasks-widget />
-
-
   <div class="grid grid-cols-12 gap-5">
-
     <div class="col-span-12 xl:col-span-6">
-
       <numo-tasks-widget />
     </div>
-    <div class="col-span-12 xl:col-span-6"><numo-tasks-widget /></div>
+    <div class="col-span-12 xl:col-span-6">
+      ...
+    </div>
   </div>
 </div>

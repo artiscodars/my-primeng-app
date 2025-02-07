@@ -2,13 +2,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'numo-alert',
   standalone: true,
-  imports: [CardModule, CommonModule, ButtonModule],
+  imports: [CommonModule, ButtonModule],
   templateUrl: './alert.template.html',
 })
 export class NumoAlert {
